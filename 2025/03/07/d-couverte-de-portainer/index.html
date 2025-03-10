@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
-  <head><script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Hugo 0.145.0">
@@ -10,7 +10,7 @@
 <meta property="og:title" content="Découverte de Portainer - Les ordinateurs, les autres et moi">
 
 
-  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
-<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
 
   </head>
@@ -28,8 +28,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="http://localhost:4321/blogdown/" class="nav-logo">
-    <img src="http://localhost:4321/blogdown/images/logo.png" 
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
          width="50" 
          height="50" 
          alt="Logo">
@@ -44,8 +44,6 @@
     <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
     
     <li><a href="https://github.com/ordinatous">Github</a></li>
-    
-    <li><a href="/blogdown/">Home</a></li>
     
   </ul>
 </nav>
@@ -77,7 +75,7 @@
   </div>
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">4 min read</span>
     
 
     <h1 class="article-title">Découverte de Portainer</h1>
@@ -158,6 +156,91 @@ la stack.</p>
 <p>La partie du bas correspond à l&rsquo;interface des containers , on verra cela plus loin.</p>
 <h4 id="léditeur-de-stack">L&rsquo;éditeur de stack</h4>
 <img src="images/2025-03-08_14-44.png" alt="" width="80%" height="80%"/>
+<p>Je vais modifier 2 ou 3 éléments puis relancer la stack . Ce n&rsquo;est pas un docker que
+j&rsquo;utilise vraiment . Il peut bien servir d&rsquo;exemple .</p>
+<p>Et , je vais détailler , un peu le fichier.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nextcloud</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mariadb:10.6</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: --<span style="color:#ae81ff">transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">db:/var/lib/mysql</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_ROOT_PASSWORD=P@ssw0rdC0mpliqu3</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_PASSWORD=changeme</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_DATABASE=nextcloud</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_USER=nextcloud</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">app</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nextcloud</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">8080</span>:<span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">links</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">db</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nextcloud:/var/www/html</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_PASSWORD=changeme</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_DATABASE=nextcloud</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_USER=nextcloud</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_HOST=db</span>
+</span></span></code></pre></div><p>Une chose importante à savoir , le format de fichier est du yaml ou yml.</p>
+<p>L&rsquo;indentation est très précise, et ne supporte pas la tabulation, il faut faire des espaces,
+sinon vous aurez des erreurs.</p>
+<p>Par exemple , copiez collez le contenu dans un éditeur de texte , comme NotePad++,
+mettez l&rsquo;indentation automatique , et détecter depuis le contenu , NP++ devrait détecter les espaces.</p>
+<p>De plus, il fallait préciser la version de la syntaxe du compose , mais c&rsquo;est terminé ,
+à priori , c&rsquo;est figé.</p>
+<h4 id="volumes">volumes</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nextcloud</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span></code></pre></div><p>On voit une première déclaration volumes . C&rsquo;est ici que l&rsquo;on déclare explicitement
+le ou les nom/s des volumes que l&rsquo;on va utiliser .
+Ils sont situé dans <code>/var/lib/docker/</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tree -L <span style="color:#ae81ff">1</span> /var/lib/docker/
+</span></span><span style="display:flex;"><span>/var/lib/docker/
+</span></span><span style="display:flex;"><span>├── buildkit
+</span></span><span style="display:flex;"><span>├── containers
+</span></span><span style="display:flex;"><span>├── engine-id
+</span></span><span style="display:flex;"><span>├── image
+</span></span><span style="display:flex;"><span>├── network
+</span></span><span style="display:flex;"><span>├── overlay2
+</span></span><span style="display:flex;"><span>├── plugins
+</span></span><span style="display:flex;"><span>├── runtimes
+</span></span><span style="display:flex;"><span>├── swarm
+</span></span><span style="display:flex;"><span>├── tmp
+</span></span><span style="display:flex;"><span>└── volumes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span> directories, <span style="color:#ae81ff">1</span> file
+</span></span></code></pre></div><p>On nomme les volumes, car au début des dockers , la légende racontait que les données
+étaient <em>volatiles</em> . Ce qui était évidemment faux , seulement à chaque lancement
+; puis destruction; puis re lancement d&rsquo;un docker , un nouveau volume se créait ,
+avec une suite de nombre aléatoire .</p>
+<p>Alors, forcément à lancer, puis détruire à la chaîne des dockers, fatalement , le user
+ne pouvait plus faire de <em>docker inspect mon_docker_détruit</em> pour savoir quel volume
+était rattaché à quel docker; puisque le docker était détruit, mais les volumes étaient
+bien sagement dans <em>/var/lib/docker/volumes</em>.</p>
+<p>Si on nomme un volume:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>── volumes
+</span></span><span style="display:flex;"><span>    ├── backingFsBlockDev
+</span></span><span style="display:flex;"><span>    ├── metadata.db
+</span></span><span style="display:flex;"><span>    ├── nextcloud_db
+</span></span><span style="display:flex;"><span>    ├── nextcloud_nextcloud
+</span></span><span style="display:flex;"><span>    ├── nginxproxymanager_letsencrypt_data
+</span></span><span style="display:flex;"><span>    ├── nginxproxymanager_npm_data
+</span></span><span style="display:flex;"><span>    ├── portainer_data
+</span></span><span style="display:flex;"><span>    ├── rustdesk_hbbr_data
+</span></span><span style="display:flex;"><span>    └── rustdesk_hbbs_data
+</span></span></code></pre></div><p>On peut bien plus facilement les réutiliser , qu&rsquo;une suite de nombre .
+On remarque également , que le nom est préfixé par le nom de la stack .</p>
+<p>C&rsquo;est malin.</p>
 
     </div>
   </article>
@@ -170,7 +253,7 @@ la stack.</p>
         <ul class="footer-links">
           
           <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
           </li>
         </ul>
       </footer>

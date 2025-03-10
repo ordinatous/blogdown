@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
-  <head><script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Hugo 0.145.0">
@@ -10,7 +10,7 @@
 <meta property="og:title" content="Jeu de données par défaut - Les ordinateurs, les autres et moi">
 
 
-  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
-<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
 
   </head>
@@ -28,8 +28,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="http://localhost:4321/blogdown/" class="nav-logo">
-    <img src="http://localhost:4321/blogdown/images/logo.png" 
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
          width="50" 
          height="50" 
          alt="Logo">
@@ -44,8 +44,6 @@
     <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
     
     <li><a href="https://github.com/ordinatous">Github</a></li>
-    
-    <li><a href="/blogdown/">Home</a></li>
     
   </ul>
 </nav>
@@ -111,7 +109,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme_set</span>(<span style="color:#a6e22e">theme_bw</span>())
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">barplot</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">7</span>), col <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;darkblue&#34;</span>, <span style="color:#e6db74">&#34;red&#34;</span>))
-</span></span></code></pre></div><img src="/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+</span></span></code></pre></div><img src="https://ordinatous.github.io/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 <h4 id="inspectons-iris">Inspectons iris</h4>
 <p>Nous retrouvons bien 150 <strong>observations</strong> réparti en 5 <strong>variables</strong>:</p>
 <ul>
@@ -134,17 +132,17 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(iris, <span style="color:#a6e22e">aes</span>(Species, Sepal.Length)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_boxplot</span>(<span style="color:#a6e22e">aes</span>(fill <span style="color:#f92672">=</span> Species)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_fill_manual</span>(values <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#00AFBB&#34;</span>, <span style="color:#e6db74">&#34;#E7B800&#34;</span>, <span style="color:#e6db74">&#34;#FC4E07&#34;</span>)) 
-</span></span></code></pre></div><img src="/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+</span></span></code></pre></div><img src="https://ordinatous.github.io/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 <p>En appliquant une palette de couleur</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(iris, <span style="color:#a6e22e">aes</span>(Species, Sepal.Length)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_boxplot</span>(<span style="color:#a6e22e">aes</span>(fill <span style="color:#f92672">=</span> Species)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_fill_brewer</span>(palette <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Pastel2&#34;</span>)
-</span></span></code></pre></div><img src="/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+</span></span></code></pre></div><img src="https://ordinatous.github.io/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;ggsci&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(iris, <span style="color:#a6e22e">aes</span>(Species, Sepal.Length)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_boxplot</span>(<span style="color:#a6e22e">aes</span>(fill <span style="color:#f92672">=</span> Species)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_fill_lancet</span>()
-</span></span></code></pre></div><img src="/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+</span></span></code></pre></div><img src="https://ordinatous.github.io/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggridges)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme_set</span>(<span style="color:#a6e22e">theme_minimal</span>())
@@ -161,7 +159,7 @@
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 ## generated.
 </code></pre><pre tabindex="0"><code>## Picking joint bandwidth of 0.181
-</code></pre><img src="/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+</code></pre><img src="https://ordinatous.github.io/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
     </div>
   </article>
@@ -174,7 +172,7 @@
         <ul class="footer-links">
           
           <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
           </li>
         </ul>
       </footer>
