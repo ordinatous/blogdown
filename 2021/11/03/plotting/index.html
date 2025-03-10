@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>plotting - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="plotting - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="/blogdown/">Home</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    Categories:
+    
+    <a href='/categories/r'>R</a>
+    
+    
+    
+    
+    Tags:
+    
+    <a href='/tags/r'>R</a>
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">plotting</h1>
+
+    
+    <span class="article-date">November 3, 2021</span>
+    
+
+    <div class="article-content">
+      
+      
+<script src="/blogdown/2021/11/03/plotting/index_files/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#tout-le-monde">Tout le monde ?</a>
+<ul>
+<li><a href="#union-européenne">Union Européenne</a>
+<ul>
+<li><a href="#plott-europe">Plott Europe</a></li>
+</ul></li>
+<li><a href="#brics">BRICS</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="tout-le-monde" class="section level1">
+<h1>Tout le monde ?</h1>
+<pre class="r"><code> library(maps)
+ library(mapdata)
+  map_ue &lt;- map(&#39;worldHires&#39;, c(&#39;Canada&#39;,&#39;South Africa&#39;,&#39;USA&#39;,&#39;Russia&#39;,&#39;Brazil&#39;,&#39;China&#39;,&#39;India&#39;,&#39;france&#39;, &#39;UK&#39;,&#39;Japan&#39;,&#39;Ireland&#39;, &#39;Italy&#39; ,&#39;Belgium&#39;,&#39;Spain&#39;,&#39;Portugal&#39;,&#39;Grece&#39;,&#39;Netherland&#39;,&#39;Europe&#39;,&#39;Romania&#39;,&#39;Poland&#39;,&#39;Slovenia&#39;,&#39;Germany&#39;,&#39;Danmark&#39;,&#39;Finland&#39;,&#39;Norway&#39;,&#39;Sueden&#39;,&#39;Bulgaria&#39;,&#39;Austria&#39;,&#39;Slovekia&#39;,&#39;Croatia&#39;,&#39;Lettonia&#39;))</code></pre>
+<p><img src="/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div id="union-européenne" class="section level2">
+<h2>Union Européenne</h2>
+<pre class="r"><code> library(maps)
+ library(mapdata)
+  map_ue &lt;- map(&#39;worldHires&#39;, c(&#39;france&#39;, &#39;Ireland&#39;, &#39;Italy&#39;, &#39;Isle of Man&#39;,&#39;Isle of Wight&#39;, &#39;Wales:Anglesey&#39;,&#39;Belgium&#39;,&#39;Spain&#39;,&#39;Portugal&#39;,&#39;Grece&#39;,&#39;Netherland&#39;,&#39;Europe&#39;,&#39;Romania&#39;,&#39;Poland&#39;,&#39;Slovenia&#39;,&#39;Germany&#39;,&#39;Danmark&#39;,&#39;Finland&#39;,&#39;Norway&#39;,&#39;Sueden&#39;,&#39;Bulgaria&#39;,&#39;Austria&#39;,&#39;Slovekia&#39;,&#39;Croatia&#39;,&#39;Lettonia&#39;))</code></pre>
+<p><img src="/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="plott-europe" class="section level3">
+<h3>Plott Europe</h3>
+<pre class="r"><code>plot(map_ue)</code></pre>
+<p><img src="/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+</div>
+<div id="brics" class="section level2">
+<h2>BRICS</h2>
+<pre class="r"><code> library(maps)
+ library(mapdata)
+  map_brics &lt;- map(&#39;worldHires&#39;, c(&#39;Brazil&#39;,&#39;China&#39;,&#39;Russia&#39;,&#39;India&#39;,&#39;South Africa&#39;))</code></pre>
+<p><img src="/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>plot(map_brics)</code></pre>
+<p><img src="/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0 International" /></a></p>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Créer son premier graph - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Créer son premier graph - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="/blogdown/">Home</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Créer son premier graph</h1>
+
+    
+    <span class="article-date">October 14, 2021</span>
+    
+
+    <div class="article-content">
+      
+      <h1 id="amusons-nous-un-peu">Amusons nous un peu</h1>
+<p>Puisque j&rsquo;édite un nouveau document , dans un nouveau dossier mon <code>diesel.csv</code> n&rsquo;y est pas , il faut le copier et le réimporter pour créer le <code>dataframe</code>.</p>
+<p>J&rsquo;ai découpé le code , ici nous voyons seulement la création du <code>dataframe</code>.</p>
+<p>Au début du code , nous appelons la librairie readr <code>library(readr)</code>, un peu comme python avec <code>import</code>.
+Et nous appellerons différentes librairie en fonction de nos besoins.</p>
+<p>A la fin du code , la commande <code>View(diesel)</code> affichera le tableau.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(readr)
+</span></span><span style="display:flex;"><span>diesel <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_delim</span>(<span style="color:#e6db74">&#34;diesel.csv&#34;</span>, delim <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;&#34;</span>, 
+</span></span><span style="display:flex;"><span>    escape_double <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, col_types <span style="color:#f92672">=</span> <span style="color:#a6e22e">cols</span>(Date <span style="color:#f92672">=</span> <span style="color:#a6e22e">col_date</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;%d/%m/%Y&#34;</span>), 
+</span></span><span style="display:flex;"><span>        Prix <span style="color:#f92672">=</span> <span style="color:#a6e22e">col_number</span>()), locale <span style="color:#f92672">=</span> <span style="color:#a6e22e">locale</span>(date_names <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fr&#34;</span>, 
+</span></span><span style="display:flex;"><span>        decimal_mark <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;,&#34;</span>), trim_ws <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">View</span>(diesel)
+</span></span></code></pre></div><h2 id="creation-du-graphique">Creation du graphique</h2>
+<p>Ici nous allons utiliser la librairie ggplot2 avec <code>library(ggplot2)</code> , il existe une librairie équivalente avec python qui se nomme matplotlib.</p>
+<p>Mais tout d&rsquo;abord, parlons de <strong>ggplot2</strong></p>
+<h3 id="présentation-de-ggplot2">Présentation de ggplot2</h3>
+<p>GGPlot2 est un package R puissant et flexible, implémenté par Hadley Wickham, pour produire des graphiques élégants pièce par pièce (Wickham et al. 2019).</p>
+<p>Le <strong>gg</strong> dans ggplot2 signifie Grammaire du Graphique, un concept graphique qui décrit les graphes en utilisant une “grammaire”. Selon le concept ggplot2, un graphique peut être divisé en différentes parties fondamentales : <strong>Graphique = données + Esthétique + Géométrie (ou en anglais Plot = data + Aesthetics + Geometry)</strong></p>
+<pre><code>data : data frame
+esthétique (ou aesthetics en anglais) : permet d’indiquer 
+les variables x et y. Il peut également être utilisé pour 
+contrôler la couleur, la taille et la forme des points, etc…
+géométrie : correspond au type de graphique (histogramme, 
+box plot, line plot, …..)
+</code></pre>
+<p><a href="https://www.datanovia.com/en/fr/lessons/introduction-a-ggplot2/">source datanovia</a></p>
+<p>Voilà pour la présentation.</p>
+<p>Voyons maintenant une mise en application simple:</p>
+<ul>
+<li>appel de la librairie:        <code>library(ggplot2)</code></li>
+<li>initialisation du graphique:  <code>ggplot()</code></li>
+<li>le graphique concerne le prix du carburant diesel, nous allons donc utiliser le <code>dataframe</code> diesel créé précédemment  : <code>ggplot(diesel)</code></li>
+<li>vient ensuite l&rsquo;esthétique du graphique avec <code>aes</code>: <code>ggplot(diesel, eas(x, y))</code></li>
+<li>puisque il s&rsquo;agit d&rsquo;une évolution dans le temps , plaçons la <code>variable</code> Date en bas sur l&rsquo;axe des <code>abcisses</code>, et la <code>variable</code> Prix à gauche sur l&rsquo;axe des ordonnées: <code>ggplot(diesel, aes(Date, Prix))</code></li>
+<li>et maintenant la géométrie , prenons le nuage de point <code>geom_point()</code></li>
+</ul>
+<p>Alors, évidement le nuage de point , n&rsquo;est pas forcément le meilleur choix , dans ce cas.
+Je le choisis , pour poursuivre sur esthétique ensuite .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(Date,Prix)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_point</span>()
+</span></span></code></pre></div><img src="/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<h4 id="plus-desthétique-">Plus d&rsquo;esthétique ?</h4>
+<p>Modifions les points.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(Date,Prix)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_point</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.2</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;steelblue&#34;</span>, shape <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>)
+</span></span></code></pre></div><img src="/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+C'est moins lisible ? Même plus gros, avec une couleur et une forme qui ne convient pas .
+<p>On ne rend pas la données plus lisible, ou intelligible avec un mauvais choix de taille et de couleur, à cause du mauvais choix de forme .</p>
+<p>Donc changeons ça !!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(Date,Prix)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_point</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#FC4E07&#34;</span>, shape <span style="color:#f92672">=</span> <span style="color:#ae81ff">19</span>)
+</span></span></code></pre></div><img src="/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<h4 id="geom_line">geom_line</h4>
+<p>C&rsquo;est plus claire avec geom_line .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(Date,Prix)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_line</span>()
+</span></span></code></pre></div><img src="/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+#### geom_smooth
+<p>Parfaitement inutile ici.  Il ne correspond pas du tout à notre graphique, et ne le rend pas intelligible.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(Date,Prix)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_line</span>()<span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_smooth</span>()
+</span></span></code></pre></div><pre tabindex="0"><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;
+</code></pre><img src="/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Importer un fichier CSV - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Importer un fichier CSV - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="/blogdown/">Home</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Importer un fichier CSV</h1>
+
+    
+    <span class="article-date">October 14, 2021</span>
+    
+
+    <div class="article-content">
+      
+      <h1 id="le-csv">Le CSV</h1>
+<p>CSV signifie Comma separated value.</p>
+<p>Couramment utilisé pour de l&rsquo;import/export de données , par exemple vos contacts de votre téléphone, ou pour alimenter un ActivDirectory.</p>
+<p>Les fichiers CSV , sont de simples fichiers texte permettant de contenir des données sous un format rustique, ceux sont des données dites tabulaires, symbolisant un tableau formé de lignes et de colonnes .</p>
+<p>Généralement composé d&rsquo;une première ligne contenant les en-têtes des colonnes, comme ceci:</p>
+<p>&ldquo;Date&rdquo;;&ldquo;Prix&rdquo;;&ldquo;Station&rdquo; , ce sont les variables .</p>
+<p>On voit que les valeurs sont encadrées par des guillemets, et séparées par des point virgule. En fait ces point virgules sont des délimiteurs(semi colon en anglais).
+Les délimiteurs peuvent également être des virgules (comma en anglais).</p>
+<p>Puis le fichier est alimenté de cette manière:
+&ldquo;30/01/2021&rdquo;;&ldquo;1,309&rdquo;;&ldquo;Payot&rdquo;</p>
+<h2 id="commande-dimport">Commande d&rsquo;import</h2>
+<p>Il existe 2 commandes <code>read.csv()</code> et <code>read.csv2()</code>, qui elles même reposent sur la commande <code>read.table()</code>, mais avec des valeurs par défaut.</p>
+<p>En simplifiant</p>
+<ul>
+<li><code>read.csv()</code>:si vous etes en notation anglaise, soit le point pour marquer la décimale, et la virgule comme séparateur <code>sep = ,/dec = .</code></li>
+<li><code>read.csv2()</code>: si vous etes en notation française, soit la virgule pour marquer la décimale, et le point virgule comme séparateur <code>sep = ;/ dec = ,</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> diesel <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;/home/ordinatous/web-test/crea-test1/diesel.csv&#34;</span>)
+</span></span></code></pre></div><p>En réalité , j&rsquo;avais oublié de mettre mon chemin entre guillemets, et je n&rsquo;avais pas compris le message d&rsquo;erreur.</p>
+<p>On notera au passage , que j&rsquo;ai écrit le chemin absolu , mais on peut également le répertoire de travail avec <code>setwd()</code>, wd pour <code>working directory</code>.</p>
+<p>J&rsquo;avais un doute quant à l&rsquo;utilisation du <code>tiddle</code> , mais étant sous linux il semble que Rstudio reconnait parfaitement ce caractère: <code>~</code>.</p>
+<p>J&rsquo;ai alors utilisé l&rsquo;import en mode graphique, qui est vraiment bien fait , avec une console de prévisualisation du code , code qui se modifie en fonction des modifications apportées, normale &hellip;. bref, on peut modifier les locales, le séparateur , la décimale ainsi que le format de la date.</p>
+<h2 id="détail-de-la-commande-dimport">Détail de la commande d&rsquo;import</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(readr)
+</span></span><span style="display:flex;"><span>diesel <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_delim</span>(<span style="color:#e6db74">&#34;diesel.csv&#34;</span>, delim <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;&#34;</span>, 
+</span></span><span style="display:flex;"><span>    escape_double <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, col_types <span style="color:#f92672">=</span> <span style="color:#a6e22e">cols</span>(Date <span style="color:#f92672">=</span> <span style="color:#a6e22e">col_date</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;%d/%m/%Y&#34;</span>), 
+</span></span><span style="display:flex;"><span>        Prix <span style="color:#f92672">=</span> <span style="color:#a6e22e">col_number</span>()), locale <span style="color:#f92672">=</span> <span style="color:#a6e22e">locale</span>(date_names <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fr&#34;</span>, 
+</span></span><span style="display:flex;"><span>        decimal_mark <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;,&#34;</span>), trim_ws <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">View</span>(diesel)
+</span></span></code></pre></div><p>Voilà, j&rsquo;ai créé un objet <code>diesel</code> contenant mon tableau, c&rsquo;est un <code>data.frame</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">class</span>(diesel)
+</span></span><span style="display:flex;"><span>[1] <span style="color:#e6db74">&#34;spec_tbl_df&#34;</span> <span style="color:#e6db74">&#34;tbl_df&#34;</span>      <span style="color:#e6db74">&#34;tbl&#34;</span>         <span style="color:#e6db74">&#34;data.frame&#34;</span> 
+</span></span></code></pre></div>
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Tchap episode 2 le retour - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Tchap episode 2 le retour - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="/blogdown/">Home</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    Categories:
+    
+    <a href='/categories/chiffrement'>chiffrement</a>
+    
+    <a href='/categories/communication'>communication</a>
+    
+    <a href='/categories/debian'>Debian</a>
+    
+    <a href='/categories/informatique'>Informatique</a>
+    
+    <a href='/categories/microsoft'>Microsoft</a>
+    
+    <a href='/categories/s%C3%A9curit%C3%A9'>sécurité</a>
+    
+    
+    
+    
+    Tags:
+    
+    <a href='/tags/chiffrement'>chiffrement</a>
+    
+    <a href='/tags/communication'>communication</a>
+    
+    <a href='/tags/s%C3%A9curit%C3%A9'>sécurité</a>
+    
+    <a href='/tags/informatique'>informatique</a>
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Tchap episode 2 le retour</h1>
+
+    
+    <span class="article-date">April 15, 2022</span>
+    
+
+    <div class="article-content">
+      
+      <h1 id="geekerie-encore-et-toujours">Geekerie encore et toujours</h1>
+<p>Branlette technique , m&rsquo;a-t-on dit un jour .</p>
+<p>Mais cette &ldquo;branlette technique&rdquo; m&rsquo;amène à comprendre comment , on &ldquo;créé&rdquo; une appli
+&ldquo;installable&rdquo;.</p>
+<p>Mais ce n&rsquo;est pas encore le sujet . et en vrai , on créé rien.</p>
+<p>Par geekerie , j&rsquo;ai voulu tester la méthode proposé , et le résultat m&rsquo;a un peu interpellé .</p>
+<h2 id="tchap-sous-windows-11">Tchap sous windows 11</h2>
+<p>Voir le précédent article: ça a fonctionné direct , mais rapidement , le &ldquo;client&rdquo;
+Tchap moulinait quand il fallait quand il demandait des vérifications.</p>
+<p>Voici la liste des appareils sur lesquels je test Tchap.</p>
+<p>Je vous laisse soigneusement lire , le nom des systèmes, et des navigateurs.</p>
+<ul>
+<li>Android, c&rsquo;est mon téléphone: pas de galère.</li>
+<li>Chrome , ce sont les appli &ldquo;compilées&rdquo;</li>
+<li>Edge , c&rsquo;est ma machine de base sous Windows 11 en mode web</li>
+<li>Firefox linux , c&rsquo;est ma machine perso
+<ul>
+<li>On voit l&rsquo;heure de vérification</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/2022-04-15_21-33.png" alt=""></p>
+<p>Bref , ça marche , d&rsquo;ailleurs j&rsquo;utilise ma version linux sur ma machine perso ,
+pour etre certains de casser les couilles à mes collègues pendant mes vacances.</p>
+<p><strong>Ca marche les gars</strong> : markdown inside ..</p>
+<p>Revenons à nos moutons.</p>
+<h2 id="tchap-sous-debian-11">Tchap sous debian 11</h2>
+<p>J&rsquo;utilise NodeJS depuis longtemps , en gros c&rsquo;est un générateur de site web:
+il pisse du html .</p>
+<p>Il digére , ton &ldquo;code&rdquo; avec le CSS , et te pisse ton site web dans un dossier public . Pour faire trés simple . Bref.</p>
+<h3 id="linstalle">L&rsquo;installe</h3>
+<p>Je me suis fait chier avec ma machine virtuelle (windows 10) , avant de comprendre que le <em>bridge</em>
+n&rsquo;était pas sur la bonne carte réseau.</p>
+<pre tabindex="0"><code>sudo virsh net-edit network tchap
+sudo virsh net-edit tchap
+</code></pre><p>Là je cherchais , mais j&rsquo;avais autre choses à foutre au boulot.  L&rsquo;objectif n&rsquo;était pas de s&rsquo;authentifier sur chap , avec une machine win 10 virtualisée.</p>
+<h4 id="mais-débian-11">Mais Débian 11.</h4>
+<h4 id="les-prérequis">Les prérequis</h4>
+<ul>
+<li>
+<p>NodeJS</p>
+<ul>
+<li><a href="https://nodejs.org/en/">Lien de téléchargement Nodejs</a></li>
+</ul>
+</li>
+</ul>
+<p>Installez le , il sera dans votre <em>PATH</em></p>
+<p>NodeJS dispose d&rsquo;un gestionnaire de package , nommé <strong>NPM</strong>, utilisez le pour pour installer <strong>yarn</strong></p>
+<pre tabindex="0"><code>sudo npm install --global yarn
+</code></pre><p>Puis installez <strong>nativifier</strong></p>
+<pre tabindex="0"><code>yarn global add nativefier
+</code></pre><p>Faites un <strong>git clone</strong> du projet.</p>
+<pre tabindex="0"><code>git clone https://github.com/tchapgouv/tchap-desktop-experimentation.git
+</code></pre><p>Ensuite , contrairement au <strong>README</strong> ne vous déplacez pas dans <strong>assets</strong>, sinon
+ça va vous créer le dossier dans assets.</p>
+<p>Tapez simplement cette commande :</p>
+<pre tabindex="0"><code>sudo nativefier --name &#34;Tchap&#34; --platform &#34;linux&#34; --arch &#34;x64&#34; --app-copyright &#34;DINUM/MinArm&#34; --conceal --icon &#34;/home/$user/tchap-desktop-experimentation/assets/tchap-logo.png&#34; --insecure --internal-urls &#34;.*?tchap\.gouv\.fr.*?&#34; --maximize --enable-context-menu --enable-dev-tools --single-instance --tray &#34;https://www.tchap.gouv.fr/&#34;
+</code></pre><p><img src="images/2022-04-10_17-21.png" alt=""></p>
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

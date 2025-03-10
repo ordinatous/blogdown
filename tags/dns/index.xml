@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dns on Les ordinateurs, les autres et moi</title>
+    <link>http://localhost:4321/blogdown/tags/dns/</link>
+    <description>Recent content in Dns on Les ordinateurs, les autres et moi</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:4321/blogdown/tags/dns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Internet, Nom de Domaine Partie 2</title>
+      <link>http://localhost:4321/blogdown/2021/11/18/internet-nom-de-domaine-partie-2/</link>
+      <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/blogdown/2021/11/18/internet-nom-de-domaine-partie-2/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/blogdown/2021/11/18/internet-nom-de-domaine-partie-2/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;&#xA;&#xA;&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#on-a-des-news&#34;&gt;On a des news !!&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#news-1&#34;&gt;News 1&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#news-2&#34;&gt;News 2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#news-3&#34;&gt;News 3&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;images/domaine.gif&#34; /&gt;&lt;/p&gt;&#xA;&lt;div id=&#34;on-a-des-news&#34; class=&#34;section level1&#34;&gt;&#xA;&lt;h1&gt;On a des news !!&lt;/h1&gt;&#xA;&lt;p&gt;Le DSI , c’est cassé le cul .&lt;/p&gt;&#xA;&lt;p&gt;A ce niveau de négociation , de compte et de mot de passe.&lt;/p&gt;&#xA;&lt;p&gt;Lui, il sait faire. Ou Max… Moi, j’ai pas la patience..&lt;/p&gt;&#xA;&lt;div id=&#34;news-1&#34; class=&#34;section level3&#34;&gt;&#xA;&lt;h3&gt;News 1&lt;/h3&gt;&#xA;&lt;p&gt;Il y a 2 TLD . Un &lt;code&gt;.com&lt;/code&gt;, et un &lt;code&gt;.fr&lt;/code&gt;, plus …&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div id=&#34;news-2&#34; class=&#34;section level3&#34;&gt;&#xA;&lt;h3&gt;News 2&lt;/h3&gt;&#xA;&lt;p&gt;grande découverte , un autre &lt;strong&gt;nom de domaine&lt;/strong&gt; .&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

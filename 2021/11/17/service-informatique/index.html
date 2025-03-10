@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Internet, et nom de domaine - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Internet, et nom de domaine - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="/blogdown/">Home</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    Categories:
+    
+    <a href='/categories/informatique'>Informatique</a>
+    
+    
+    
+    
+    Tags:
+    
+    <a href='/tags/informatique'>informatique</a>
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Internet, et nom de domaine</h1>
+
+    
+    <span class="article-date">November 17, 2021</span>
+    
+
+    <div class="article-content">
+      
+      <p><img src="images/hulk_1.gif" alt=""></p>
+<h1 id="contexte-pro">Contexte pro</h1>
+<p>Actuellement:</p>
+<ul>
+<li>Secteur: Public</li>
+<li>Milieu: Santé</li>
+<li>Discipline: Psychiatrie</li>
+<li>Niveau : Départemental</li>
+<li>Parc: &lt; 1000</li>
+</ul>
+<p>C&rsquo;est une structure de santé, qui a plusieurs sites satellites.</p>
+<p>Mon service prend en charge plusieurs sites distants , dans son <strong>domaine</strong> .  Et depuis quelques mois prend en charge le support d&rsquo;autres établissements.</p>
+<p>Et leurs domaines&hellip;</p>
+<p>En Réalité, c&rsquo;est pas plus mal.</p>
+<p>A ce niveau, je comprends mon DSI. Il y a des structures, que tu ne peux pas laisser en arrière .</p>
+<p>Il faut les aider , et les rabattre dans le giron public , dynamiser leurs systèmes informatiques,
+et les aider à matcher dans une politique plus grande de gestion territoriale.</p>
+<p>Définir un socle, veiller à sa conformité .. bref</p>
+<h2 id="bref-">Bref ..</h2>
+<h3 id="mardi">Mardi</h3>
+<p>Tombe, un ticket. hashtag ticket .. Une DI</p>
+<p>Extrait d&rsquo;un échange de mail , datant du vendredi précédent , entre un prestataire et la finance de l&rsquo;un des établissements.</p>
+<p>Requête , technique de la part du prestataire . Qui leur donne une dead-line à 72H, pour une modification dns &hellip;</p>
+<p>Leur site migrait . Il fallait changer une entré [hashtag].. DNS</p>
+<h1 id="nom-de-domaine">Nom de domaine</h1>
+<p>Il fallait rediriger le nom de du site de l&rsquo;établissement, vers le nouveau site d&rsquo;hébergement .</p>
+<p>J&rsquo;ai appelé la boite . J&rsquo;ai eu une nana , qui m&rsquo;a corrigé le lien (verbalement).  Car , quand on a visité le premier lien , on a eu un 404 .</p>
+<p>Nous a ce moment là , on ignore à quoi servent leurs redirections : Partie 1 &hellip;.</p>
+<p>Mais le lien mène donc nul part . Le second : OUI</p>
+<p>Et honnêtement , avec mon collègue , on s&rsquo;est regardé&hellip;.</p>
+<p>Le site c&rsquo;est une page <strong>HTML</strong> avec du <strong>CSS</strong> et du <strong>JS</strong> . Juste presque moins joli, que les templates.</p>
+<p>Franchement , ça coûte moins de 60 balles par an , un nom de domaine + un hébergement + entre 5 à 10 mails .</p>
+<p><img src="images/domaine.gif" alt=""></p>
+<p>Mon nom de domaine ??</p>
+<p>Un Nom de domaine ??</p>
+<h2 id="dns">DNS</h2>
+<p>Vous tombez en plein dans l&rsquo;un des piliers de l&rsquo;internet.</p>
+<p>La <strong>résolution de noms</strong> .</p>
+<p>Votre <strong>site web</strong> a un <strong>nom</strong> , c&rsquo;est le <strong>nom de domaine</strong> <code>.</code>(point)<strong>fr</strong>, ou <code>.</code>(point autre chose)</p>
+<table>
+  <thead>
+      <tr>
+          <th>nom</th>
+          <th>ecriture</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>racine</td>
+          <td>. &lt;- c&rsquo;est la racine : la racine est un point.</td>
+      </tr>
+      <tr>
+          <td>Top Level</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Domain</td>
+          <td><a href="http://example.com">http://example.com</a> <a href="http://example.org">http://example.org</a> .edu .gouv.fr .jp .cn .fr</td>
+      </tr>
+      <tr>
+          <td>Domain Name</td>
+          <td><a href="https://ordinatous.com">https://ordinatous.com</a> (point)</td>
+      </tr>
+      <tr>
+          <td>sub.domain</td>
+          <td><a href="https://carto.ordinatous.com">https://carto.ordinatous.com</a></td>
+      </tr>
+      <tr>
+          <td>arborescence</td>
+          <td><a href="https://ordinatous.com/flex/">https://ordinatous.com/flex/</a></td>
+      </tr>
+  </tbody>
+</table>
+<p>C&rsquo;est simple en fait .</p>
+<p>Vous payez un <strong>registrar</strong> , qui enregistre votre <strong>nom de domaine</strong><code>.</code><strong>TLD</strong>.</p>
+<ul>
+<li><strong>TLD</strong> : pour <strong>Top Level Domain</strong> .com .org .edu
+<ul>
+<li>ou <strong>cc</strong> : pour <strong>country code</strong>,  par exemple <code>.</code><strong>fr</strong></li>
+</ul>
+</li>
+<li><strong>domain name</strong> : <a href="https://ordinatous.com">exemple1</a></li>
+<li><strong>sous domaine</strong> : comme :  <a href="https://carto.ordinatous.com">carto.ordinatous</a> tous les enregistrements , et redirecteurs. (Et pourquoi ces bases de données ?)</li>
+</ul>
+<h2 id="a-quoi-sert-un-nom-de-domaine-">A quoi sert un nom de domaine ?</h2>
+<p>Voilà, tous ça c&rsquo;était à titre d&rsquo;exemple et de vulgarisation.</p>
+<p>De : on fait quoi avec un <strong>nom de domaine</strong> &hellip;</p>
+<p>Pour un ticket, que l&rsquo;on sait , arrivé en retard, a force de tergiversations..</p>
+<p>Et nous n&rsquo;avons pas accès au compte &hellip; pour le moment [hashtag] partie 1</p>
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
