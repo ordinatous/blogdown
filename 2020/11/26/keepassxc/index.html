@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Gérer ses mots de passe avec KeepassXC - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Gérer ses mots de passe avec KeepassXC - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/">Home</a></li>
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Gérer ses mots de passe avec KeepassXC</h1>
+
+    
+    <span class="article-date">November 26, 2020</span>
+    
+
+    <div class="article-content">
+      
+      <p><img src="images/logo-keepassxc.png" alt=""></p>
+<h1 id="gestion-des-mots-de-passe">Gestion des mots de passe</h1>
+<h2 id="les-pirates-ne-dorment-jamais">Les pirates ne dorment jamais</h2>
+<p>Des campagnes de phising ont lieu en permanence , celles-ci ont pour but
+de vous faire ouvrir un mail , qui exécutera un script pour:</p>
+<ul>
+<li>voler des informations sur votre ordinateur</li>
+<li>exploiter une faille de votre navigateur internet</li>
+<li>vous amener à cliquer sur un lien qui mènne vers un faux site
+<ul>
+<li>pour vous sous-tirer des informations, voir accéder à votre
+compte bancaire</li>
+</ul>
+</li>
+</ul>
+<p>C’est le même problème avec les réseaux <strong>wifi</strong> dit <em>ouvert</em> (gratuit),
+il est plutôt facile de mettre en place un faux <strong>portail de connexion</strong>
+afin d’usurper le portail légitime, toujours dans le but de vous voler
+les identifiants de connexion ou vos données bancaires.</p>
+<p>Mais je digresse..</p>
+<h1 id="quelques-règles-dhygiène-informatique">Quelques règles d’hygiène informatique</h1>
+<ol>
+<li>Ne pas enregistrer les mots de passe dans le navigateur internet</li>
+<li>Ne pas utiliser d’information personnelle (date de naissance, nom,
+etc.)</li>
+<li>Ne pas utiliser le même mot de passe partout</li>
+<li>Utiliser des mots de passe complexes contenant majuscules,
+minuscules, chiffres, et caractères spéciaux</li>
+<li>Essayer d’utiliser des <strong>passphrases</strong></li>
+<li>Mieux utiliser un gestionnaire de mot de passe</li>
+</ol>
+<h1 id="keepassxc">keepassXC</h1>
+<p>KeepassXC est une gestionnaire de mot de passe <strong>opensource</strong>,
+<strong>multiplateforme</strong>, qui foncionne en local sur votre machine et non sur
+une plateforme en ligne.</p>
+<p>KeepassXC ou l’ensemble des gestionnaires de mots de passe vous
+permettent de:</p>
+<ul>
+<li>garder vos mots de passe en sécurité</li>
+<li>de créer des mots de passe complexes</li>
+<li>de créer des mots de passe différents</li>
+<li>d’utiliser votre base de mots de passe sur des appareils différents</li>
+</ul>
+<p><img src="images/KeePassXC-002.png" alt=""></p>
+<h2 id="bangbang-attention-aux-plateformes-en-ligne"><img src="https://github.githubassets.com/images/icons/emoji/unicode/203c.png" alt=":bangbang:" title=":bangbang:"> Attention aux plateformes en ligne</h2>
+<p>Je dissuade formellement l’utilisation de ce genre d’outil.</p>
+<ol>
+<li>Ils sont soumis à de forte amende en cas de vol de données, s’il est
+avéré qu’ils n’ont pas observé le <strong>RGPD</strong> , ils ne vous diront pas
+la vérité, chercheront à gagner du temps et se déroberont à leurs
+obligations.</li>
+<li>Vous n’avez strictement aucune maîtrise sur l’outil</li>
+<li>Vous êtes totalement dépendant d’une connexion.</li>
+<li>Elles sont attaquées en permanence.</li>
+</ol>
+<h1 id="installation">Installation</h1>
+<p>Rendez-vous sur le site de <strong>keepassXC</strong>, à la page de
+<a href="https://keepassxc.org/download/">téléchargement</a>.</p>
+<p>Pour votre android utilisez le projet <strong>keepassDX</strong> disponible sur le
+<em>playstore</em> et sur <em>F-Droid</em> (dépôt d’application libre et open-source).</p>
+<p><a href="https://www.keepassdx.com/">keepass.com</a></p>
+<p>Installez simplement comme vous le feriez avec n’importe quelle
+application.</p>
+<p>Ces applications utilisent le format de base de type <strong>kdb</strong> , ce qui
+fait que vous pouvez parfaitement utiliser la meme base sur des systèmes
+différents. C’est ce que je fais.</p>
+<h1 id="fonctionnement">Fonctionnement</h1>
+<p><img src="https://github.githubassets.com/images/icons/emoji/unicode/203c.png" alt=":bangbang:" title=":bangbang:"> La base est chiffrée , ne perdez le mot de passe principal
+, même les développeurs ne pourraient pas vous aider à la récupérer.</p>
+<p>Si vous perdez votre mot de passe principale= vous perdez tous vos mots
+de passe.</p>
+<h2 id="création-dune-base-de-données">Création d’une base de données</h2>
+<p>On créé donc une <strong>nouvelle base de mots de passe</strong>, le <strong>répertoire</strong>
+pour la ranger, et on lui donne un nom.</p>
+<p><img src="images/keepass-004.png" alt=""></p>
+<p>Saisir alors 2 fois le mot de passe fort, ou une passphrase , si c’est
+rouge , c’est que les 2 mots de passe ne correspondent pas.</p>
+<p>Cliquer sur le petit icone pour faire apparaître les mots de passe et
+corriger.</p>
+<p><img src="images/keepass-005.png" alt=""></p>
+<h2 id="fichier-clé">Fichier clé</h2>
+<p>Créer ensuite un <strong>fichier clé</strong>.</p>
+<p>Dans l’idéal , la stocker sur un autre support , comme une clé USB. Ce
+qui rendra votre base <strong>inviolable</strong>.</p>
+<p>Par contre il ne faut pas perdre sa clé, ou conserver une copie en lieu
+sûre.</p>
+<p><img src="images/keepass-006.png" alt=""></p>
+<p>Ici , il est dans le même répertoire que la base.</p>
+<p><img src="images/keepass-007.png" alt=""></p>
+<p>On valide en faisant <strong>Ok</strong></p>
+<p><img src="images/keepass-008.png" alt=""></p>
+<h2 id="options">Options</h2>
+<p>Beaucoup d’options son activées par défaut, permettant d’assurer un
+minimum de sécurité lors de l’utilisation de <strong>keepassXC</strong>.</p>
+<p><img src="images/keepass-009.png" alt=""></p>
+<p><img src="images/keepass-010.png" alt=""></p>
+<h2 id="comfort">Comfort</h2>
+<h3 id="intégration-web">Intégration web</h3>
+<p>Il est possible d’intégrer l’utilisation de <strong>keepassXC</strong> au
+<strong>navigateur internet</strong>.</p>
+<p><img src="images/keepass-011.png" alt=""></p>
+<p>Pour cela, simplement <strong>ajouter le addons</strong> à <strong>firefox</strong>, si vous
+utilisez Firefox.
+<img src="images/keepass-012.png" alt=""></p>
+<p>Connecter la base avec le navigateur en créant une clé. La base est
+automatiquement détectée.</p>
+<p><img src="images/keepass-029.png" alt=""></p>
+<p><img src="images/keepass-030.png" alt=""></p>
+<h4 id="test-de-la-connexion">Test de la connexion</h4>
+<p>Par exemple , j’avais essayé <strong>ghost.org</strong> comme plateforme de blog..</p>
+<p><img src="images/keepass-035.png" alt=""> <img src="images/keepass-036.png" alt=""></p>
+<p>Bon ma periode d’essai est dépassée… mais ça fonctionne pas mal.</p>
+<p>!bangbang! Attention , en cas d’erreur, vérifier que les champs soient
+propre et que des mots comme <strong>username</strong>, ou <strong>password</strong> ne soient en
+trop.</p>
+<p><img src="images/keepass-037.png" alt=""></p>
+<h2 id="création-dun-mot-de-passe">Création d’un mot de passe</h2>
+<p>L’avantage d’un gestionnaire, c’est qu’il permet la création de mots de
+passe réellement très fort.</p>
+<p>Ce qui permet de limiter fortement le nombre de candidats au
+brute-force.</p>
+<p>Voyons ce que raconte cette enquête sur le palmares des mots de passe
+les plus utilisés.</p>
+<p><a href="https://www.lesnumeriques.com/vie-du-net/un-peu-de-nouveaute-parmi-les-pires-mots-de-passe-en-2020-n157453.html#Echobox=1606152333">lesnumériques</a></p>
+<p>N’écoutez pas les fatalistes, ou les farfelus qui vous parleront
+d’ordinateur quantique. Ils ne sont pas en phase avec la réalité.</p>
+<h3 id="cliquer-sur-la-petite-clé">Cliquer sur la petite clé</h3>
+<p><img src="images/keepass-013.png" alt=""></p>
+<p>Lui donner un nom, et un utilisateur.</p>
+<p>A ce niveau , vous indiquez simplement si c’est le <strong>bon coin</strong>,
+<strong>zalando</strong>, <strong>carrefour</strong>, et le compte qui y correspond.
+<img src="images/keepass-014.png" alt=""></p>
+<h3 id="assistant-de-création">Assistant de création</h3>
+<p>Utiliser le <strong>dé</strong> pour créer un mot de passe aléatoir en activant les
+<strong>majuscules</strong>, les <strong>minuscules</strong>, <strong>les caractères spéciaux</strong>, le
+nombre de <strong>caractères</strong> à 22 c’est pas mal.</p>
+<p><a href="https://www.ssi.gouv.fr/administration/precautions-elementaires/calculer-la-force-dun-mot-de-passe/">L’ANSSI</a>,
+l’Agence National de Sécurité des Systèmes d’Informations , propose un
+outils pour controler la robustesse de votre mot de passe.</p>
+<p><a href="https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation">Plus de détails technique
+ici</a></p>
+<p><img src="images/keepass-015.png" alt=""></p>
+<p>On peut ajouter une icone pour reconnaitre plus facilement un compte en
+fonction de son utilisation.</p>
+<p><img src="images/keepass-016.png" alt=""></p>
+<p>Voila: <img src="images/keepass-017.png" alt=""></p>
+<p>On peut ensuite créer des groupes comme <strong>boite mail</strong>.
+<img src="images/keepass-018.png" alt=""></p>
+<p>Il suffit de <strong>glisser déposer</strong> ensuite le mot de passe dans le bon
+groupe.</p>
+<p><img src="/images/keepass-019.png" alt=""></p>
+<p>On pourra également importer d’autres bases de mots de passe stockés aux
+formats, CSV (perso ça n’a pas bien fonctionné), ou fusionner d’autres
+bases <strong>KDB</strong> (ça j’ai déjà fait). <img src="/" alt=""></p>
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

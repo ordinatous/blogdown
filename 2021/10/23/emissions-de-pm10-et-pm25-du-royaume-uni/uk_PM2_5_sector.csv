@@ -1,0 +1,25 @@
+Sector,Year,Emissions,ver
+Total,1990,241.2363259,OK
+Total,2005,129.1569059,OK
+Total,2018,111.7653701,OK
+Total,2019,108.7110853,OK
+Domestic combustion,1990,43.46717718,OK
+Domestic combustion,2005,28.68231526,OK
+Domestic combustion,2018,47.35432128,OK
+Domestic combustion,2019,47.13659663,OK
+Manufacturing Industries and Construction,1990,39.75334,OK
+Manufacturing Industries and Construction,2005,21.63637793,OK
+Manufacturing Industries and Construction,2018,20.5864062,OK
+Manufacturing Industries and Construction,2019,19.25912284,OK
+Industrial processes and use of solvents,1990,33.4542753,OK
+Industrial processes and use of solvents,2005,19.15784332,OK
+Industrial processes and use of solvents,2018,13.94194731,OK
+Industrial processes and use of solvents,2019,13.37445948,OK
+Road transport,1990,29.3908903,OK
+Road transport,2005,24.23367353,OK
+Road transport,2018,13.12861116,OK
+Road transport,2019,13.03611225,OK
+Other,1990,95.17064,OK
+Other,2005,35.4467,OK
+Other,2018,16.75408,OK
+Other,2019,15.90479,OK

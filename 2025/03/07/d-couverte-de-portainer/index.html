@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Découverte de Portainer - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Découverte de Portainer - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/">Home</a></li>
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Découverte de Portainer</h1>
+
+    
+    <span class="article-date">March 7, 2025</span>
+    
+
+    <div class="article-content">
+      
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#le-gestionnaire-de-docker-en-mode-webui">Le gestionnaire de docker en mode WebUI</a></li>
+    <li><a href="#dashboard-principal">Dashboard principal</a></li>
+    <li><a href="#noeud-principal">Noeud principal</a>
+      <ul>
+        <li><a href="#les-stacks">Les stacks</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      
+      <h1 id="portainer"><strong>Portainer</strong></h1>
+<h2 id="le-gestionnaire-de-docker-en-mode-webui">Le gestionnaire de docker en mode WebUI</h2>
+<p>Portainer permet de manager vos containers docker , et de connecter plusieurs environnements.</p>
+<p><a href="https://www.portainer.io/">Lien vers le site officiel</a></p>
+<img src="images/2025-03-07_13-32.png" alt="" width="80%" height="80%"/>
+<p>On constate qu&rsquo;il y a 3 environnements de connecter.</p>
+<p>C&rsquo;est très pratique , ça fonctionne très bien, cependant prennez l&rsquo;habitude
+de créer un dossier par contenaire , afin d&rsquo;y garder des notes , scripts , model
+de votre docker-compose , et éventuellement des sous dossiers si vous voulez les
+monter dans votre contenaire.</p>
+<p>Exemple:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p mon_docker/<span style="color:#f92672">{</span>data_mon_docker,config_mon_docker,logs_mon_docker<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Portainer est lui même un docker , pour l&rsquo;environnement local , portainer va utiliser
+le domain socket unix ( <a href="https://en.wikipedia.org/wiki/Inter-process_communication">interprocess communication IPC</a> ) , et qui
+va exploiter un agent pour les environnements distant , agent qui est également un docker.</p>
+<p>De la même manière que portainer , l&rsquo;agent utilise le domain socket unix pour ensuite
+exposer le service via un socket IP.</p>
+<p>C&rsquo;est un peu magique .</p>
+<h2 id="dashboard-principal">Dashboard principal</h2>
+<img src="images/2025-03-07_16-46.png" alt="" width="80%" height="80%"/>
+<p>Au premier coup d’œil , vous connaissez:</p>
+<ul>
+<li>le nombre de NODE</li>
+<li>leurs CPU</li>
+<li>leur RAM</li>
+<li>le nombre d&rsquo;images par nœud</li>
+<li>le nombre de dockers</li>
+<li>leurs états</li>
+</ul>
+<h2 id="noeud-principal">Noeud principal</h2>
+<img src="images/2025-03-08_10-22.png" alt="" width="80%" height="80%"/>
+<p>Ici portainer CE est installé sur une petite VM debian. Le
+dashboard nous donne un récapitulatif de la machine hôte (environnement local).</p>
+<ul>
+<li>le nombre de stacks , ce qui correspond aux Docker-compose</li>
+<li>le nombre d&rsquo;images que vous avez récupéré</li>
+<li>le nombre de réseaux</li>
+<li>le nombre de containers et leur état</li>
+<li>le nombre de volumes</li>
+</ul>
+<h3 id="les-stacks">Les stacks</h3>
+<img src="images/2025-03-08_14-09.png" alt="" width="80%" height="80%"/>
+<p>Stacks correspond à <strong>docker compose</strong> qui permet de lancer plusieurs dockers en même temps, ou de lancer
+une stack web , soit l&rsquo;application web et sa db.</p>
+<p>Super pratique!! c&rsquo;est ici que vous placez vos docker-compose , mais surtout ça permet de
+les modifier à chaud .</p>
+<p>En ligne de commande , il faudrait se placer dans le répertoire du projet , modifier
+le docker-compose , puis le relancer avec <code>docker compose up -d .</code></p>
+<p>compose est un plugin de docker , up permet de lancer la stack , -d en mode détaché
+et le point signifie qu&rsquo;il s&rsquo;agit du répertoire dans le quel nous sommes situé.</p>
+<p>Jetons un œil à Nextcloud :</p>
+<img src="images/2025-03-08_14-33.png" alt="" width="80%" height="80%"/>
+<p>Nous constatons qu&rsquo;il y 2 dockers , 1 pour l&rsquo;application, et 2 pour sa db .</p>
+<p>Nous voyions que l&rsquo;ont peut accéder à un éditeur , que nous pouvons stopper et supprimer
+la stack.</p>
+<p>La partie du bas correspond à l&rsquo;interface des containers , on verra cela plus loin.</p>
+<h4 id="léditeur-de-stack">L&rsquo;éditeur de stack</h4>
+<img src="images/2025-03-08_14-44.png" alt="" width="80%" height="80%"/>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

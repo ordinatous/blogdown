@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Tuner son shell avec oh-my-zsh - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Tuner son shell avec oh-my-zsh - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/">Home</a></li>
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Tuner son shell avec oh-my-zsh</h1>
+
+    
+    <span class="article-date">October 30, 2020</span>
+    
+
+    <div class="article-content">
+      
+      <p><img src="images/ohmyzsh.png" alt=""></p>
+<h1 id="tuner-son-shell-avec-oh-my-zsh">Tuner son shell avec oh-my-zsh</h1>
+<h1 id="installation-de-zsh-et-oh-my-zsh">Installation de zsh et oh-my-zsh</h1>
+<ul>
+<li><code>sudo apt update &amp;&amp; sudo apt -yq upgrade &amp;&amp; sudo apt -yq install git zsh</code></li>
+<li><code>sh -c &quot;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></li>
+</ul>
+<pre tabindex="0"><code> `Looking for an existing zsh config...
+Using the Oh My Zsh template file and adding it to ~/.zshrc.
+
+Time to change your default shell to zsh:
+Do you want to change your default shell to zsh? [Y/n] Y
+Changing the shell...
+Mot de passe :
+Shell successfully changed to &#39;/usr/bin/zsh&#39;.
+
+         __                                     __
+  ____  / /_     ____ ___  __  __   ____  _____/ /_
+ / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \
+/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /
+\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/
+                        /____/                       ....is now installed!
+
+
+Before you scream Oh My Zsh! please look over the ~/.zshrc file to select plugins, themes, and options.
+
+• Follow us on Twitter: https://twitter.com/ohmyzsh
+• Join our Discord server: https://discord.gg/ohmyzsh
+• Get stickers, shirts, coffee mugs and other swag: https://shop.planetargon.com/collections/oh-my-zsh
+
+➜  ~
+</code></pre><ul>
+<li>Il y a plein de petites améliorations comme celles ci:
+<ul>
+<li>Complétions de chemins et navigation arrière</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>➜  ~ cd /u/lo/sh
+Si le chemin est unique, en appuyant sur TAB vous obtiendez ceci:
+➜  ~ cd /usr/local/share
+Au lieu de taper cd ../../ pour remonter d&#39;un répertoire, il suffit de ..
+➜  share ..
+➜  local ..
+➜  /usr
+</code></pre><ul>
+<li>Remplacement des variables</li>
+</ul>
+<p>TAB permet aussi de remplacer toutes les variables par leur valeur.</p>
+<pre tabindex="0"><code>➜  ~ ${HOME}
+TAB
+➜  ~ /home/ordinatous
+</code></pre><ul>
+<li>Historique de commande exécuté</li>
+</ul>
+<p>La flèche du haut permet de remonter dans l’historique de commande, avec
+oh-my-zsh , il suffit de taper par exemple : <code>ssh</code>flèche du haut pour
+retrouver vos dernière commande ssh : super pratique.</p>
+<h2 id="amélioration-avec-powerlevel10k">Amélioration avec powerlevel10k</h2>
+<p>powerlevel10k est véritablement très complet et je vous recommande
+d’aller sur <a href="https://github.com/romkatv/powerlevel10k#oh-my-zsh">sur le dépot du
+projet</a> , il serait
+difficile d’en faire complétement le tour ici.</p>
+<ul>
+<li>Cloner le dépot du projet:</li>
+</ul>
+<p><code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k</code></p>
+<p>Il faut ensuite modifier son fichier <code>.zshrc</code> et lui indiquer le thème
+<code>powerlevel10k/powerlevel10k</code>.</p>
+<p>Recharchez <code>.zshrc</code> pour activer la configuration de <code>powerlevel10k</code>:
+<code>source .zshrc </code>.</p>
+<p>J’ai procédé à cette installation sur 3 machines différentes, ma <code>#!++</code>
+qui disposait déjà de oh-my-zsh et de powerlevel9k , une mint et une
+débian,et je n’ai eu toute à fait le même comportement pour lancer la
+configuration.</p>
+<h2 id="thèmes-et-segment-du-prompt">Thèmes et segment du prompt</h2>
+<p>A partir de là tout va se faire automatiquement,et le script est
+vraiment bien pensé.</p>
+<pre tabindex="0"><code>This is Powerlevel10k configuration wizard. You are seeing it because you haven&#39;t
+defined any Powerlevel10k configuration options. It will ask you a few questions and
+                               configure your prompt.
+
+                  Does this look like a diamond (rotated square)?
+                    reference: https://graphemica.com/%E2%97%86
+
+                                   ---&gt;    &lt;---
+
+(y)  Yes.
+
+(n)  No.
+
+(q)  Quit and do nothing.
+
+Choice [ynq]:
+</code></pre><p>Une petite série de questions concerneront l’apparence des logos, style
+openlogo , ou s’ils se chevauchent, puis nous arriveront au <em>prompt</em>.</p>
+<p>C’est vraiment très , très bien fait .</p>
+<pre tabindex="0"><code>Prompt Style
+
+(1)  Lean.
+
+~/src master                                                                      5s
+❯
+
+(2)  Classic.
+
+╭─ ~/src  master                                                            5s ─╮
+╰─                                                                                ─╯
+
+(3)  Rainbow.
+
+╭─ ~/src  master                                                            5s ─╮
+╰─                                                                                ─╯
+
+(4)  Pure.
+
+~/src master 5s
+❯
+
+(r)  Restart from the beginning.
+(q)  Quit and do nothing.
+
+Choice [1234rq]:
+</code></pre><p>Une dizaines de questions plus tard , nous voyons le prompt s’améliorer
+au fur et a mesure, et voici ce que cela donne:</p>
+<pre tabindex="0"><code>╭─░▒▓    ~ ▓▒░···················································░▒▓ ✔ │ with ordinatous@debian10-tuto  at 16:01:39  ▓▒░
+╰─
+</code></pre><p>Forcément, on ne se rend pas bien compte, les choix vont du format de la
+date, à la forme du prompt, des segments etc…</p>
+<p>Le logo de votre distribution apparait à gauche, suivi de votre
+emplacement.</p>
+<p>Tout ce fait tout seul , si vous voulez modifer vos segments , c’est
+ultra simple , il suffit d’éditer le fichier <code>.p10k.zsh</code> , puis de le
+recharger avec <code>source .p10k.zsh</code>.</p>
+<p>Bon j’ai fait un truc moche exprés … disons que si on ajoute trop de
+choses, ça va devenir un peu massif..</p>
+<pre tabindex="0"><code>╭─░▒▓    ~ ▓▒░···················································░▒▓ ✔ │ with ordinatous@debian10-tuto  at 16:20:16  ▓▒░
+╰─                                                       ░▒▓ ⇣0.39 KiB/s ⇡0.48 KiB/s 192.168.200.76   AAA.BBB.CCC.ZZZ  ▓▒░
+</code></pre><p>Le fichier fait au moins 1500 lignes, je ne vais pas détailler toutes
+les possibilités .</p>
+<h2 id="themes-disponibles">Themes disponibles</h2>
+<p>En plus , pour nous simplifier la vie , le développeur à eu l’idée
+géniale de nous préparer un dossier avec d’autres fichiers de
+configuration.</p>
+<pre tabindex="0"><code>❯ ls -al powerlevel10k/config
+total 360
+drwxr-xr-x 2 ordinatous ordinatous  4096 sept. 26 15:47 .
+drwxr-xr-x 6 ordinatous ordinatous  4096 sept. 26 15:49 ..
+-rw-r--r-- 1 ordinatous ordinatous 82692 sept. 26 15:47 p10k-classic.zsh
+-rw-r--r-- 1 ordinatous ordinatous 81370 sept. 26 15:47 p10k-lean-8colors.zsh
+-rw-r--r-- 1 ordinatous ordinatous 81517 sept. 26 15:47 p10k-lean.zsh
+-rw-r--r-- 1 ordinatous ordinatous  9515 sept. 26 15:47 p10k-pure.zsh
+-rw-r--r-- 1 ordinatous ordinatous 86645 sept. 26 15:47 p10k-rainbow.zsh
+-rw-r--r-- 1 ordinatous ordinatous  5269 sept. 26 15:47 p10k-robbyrussell.zsh
+</code></pre><h2 id="plugins">plugins</h2>
+<p>Pour activer des plugins c’est très simple , il suffit d’éditer la
+section <code>plugins</code> de votre <code>.zshrc</code>.</p>
+<p>Ils sont tous séparés par un espace, pas de virgules.</p>
+<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">La liste</a> se trouve
+ici; il s’agit généralement d’alias.</p>
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

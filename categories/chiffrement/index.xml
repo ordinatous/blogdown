@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chiffrement on Les ordinateurs, les autres et moi</title>
+    <link>https://ordinatous.github.io/blogdown/categories/chiffrement/</link>
+    <description>Recent content in Chiffrement on Les ordinateurs, les autres et moi</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Fri, 15 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ordinatous.github.io/blogdown/categories/chiffrement/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tchap episode 2 le retour</title>
+      <link>https://ordinatous.github.io/blogdown/2022/04/15/tchap-episode-2-le-retour/</link>
+      <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/2022/04/15/tchap-episode-2-le-retour/</guid>
+      <description>&lt;h1 id=&#34;geekerie-encore-et-toujours&#34;&gt;Geekerie encore et toujours&lt;/h1&gt;&#xA;&lt;p&gt;Branlette technique , m&amp;rsquo;a-t-on dit un jour .&lt;/p&gt;&#xA;&lt;p&gt;Mais cette &amp;ldquo;branlette technique&amp;rdquo; m&amp;rsquo;amène à comprendre comment , on &amp;ldquo;créé&amp;rdquo; une appli&#xA;&amp;ldquo;installable&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;Mais ce n&amp;rsquo;est pas encore le sujet . et en vrai , on créé rien.&lt;/p&gt;&#xA;&lt;p&gt;Par geekerie , j&amp;rsquo;ai voulu tester la méthode proposé , et le résultat m&amp;rsquo;a un peu interpellé .&lt;/p&gt;&#xA;&lt;h2 id=&#34;tchap-sous-windows-11&#34;&gt;Tchap sous windows 11&lt;/h2&gt;&#xA;&lt;p&gt;Voir le précédent article: ça a fonctionné direct , mais rapidement , le &amp;ldquo;client&amp;rdquo;&#xA;Tchap moulinait quand il fallait quand il demandait des vérifications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tchap</title>
+      <link>https://ordinatous.github.io/blogdown/2022/04/07/tchap/</link>
+      <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/2022/04/07/tchap/</guid>
+      <description>&lt;h1 id=&#34;petit-retex&#34;&gt;Petit retex&lt;/h1&gt;&#xA;&lt;p&gt;Nous tentons d&amp;rsquo;abandonner la messagerie &amp;ldquo;sécurisée Russe , et hébergée aux Emirats&#xA;ou je ne sais oû &amp;quot; aka telegram au profit  de &lt;strong&gt;Tchap&lt;/strong&gt; .&lt;/p&gt;&#xA;&lt;p&gt;Tchap est une application web , exploitant le protocole Matrix , Tchap est un fork&#xA;du client élément, et on peut se connecter au serveurs de Tchap avec élément .&lt;/p&gt;&#xA;&lt;p&gt;Tchap est exclusivement réservé aux agents de la fonction public, ainsi que quelques&#xA;externes .&lt;/p&gt;&#xA;&lt;p&gt;Pour y avoir accès, un membre de l&amp;rsquo;organisation y est invité , et il est de fait&#xA;admin de l&amp;rsquo;application pour l&amp;rsquo;organisation , et a son tour invite les autres membres.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
