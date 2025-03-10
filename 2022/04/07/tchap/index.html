@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Tchap - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Tchap - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://blog.ordinatous.com/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://blog.ordinatous.com/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://blog.ordinatous.com/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://blog.ordinatous.com/" class="nav-logo">
+    <img src="https://blog.ordinatous.com/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+
+    <h1 class="article-title">Tchap</h1>
+
+    
+    <span class="article-date">April 7, 2022</span>
+    
+
+    <div class="article-content">
+      
+      <h1 id="petit-retex">Petit retex</h1>
+<p>Nous tentons d&rsquo;abandonner la messagerie &ldquo;sécurisée Russe , et hébergée aux Emirats ou je ne sais oû &quot; au profit  de <strong>Tchap</strong> .</p>
+<p>Tchap de base est en mode web . Pour y avoir accès, un membre de l&rsquo;organisation y est invité ,
+et il est de fait admin de l&rsquo;application pour l&rsquo;organisation , et a son tour invite les autres membres.</p>
+<p>Par geekerie , j&rsquo;ai voulu compiler l&rsquo;application desktop , mais aussi par soucis d&rsquo;ergonomie ,
+je pourrais très bien détacher l&rsquo;onglet tchap pour avoir une fenêtre à part ,
+mais je préfère avoir une appli épinglé dans ma barre de tache.</p>
+<h2 id="le-readme-de-tchap-desktop">Le readme de tchap-desktop</h2>
+<p><a href="https://github.com/tchapgouv/tchap-desktop-experimentation">Depot Git de tchap desktop</a></p>
+<p>Je trouve juste
+qu&rsquo;il manque un peu de clarté. Et J&rsquo;ajoute , que la méthode fonctionne sous windows 11 également .</p>
+<h3 id="les-prérequis">Les prérequis</h3>
+<p>Nous sommes sous windows , et on va installer une série d&rsquo;applications en passant tour à tour
+du navigateur, au powershell puis l&rsquo;invit de commande &hellip;.</p>
+<p>Il est vrai que les liens du prérequis mènent aux sites web de Nodejs et de Yarn : mais c&rsquo;est pas claire.</p>
+<p>Présenté de la manière suivante , eut été plus clair .</p>
+<ul>
+<li><a href="https://nodejs.org/en/">Lien de téléchargement Nodejs</a></li>
+<li><a href="https://classic.yarnpkg.com/en/docs/install#windows-stable">Lien de téléchargement Yarn</a></li>
+</ul>
+<p><em>Récupérer les packages et executer en mode administrateur</em></p>
+<p>La gestion des packages avec <em>npm</em> ne fonctionnera pas , vous devez obligatoirement installer le package <strong>yarn</strong> .</p>
+<h2 id="ajout-de-nativefier">Ajout de nativefier</h2>
+<p>En <em>CMD</em>, entrer cette commande: <code>yarn global add nativefier</code></p>
+<p>Dont voici le résultat.</p>
+<pre tabindex="0"><code>C:\Users\ordinatous&gt;yarn global add nativefier
+yarn global v1.22.18
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+
+success Installed &#34;nativefier@46.2.0&#34; with binaries:
+      - nativefier
+Done in 28.35s.
+</code></pre><h2 id="ajout-de-git">Ajout de GIT</h2>
+<p>Etant sous Linux depuis plus de 10 ans , mon réflexe avec github c&rsquo;est un bon : <code>git clone</code> , mais voilà, je suis sous windows et je vais encore tomber sur un truc qui m&rsquo;exaspère chez crosoft.</p>
+<p>On doit passer d&rsquo;un outil à un autre pour utiliser <strong>git</strong> .</p>
+<p><a href="https://git-scm.com/download/win">Lien d&rsquo;installation de git 4 windows</a></p>
+<p>Je vois alors , qu&rsquo;il existe un outil nommé <strong>winget</strong> qui permet d&rsquo;installer des applications en <em>CLI</em>:
+<em>winget</em> étant un module de <strong>powershell</strong> .</p>
+<p>Je me suis dit : <strong>Cool , enfin une gestion centralisée des applications et des dépendances</strong> : Non , il ne faut pas rêver .</p>
+<p>Non, non : c&rsquo;est l&rsquo;équivalent de <strong>wget</strong> sous linux , rien de plus .</p>
+<p>Pour installer <strong>winget</strong>: retour vers le web, ou le microsoft store &hellip;..</p>
+<p><a href="https://www.microsoft.com/fr-fr/p/app-installer/9nblggh4nns1?rtc=1&amp;activetab=pivot:overviewtab">Lien d&rsquo;installation winget</a></p>
+<p><img src="images/8hdd4pglb4g81.png" alt=""></p>
+<p>Ca ce fait en 2 temps:</p>
+<ul>
+<li>obtenir</li>
+<li>installer</li>
+</ul>
+<p>Ensuite on passe en powershell .. et on entre cette commande:
+<code>winget install --id Git.Git -e --source winget</code></p>
+<p><img src="images/Screenshot_win10_2022-04-10_17:05:17.png" alt=""></p>
+<p>Le plus drôle , c&rsquo;est que <strong>git</strong> ne sera pas disponnible en <strong>powershell</strong> mais en <strong>CMD</strong> ..</p>
+<p><img src="images/Screenshot_win10_2022-04-10_17:12:11.png" alt=""></p>
+<p>Vous comprenez ce qui m&rsquo;exaspère maintenant ? Bref .</p>
+<p>Un fois le dépôt cloné, le dev nous indique de se déplacer dans le répertoire assets du projet : OK .</p>
+<p>Et indique également 2 liens pour récupérer les icones , pourtant bien présentes dans le répertoire ,et les liens sont invalides.</p>
+<p><img src="images/2022-04-10_17-19.png" alt=""></p>
+<p>Et c&rsquo;est là que 2 erreurs se cumulent dans la ligne de commande .</p>
+<ul>
+<li>1 Si on est dans le répertoire assets , il ne faut pas indiquer <code>./assets/bla bla bla.ico</code> mais directement <code>bla bla bla.ico</code></li>
+<li>2 il y a une erreur dans le nom de fichier.</li>
+</ul>
+<p>J&rsquo;ai pas les captures d&rsquo;écran , j&rsquo;en ai pas fait aujurd&rsquo;hui pour ça, et celle que j&rsquo;ai sont au boulot.</p>
+<p>La bonne commande est celle-ci:
+<code>nativefier --name &quot;Tchap&quot; --platform &quot;windows&quot; --arch &quot;x64&quot; --app-copyright &quot;DINUM/MinArm&quot; --conceal --icon &quot;tchap.ico&quot; --insecure --internal-urls &quot;.*?tchap\.gouv\.fr.*?&quot; --maximize --enable-context-menu --enable-dev-tools --single-instance --tray &quot;https://www.tchap.gouv.fr/&quot; </code></p>
+<p>En graphique ?
+<img src="images/2022-04-10_17-21.png" alt=""></p>
+<p>Et en CLI</p>
+<pre tabindex="0"><code>nativefier --name &#34;Tchap&#34; --platform &#34;windows&#34; --arch &#34;x64&#34; --app-copyright &#34;DINUM/MinArm&#34; --conceal --icon &#34;tchap.ico&#34; --insecure --internal-urls &#34;.*?tchap\.gouv\.fr.*?&#34; --maximize --enable-context-menu --enable-dev-tools --single-instance --tray &#34;https://www.tchap.gouv.fr/&#34;
+
+
+    Hi! Nativefier is minimally maintained these days, and needs more hands.
+    If you have the time &amp; motivation, help with bugfixes and maintenance is VERY welcome.
+    Please go to https://github.com/nativefier/nativefier and help how you can. Thanks.
+
+
+
+Processing options...
+
+Preparing Electron app...
+
+Converting icons...
+
+Packaging... This will take a few seconds, maybe minutes if the requested Electron isn&#39;t cached yet...
+Downloading electron-v16.1.0-win32-x64.zip: [====================================================================] 100% ETA: 0.0 seconds
+Packaging app for platform win32 x64 using electron v16.1.0
+
+Finalizing build...
+App built to C:\Users\ordinatous\tchap-desktop-experimentation\assets\Tchap-win32-x64, move to wherever it makes sense for you and run the contained .exe file.
+</code></pre><p>Un truc qui m&rsquo;a fait marrer : M$ n&rsquo;est pas foutu de mettre un répertoire par ordre alphabétique, j&rsquo;ai voulu ajouter aux accés rapide :</p>
+<p><img src="images/2022-04-10_17-58.png" alt=""></p>
+<p>Bref Tchap se lance bien:</p>
+<p><img src="images/2022-04-10_18-00.png" alt=""></p>
+<p><img src="images/2022-04-10_18-02.png" alt=""></p>
+<p>Honnêtement , je ne sais pas si je fait pareil sous debian 11 , j&rsquo;ai pourtant tous les prérequis , j&rsquo;ai un peu la flem&rsquo; .</p>
+<p>(Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International </a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.ordinatous.com/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

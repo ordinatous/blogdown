@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Informatique on Les ordinateurs, les autres et moi</title>
+    <link>https://blog.ordinatous.com/tags/informatique/</link>
+    <description>Recent content in Informatique on Les ordinateurs, les autres et moi</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Fri, 15 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.ordinatous.com/tags/informatique/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tchap episode 2 le retour</title>
+      <link>https://blog.ordinatous.com/2022/04/15/tchap-episode-2-le-retour/</link>
+      <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://blog.ordinatous.com/2022/04/15/tchap-episode-2-le-retour/</guid>
+      <description>&lt;h1 id=&#34;geekerie-encore-et-toujours&#34;&gt;Geekerie encore et toujours&lt;/h1&gt;&#xA;&lt;p&gt;Branlette technique , m&amp;rsquo;a-t-on dit un jour .&lt;/p&gt;&#xA;&lt;p&gt;Mais cette &amp;ldquo;branlette technique&amp;rdquo; m&amp;rsquo;amène à comprendre comment , on &amp;ldquo;créé&amp;rdquo; une appli&#xA;&amp;ldquo;installable&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;Mais ce n&amp;rsquo;est pas encore le sujet . et en vrai , on créé rien.&lt;/p&gt;&#xA;&lt;p&gt;Par geekerie , j&amp;rsquo;ai voulu tester la méthode proposé , et le résultat m&amp;rsquo;a un peu interpellé .&lt;/p&gt;&#xA;&lt;h2 id=&#34;tchap-sous-windows-11&#34;&gt;Tchap sous windows 11&lt;/h2&gt;&#xA;&lt;p&gt;Voir le précédent article: ça a fonctionné direct , mais rapidement , le &amp;ldquo;client&amp;rdquo;&#xA;Tchap moulinait quand il fallait quand il demandait des vérifications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tchap</title>
+      <link>https://blog.ordinatous.com/2022/04/07/tchap/</link>
+      <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://blog.ordinatous.com/2022/04/07/tchap/</guid>
+      <description>&lt;h1 id=&#34;petit-retex&#34;&gt;Petit retex&lt;/h1&gt;&#xA;&lt;p&gt;Nous tentons d&amp;rsquo;abandonner la messagerie &amp;ldquo;sécurisée Russe , et hébergée aux Emirats ou je ne sais oû &amp;quot; au profit  de &lt;strong&gt;Tchap&lt;/strong&gt; .&lt;/p&gt;&#xA;&lt;p&gt;Tchap de base est en mode web . Pour y avoir accès, un membre de l&amp;rsquo;organisation y est invité ,&#xA;et il est de fait admin de l&amp;rsquo;application pour l&amp;rsquo;organisation , et a son tour invite les autres membres.&lt;/p&gt;&#xA;&lt;p&gt;Par geekerie , j&amp;rsquo;ai voulu compiler l&amp;rsquo;application desktop , mais aussi par soucis d&amp;rsquo;ergonomie ,&#xA;je pourrais très bien détacher l&amp;rsquo;onglet tchap pour avoir une fenêtre à part ,&#xA;mais je préfère avoir une appli épinglé dans ma barre de tache.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Internet, et nom de domaine</title>
+      <link>https://blog.ordinatous.com/2021/11/17/service-informatique/</link>
+      <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://blog.ordinatous.com/2021/11/17/service-informatique/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/hulk_1.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;contexte-pro&#34;&gt;Contexte pro&lt;/h1&gt;&#xA;&lt;p&gt;Actuellement:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Secteur: Public&lt;/li&gt;&#xA;&lt;li&gt;Milieu: Santé&lt;/li&gt;&#xA;&lt;li&gt;Discipline: Psychiatrie&lt;/li&gt;&#xA;&lt;li&gt;Niveau : Départemental&lt;/li&gt;&#xA;&lt;li&gt;Parc: &amp;lt; 1000&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;C&amp;rsquo;est une structure de santé, qui a plusieurs sites satellites.&lt;/p&gt;&#xA;&lt;p&gt;Mon service prend en charge plusieurs sites distants , dans son &lt;strong&gt;domaine&lt;/strong&gt; .  Et depuis quelques mois prend en charge le support d&amp;rsquo;autres établissements.&lt;/p&gt;&#xA;&lt;p&gt;Et leurs domaines&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;En Réalité, c&amp;rsquo;est pas plus mal.&lt;/p&gt;&#xA;&lt;p&gt;A ce niveau, je comprends mon DSI. Il y a des structures, que tu ne peux pas laisser en arrière .&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

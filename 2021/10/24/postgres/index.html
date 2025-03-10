@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Base de données - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Base de données - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://blog.ordinatous.com/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://blog.ordinatous.com/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://blog.ordinatous.com/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://blog.ordinatous.com/" class="nav-logo">
+    <img src="https://blog.ordinatous.com/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">9 min read</span>
+    
+
+    <h1 class="article-title">Base de données</h1>
+
+    
+    <span class="article-date">October 24, 2021</span>
+    
+
+    <div class="article-content">
+      
+      <p>Travail en cours.</p>
+<p>L&rsquo;objectif étant :</p>
+<ul>
+<li>anonymiser un fichier de données <strong>CSV</strong></li>
+<li>l&rsquo;import et l&rsquo;export du fichier CSV dans une database en <strong>SQL</strong></li>
+</ul>
+<h1 id="contexte">Contexte</h1>
+<p>A la base , c&rsquo;est parti d&rsquo;un petit graphique que j&rsquo;ai fait , en réaction de l&rsquo;augmentation du prix du diesel.</p>
+<p><img src="images/unnamed-chunk-9-1.png" alt=""></p>
+<p>A l&rsquo;aide d&rsquo;un fichier <strong>csv</strong> , avec 13 <strong>observations</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csv" data-lang="csv"><span style="display:flex;"><span><span style="color:#e6db74">&#34;Date&#34;</span><span style="color:#e6db74">;&#34;Prix&#34;;&#34;Station&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;30/01/2021&#34;</span><span style="color:#e6db74">;&#34;1.309&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;20/02/2021&#34;</span><span style="color:#e6db74">;&#34;1.359&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;17/03/2021&#34;</span><span style="color:#e6db74">;&#34;1.369&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;26/03/2021&#34;</span><span style="color:#e6db74">;&#34;1.348&#34;;&#34;Magland&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;01/04/2021&#34;</span><span style="color:#e6db74">;&#34;1.359&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;12/04/2021&#34;</span><span style="color:#e6db74">;&#34;1.349&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;22/04/2021&#34;</span><span style="color:#e6db74">;&#34;1.359&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;13/05/2021&#34;</span><span style="color:#e6db74">;&#34;1.519&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;27/05/2021&#34;</span><span style="color:#e6db74">;&#34;1.379&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;20/07/2021&#34;</span><span style="color:#e6db74">;&#34;1.449&#34;;&#34;Amancy&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;01/08/2021&#34;</span><span style="color:#e6db74">;&#34;1.470&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;01/09/2021&#34;</span><span style="color:#e6db74">;&#34;1.470&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;01/10/2021&#34;</span><span style="color:#e6db74">;&#34;1.580&#34;;&#34;Payot&#34;</span>
+</span></span></code></pre></div><p>C&rsquo;est petit, oui .</p>
+<p>Mais ça permet d&rsquo;avoir un champ de compréhension, petit, et maitrisé pour l&rsquo;exemple, avec une dimension humaine que tout un chacun peu reproduire, enfin si on conduit un diesel.</p>
+<p>Et assez rapidement , on se rend compte de les faiblesses de la donnée :</p>
+<ul>
+<li>Représentativité :à qui s&rsquo;adresse et représente cette donnée ?</li>
+<li>confiance: quelle fiabilité ?</li>
+</ul>
+<p>On voit très vite que:</p>
+<ul>
+<li>il y a 2 intrus dans les stations</li>
+<li>et des dates serrées par &ldquo;moment&rdquo;.</li>
+</ul>
+<p>Plus 2 dates, dont moi même je dois faire confiance ..</p>
+<h1 id="postgres">POSTGRES</h1>
+<h2 id="informations-générales">Informations générales</h2>
+<p>Postgres à un utilisateur <strong>maitre</strong> qui se nomme <strong>postgres</strong>, qui est l&rsquo;équivalent de <strong>root</strong> dans les système Gnu/Linux.</p>
+<p>L&rsquo;outil permettant d&rsquo;interagir avec le <strong>SGBDDR</strong> (Système de Gestion de Base De Données Relationnelle) est <strong>psql</strong>.</p>
+<h2 id="notions-importantes">Notions importantes</h2>
+<h3 id="sécurité-et-modes-de-connexions">Sécurité et modes de connexions</h3>
+<p>Les serveurs <strong>postgres</strong> ont des restrictions de connections , étant en mode de développement <strong>local</strong> , je peux m&rsquo;y connecter sans modification du fichier de configuration qui se situe ici: <code>/etc/postgresql/13/main/pg_hba.conf</code>.</p>
+<p>En voici un aperçu :</p>
+<pre tabindex="0"><code># DO NOT DISABLE!
+# If you change this first entry you will need to make sure that the
+# database superuser can access the database using some other method.
+# Noninteractive access to all databases is required during automatic
+# maintenance (custom daily cronjobs, replication, and similar tasks).
+#
+# Database administrative login by Unix domain socket
+local   all             postgres                                peer
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# &#34;local&#34; is for Unix domain socket connections only
+local   all             all                                     peer
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+# IPv6 local connections:
+host    all             all             ::1/128                 md5
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all                                     peer
+host    replication     all             127.0.0.1/32            md5
+host    replication     all             ::1/128                 md5
+</code></pre><p>Le message d&rsquo;avertissement est sans équivoque , si vous modifier la première ligne , vous risquez de ne plus du tout pouvoir vous y connecter quelque soit l&rsquo;utilisateur.</p>
+<h3 id="authentification">Authentification</h3>
+<p>Pour commencer à interagir avec le <strong>SGBDDR</strong> , il faut donc prendre la session de l&rsquo;utilisateur <strong>postgres</strong>. Par facilité on serait tenté de l&rsquo;utiliser en permanence , c&rsquo;est vrai en tant que <strong>DBA</strong> (database administrateur), dont le <strong>ROLE</strong> est de définir qui fait quoi.</p>
+<p>Mais pas pour un <strong>dev</strong>, néanmoins c&rsquo;est rarement le cas en entreprise, les mauvaises pratiques tendent à disparaitre mais c&rsquo;est compliqué.</p>
+<pre tabindex="0"><code>❯ sudo su - postgres
+[sudo] Mot de passe de ordinatous : 
+postgres@gally-return:~$ psql
+psql (13.4 (Debian 13.4-0+deb11u1))
+Saisissez « help » pour l&#39;aide.
+</code></pre><p>On va donc définir un utilisateur , avec un mot de passe chiffré ayant la capacité de créer des bases de données:</p>
+<pre tabindex="0"><code>postgres=# CREATE USER ordinatous WITH ENCRYPTED PASSWORD &#39;password&#39; CREATEDB;
+CREATE ROLE
+postgres=# 
+</code></pre><p>Ce qui permettra par la suite de se connecter au serveur avec des outils tel que <strong>pgAdmin</strong> ou <strong>qgis</strong>.</p>
+<p><img src="images/2021-11-01_11-12.png" alt=""></p>
+<h3 id="pgadmin">pgAdmin</h3>
+<p>pgAdmin est un serveur Apache qui permet de se connecter au serveur afin de manager les base de données.</p>
+<p>Un serveur n&rsquo;a pas d&rsquo;interface graphique, du moins sous Gnu/Linux , encore que les serveurs <strong>ubuntu</strong> en installe un.</p>
+<p>Ce qui entraîne des effets de bords notamment au niveau de la gestion de l&rsquo;adressage IP, car le serveurX (serveur graphique) lance NetworkManager automatiquement, et son comportement est d&rsquo;utiliser le DHCP). Mais là n&rsquo;est pas le sujet.</p>
+<h3 id="installation-de-pgadmin4">Installation de pgAdmin4</h3>
+<p>pgAdmin4 est disponible sous forme de docker, serveur web python , debian base, centos ou windows:</p>
+<p><img src="images/2021-11-01_11-54.png" alt=""></p>
+<p><a href="https://www.pgadmin.org/download/">Lien de téléchargement</a></p>
+<h4 id="usage-de-pgadmin">Usage de pgAdmin</h4>
+<p>Très utile quand on a beaucoup de db à gérer sur une même <strong>instance</strong> .</p>
+<p>Ça donne un bon accès aux informations relative à l&rsquo;administration de base de données:</p>
+<ul>
+<li>charge</li>
+<li>nombre de session</li>
+<li>nombres de requêtes</li>
+<li>gestion des droits</li>
+</ul>
+<h2 id="connexion-au-serveur-local">Connexion au serveur local</h2>
+<p>Postgres dispose d&rsquo;une base par défaut nommé <strong>postgres</strong> ainsi que 2 autres:</p>
+<ul>
+<li>template0</li>
+<li>template1</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> <span style="color:#960050;background-color:#1e0010">\</span>l
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                                  Liste des bases de données
+</span></span><span style="display:flex;"><span>    Nom    <span style="color:#f92672">|</span> Propriétaire <span style="color:#f92672">|</span> Encodage <span style="color:#f92672">|</span> Collationnement <span style="color:#f92672">|</span> <span style="color:#66d9ef">Type</span> caract. <span style="color:#f92672">|</span>    Droits d<span style="color:#e6db74">&#39;accès     
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-----------+--------------+----------+-----------------+--------------+-----------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> db_test   | ordinatous   | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> geo_test  | postgres     | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> postgres  | postgres     | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> template0 | postgres     | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | =c/postgres          +
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           |              |          |                 |              | postgres=CTc/postgres
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> template1 | postgres     | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | =c/postgres          +
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           |              |          |                 |              | postgres=CTc/postgres
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">(5 lignes)
+</span></span></span></code></pre></div><p>Ces bases <strong>template 0 et 1</strong> sont une sécurité :</p>
+<ul>
+<li>L&rsquo;une sert de model à l&rsquo;autre :</li>
+<li>
+<pre><code>  qui elle même sert de model à vos futures bases...
+</code></pre>
+</li>
+<li>
+<pre><code>  postgres
+</code></pre>
+</li>
+</ul>
+<p>Il faut donc dans un premier temps se connecter à une base , et on choisira celle par défaut: <strong>postgres</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>psql <span style="color:#f92672">-</span>h localhost <span style="color:#f92672">-</span>p <span style="color:#ae81ff">5432</span> <span style="color:#f92672">-</span>U ordinatous <span style="color:#f92672">-</span>d postgres
+</span></span><span style="display:flex;"><span>Mot de passe pour l<span style="color:#e6db74">&#39;utilisateur ordinatous : 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">psql (13.4 (Debian 13.4-0+deb11u1))
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Connexion SSL (protocole : TLSv1.3, chiffrement : TLS_AES_256_GCM_SHA384, bits : 256, compression : désactivé)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Saisissez « help » pour l&#39;</span>aide.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>postgres<span style="color:#f92672">=&gt;</span> 
+</span></span></code></pre></div><h3 id="création-du-base-de-test">Création du base de test</h3>
+<pre tabindex="0"><code>postgres=&gt; CREATE DATABASE db_test OWNER ordinatous;
+CREATE DATABASE
+</code></pre><p>Puis connectons nous à la base de test avec l&rsquo;utilisateur ordinatous:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">❯</span> psql <span style="color:#f92672">-</span>h localhost <span style="color:#f92672">-</span>p <span style="color:#ae81ff">5432</span> <span style="color:#f92672">-</span>U ordinatous <span style="color:#f92672">-</span>d db_test
+</span></span><span style="display:flex;"><span>Mot de passe pour l<span style="color:#e6db74">&#39;utilisateur ordinatous : 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">psql (13.4 (Debian 13.4-0+deb11u1))
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Connexion SSL (protocole : TLSv1.3, chiffrement : TLS_AES_256_GCM_SHA384, bits : 256, compression : désactivé)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Saisissez « help » pour l&#39;</span>aide.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span>
+</span></span></code></pre></div><h3 id="creation-dune-table">Creation d&rsquo;une table</h3>
+<p>Afin d&rsquo;accueillir le fichier CSV , je créé une table <strong>diesel</strong>.</p>
+<p>On peut taper toute la commande sur une ligne , ou faire des retours à la ligne, tant que l&rsquo;on ne termine pas sa commande avec un point virgule , postgres sait que vous n&rsquo;avez pas terminé votre commande .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> diesel (
+</span></span><span style="display:flex;"><span>db_test(<span style="color:#f92672">&gt;</span> id SERIAL,
+</span></span><span style="display:flex;"><span>db_test(<span style="color:#f92672">&gt;</span> date DATE,
+</span></span><span style="display:flex;"><span>db_test(<span style="color:#f92672">&gt;</span> prix DECIMAL,
+</span></span><span style="display:flex;"><span>db_test(<span style="color:#f92672">&gt;</span> station VARCHAR (<span style="color:#ae81ff">10</span>),
+</span></span><span style="display:flex;"><span>db_test(<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (id)
+</span></span><span style="display:flex;"><span>db_test(<span style="color:#f92672">&gt;</span> );
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> 
+</span></span></code></pre></div><p>On vérifie la présence de la table:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> <span style="color:#960050;background-color:#1e0010">\</span>dt
+</span></span><span style="display:flex;"><span>          Liste des relations
+</span></span><span style="display:flex;"><span> Schéma <span style="color:#f92672">|</span>  Nom   <span style="color:#f92672">|</span> <span style="color:#66d9ef">Type</span>  <span style="color:#f92672">|</span> Propriétaire 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--------+--------+-------+--------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#66d9ef">public</span> <span style="color:#f92672">|</span> diesel <span style="color:#f92672">|</span> <span style="color:#66d9ef">table</span> <span style="color:#f92672">|</span> ordinatous
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">1</span> ligne)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> 
+</span></span></code></pre></div><h2 id="import-du-csv">IMPORT du CSV</h2>
+<p>Puis on copy le csv</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">COPY</span> diesel (date, prix, station)
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#39;/home/ordinatous/web-test/crea-test1/diesel.csv&#39;</span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">DELIMITER</span> <span style="color:#e6db74">&#39;;&#39;</span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">-&gt;</span> CSV HEADER;
+</span></span><span style="display:flex;"><span>ERREUR:  doit <span style="color:#960050;background-color:#1e0010">ê</span>tre super<span style="color:#f92672">-</span>utilisateur ou membre du rôle pg_read_all_settings pour utiliser <span style="color:#66d9ef">COPY</span> depuis un fichier
+</span></span><span style="display:flex;"><span>ASTUCE : Tout le monde peut utiliser <span style="color:#66d9ef">COPY</span> vers <span style="color:#66d9ef">stdout</span> ou <span style="color:#960050;background-color:#1e0010">à</span> partir de <span style="color:#66d9ef">stdin</span>. La commande <span style="color:#960050;background-color:#1e0010">\</span><span style="color:#66d9ef">copy</span> de psql fonctionne aussi pour tout le monde.
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> 
+</span></span></code></pre></div><p>Je dois augmenter mes droits..</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">❯</span> sudo <span style="color:#f92672">-</span>u postgres psql
+</span></span><span style="display:flex;"><span>[sudo] Mot de passe de ordinatous : 
+</span></span><span style="display:flex;"><span>psql (<span style="color:#ae81ff">13</span>.<span style="color:#ae81ff">4</span> (Debian <span style="color:#ae81ff">13</span>.<span style="color:#ae81ff">4</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0</span><span style="color:#f92672">+</span>deb11u1))
+</span></span><span style="display:flex;"><span>Saisissez <span style="color:#960050;background-color:#1e0010">«</span> help <span style="color:#960050;background-color:#1e0010">»</span> pour l<span style="color:#e6db74">&#39;aide.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">postgres=# GRANT pg_read_all_settings TO ordinatous;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">GRANT ROLE
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">postgres=# 
+</span></span></span></code></pre></div><p>Cela n&rsquo;a pas suffit, passons donc superuser:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>postgres<span style="color:#f92672">=#</span> <span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">USER</span> ordinatous <span style="color:#66d9ef">WITH</span> SUPERUSER;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">ROLE</span>
+</span></span></code></pre></div><p>Puis listons mes droits:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>                                                    Liste des rôles
+</span></span><span style="display:flex;"><span>Nom du rôle <span style="color:#f92672">|</span>                                    Attributs                                    <span style="color:#f92672">|</span>       Membre de        
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-------------+---------------------------------------------------------------------------------+------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ordinatous  <span style="color:#f92672">|</span> Superutilisateur, Créer une base                                                <span style="color:#f92672">|</span> <span style="color:#960050;background-color:#1e0010">{</span>pg_read_all_settings<span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>postgres    <span style="color:#f92672">|</span> Superutilisateur, Créer un rôle, Créer une base, Réplication, Contournement RLS <span style="color:#f92672">|</span> <span style="color:#960050;background-color:#1e0010">{}</span>
+</span></span></code></pre></div><p>Si tout ce passe bien postgres nous indique ceci et nous rend le prompt :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">COPY</span> diesel (date, prix, station)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#39;/home/ordinatous/web-test/crea-test1/diesel.csv&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DELIMITER</span> <span style="color:#e6db74">&#39;;&#39;</span>
+</span></span><span style="display:flex;"><span>CSV HEADER;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">COPY</span> <span style="color:#ae81ff">13</span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> 
+</span></span></code></pre></div><h2 id="requête-sql">Requête sql</h2>
+<p>Bien , faisons une requête pour afficher le contenu de la table:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">public</span>.diesel;
+</span></span><span style="display:flex;"><span> id <span style="color:#f92672">|</span>    date    <span style="color:#f92672">|</span> prix  <span style="color:#f92672">|</span> station 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">----+------------+-------+---------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#ae81ff">1</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">309</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">359</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">03</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">369</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">03</span><span style="color:#f92672">-</span><span style="color:#ae81ff">26</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">348</span> <span style="color:#f92672">|</span> Magland
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">5</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">359</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">6</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">12</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">349</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">7</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">22</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">359</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">8</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">13</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">519</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">9</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">27</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">379</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">07</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">449</span> <span style="color:#f92672">|</span> Amancy
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">11</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">08</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">470</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">12</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">470</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">13</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">580</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">13</span> lignes)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> 
+</span></span></code></pre></div><p>Si le lieu ne nous arrange pas ..  Car non consistant , on pourrait ne pas sélectionner la  <strong>colonne</strong> station &hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">select</span> date, prix <span style="color:#66d9ef">from</span> diesel;
+</span></span><span style="display:flex;"><span>    date    <span style="color:#f92672">|</span> prix  
+</span></span><span style="display:flex;"><span><span style="color:#75715e">------------+-------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">309</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">359</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">03</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">369</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">03</span><span style="color:#f92672">-</span><span style="color:#ae81ff">26</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">348</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">359</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">12</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">349</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">22</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">359</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">13</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">519</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">27</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">379</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">07</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">449</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">08</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">470</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">470</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">580</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">13</span> lignes)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> 
+</span></span></code></pre></div><p>Mais bon , c&rsquo;est un peu de la triche &hellip; un peu ?</p>
+<p>C&rsquo;est carrément tricher !!</p>
+<p>Alors , on refait la requête mais en ne gardant que les stations <strong>Payot</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> diesel <span style="color:#66d9ef">where</span> station <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Payot&#39;</span>;
+</span></span><span style="display:flex;"><span> id <span style="color:#f92672">|</span>    date    <span style="color:#f92672">|</span> prix  <span style="color:#f92672">|</span> station 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">----+------------+-------+---------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#ae81ff">1</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">30</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">309</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">02</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">359</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">03</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">369</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">5</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">359</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">6</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">12</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">349</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">7</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">22</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">359</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">8</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">13</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">519</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">9</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">27</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">379</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">11</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">08</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">470</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">12</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">470</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">13</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">2021</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">580</span> <span style="color:#f92672">|</span> Payot
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">11</span> lignes)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> 
+</span></span></code></pre></div><h2 id="export-du-csv">Export du CSV</h2>
+<p>Copions le résultat dans un fichier CSV :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span> <span style="color:#960050;background-color:#1e0010">\</span><span style="color:#66d9ef">copy</span> (<span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> diesel <span style="color:#66d9ef">where</span> station <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Payot&#39;</span>) <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;/home/ordinatous/web-test/crea-test1/diesel-payot.csv&#39;</span> (format csv, <span style="color:#66d9ef">delimiter</span> <span style="color:#e6db74">&#39;;&#39;</span>, header, <span style="color:#66d9ef">encoding</span> <span style="color:#e6db74">&#39;utf8&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">COPY</span> <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>db_test<span style="color:#f92672">=&gt;</span>
+</span></span></code></pre></div><p>Et refaisons le graphique sans les 2 intrus:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(readr)
+</span></span><span style="display:flex;"><span>diesel <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_delim</span>(<span style="color:#e6db74">&#34;diesel-payot.csv&#34;</span>, delim <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;&#34;</span>, 
+</span></span><span style="display:flex;"><span>    escape_double <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, col_types <span style="color:#f92672">=</span> <span style="color:#a6e22e">cols</span>(date <span style="color:#f92672">=</span> <span style="color:#a6e22e">col_date</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span>), 
+</span></span><span style="display:flex;"><span>        prix <span style="color:#f92672">=</span> <span style="color:#a6e22e">col_number</span>()), locale <span style="color:#f92672">=</span> <span style="color:#a6e22e">locale</span>(date_names <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fr&#34;</span>, 
+</span></span><span style="display:flex;"><span>        decimal_mark <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;,&#34;</span>), trim_ws <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(RColorBrewer)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(date,prix)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_line</span>()<span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Evolution du prix du diesel&#34;</span>,
+</span></span><span style="display:flex;"><span>         subtitle <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Station Payot&#34;</span>,
+</span></span><span style="display:flex;"><span>         caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;De Janvier 2021 à Octobre 2021&#34;</span>,
+</span></span><span style="display:flex;"><span>         x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Date&#34;</span>,
+</span></span><span style="display:flex;"><span>         y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Prix (€)&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(
+</span></span><span style="display:flex;"><span>  plot.title <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_text</span>(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#9E0142&#34;</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>, 
+</span></span><span style="display:flex;"><span>                            face <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bold&#34;</span>, hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>  plot.subtitle <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_text</span>(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#3288BD&#34;</span>, hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>  plot.caption <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_text</span>(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#66C2A5&#34;</span>, face <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;italic&#34;</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/24/postgres/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<p>Je remets le premier graphique ici, pour comparaison, car ce n&rsquo;est pas flagrant au premier coup d’œil:</p>
+<p><img src="images/unnamed-chunk-9-1.png" alt=""></p>
+<p>Le fichier csv n&rsquo;ayant que 13 observations, j&rsquo;aurais pu supprimer les 2 observations que je ne voulais pas garder.</p>
+<p>Le but de l&rsquo;exercice , est de pouvoir appliquer une méthode de sélection des données sur une base de données, qui peut être beaucoup plus grande.</p>
+<p>Passons à la suite:</p>
+<ul>
+<li>l&rsquo;import et l&rsquo;export du fichier CSV avec <strong>Qgis</strong> dans une database <strong>postgis</strong></li>
+</ul>
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.ordinatous.com/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

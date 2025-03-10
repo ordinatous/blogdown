@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Données IRIS  - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Données IRIS  - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://blog.ordinatous.com/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://blog.ordinatous.com/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://blog.ordinatous.com/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://blog.ordinatous.com/" class="nav-logo">
+    <img src="https://blog.ordinatous.com/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Données IRIS </h1>
+
+    
+    <span class="article-date">October 20, 2021</span>
+    
+
+    <div class="article-content">
+      
+      <p>Dans le jeu de données <strong>iris</strong> , nous avions vu qu&rsquo;il y avait 150 <strong>observations</strong> , avec un <strong>facteur</strong> catégorisant qui est l&rsquo;espèce , au nombre de 3 :</p>
+<ul>
+<li>setosa</li>
+<li>versicolor</li>
+<li>virginica</li>
+</ul>
+<p>Nous allons afficher la longueur et la largeur des sépales :</p>
+<pre tabindex="0"><code>ggplot(data=iris, aes(x = Sepal.Length, y = Sepal.Width )) +
+</code></pre><p>Appliquer un jeu de couleurs et de formes en fonction de ce facteur .</p>
+<pre tabindex="0"><code>
+  geom_point(aes(color=Species, shape=Species)) +
+</code></pre><p>Mettre les labels en français. Nous avions vu que l&rsquo;on pouvait definir les labels avec un <strong>bloc</strong> labs.</p>
+<pre tabindex="0"><code>
+labs(title = &#34;Evolution du prix du diesel&#34;,
+         subtitle = &#34;Principalement station Payot&#34;,
+         caption = &#34;De Janvier 2021 à Octobre 2021&#34;,
+         y = &#34;Prix (€)&#34;)
+</code></pre><p>Mais nous pouvons également le définir comme ceci:</p>
+<pre tabindex="0"><code>  ggtitle(&#34;Largeur et longueur des sépales&#34;) +
+  xlab(&#34;Longueur des sépales&#34;) + 
+  ylab(&#34;Largeur des sépales&#34;) +
+</code></pre><p>Par contre il y a un petit piège pour la légende , puisque l&rsquo;esthétique de la géométrie des points est défini par l&rsquo;espèce avec des couleurs et des formes différentes.</p>
+<p>Il faut signifier le label pour ces 2 caractéristiques:</p>
+<pre tabindex="0"><code>  scale_color_discrete(name = &#34;Espèces&#34;) +
+  scale_shape_discrete(name = &#34;Espèces&#34;) +
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggdark)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(data<span style="color:#f92672">=</span>iris, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> Sepal.Length, y <span style="color:#f92672">=</span> Sepal.Width )) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(<span style="color:#a6e22e">aes</span>(color<span style="color:#f92672">=</span>Species, shape<span style="color:#f92672">=</span>Species)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ggtitle</span>(<span style="color:#e6db74">&#34;Largeur et longueur des sépales&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xlab</span>(<span style="color:#e6db74">&#34;Longueur des sépales&#34;</span>) <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ylab</span>(<span style="color:#e6db74">&#34;Largeur des sépales&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_color_discrete</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Espèces&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_shape_discrete</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Espèces&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dark_theme_gray</span>() 
+</span></span></code></pre></div><pre tabindex="0"><code>## Inverted geom defaults of fill and color/colour.
+## To change them back, use invert_geom_defaults().
+</code></pre><img src="https://blog.ordinatous.com/2021/10/20/air/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<p>Car si on tente de le faire avec le bloc label <strong>labs</strong>, il ne faut pas oublier de définir le label pour les 2 caractéristiques.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggdark)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(data<span style="color:#f92672">=</span>iris, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> Sepal.Length, y <span style="color:#f92672">=</span> Sepal.Width )) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(<span style="color:#a6e22e">aes</span>(color<span style="color:#f92672">=</span>Species, shape<span style="color:#f92672">=</span>Species)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Largeurs et longueurs des sépales par espèce&#34;</span>,
+</span></span><span style="display:flex;"><span>        caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jeu de donnée iris&#34;</span>,
+</span></span><span style="display:flex;"><span>         x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Longueur des sépales&#34;</span>,
+</span></span><span style="display:flex;"><span>         y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Largeur des sépales&#34;</span>,
+</span></span><span style="display:flex;"><span>         colour <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Espèces&#34;</span>,
+</span></span><span style="display:flex;"><span>         shape <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Espèces&#34;</span>
+</span></span><span style="display:flex;"><span>     ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dark_theme_gray</span>() 
+</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/20/air/index_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<p>Sinon , ça nous donne ça:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggdark)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(data<span style="color:#f92672">=</span>iris, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> Sepal.Length, y <span style="color:#f92672">=</span> Sepal.Width )) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(<span style="color:#a6e22e">aes</span>(color<span style="color:#f92672">=</span>Species, shape<span style="color:#f92672">=</span>Species)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Largeurs et longueurs des sépales par espèce&#34;</span>,
+</span></span><span style="display:flex;"><span>        caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jeu de donnée iris&#34;</span>,
+</span></span><span style="display:flex;"><span>         x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Longueur des sépales&#34;</span>,
+</span></span><span style="display:flex;"><span>         y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Largeur des sépales&#34;</span>,
+</span></span><span style="display:flex;"><span>         colour <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Espèces&#34;</span>
+</span></span><span style="display:flex;"><span>     ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dark_theme_gray</span>() 
+</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/20/air/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<p>Néanmoins , l&rsquo;utilisation du bloc <strong>labs</strong> est la meilleure pratique, et renvoie moins d&rsquo;erreur.</p>
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.ordinatous.com/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Jeu de données par défaut - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Jeu de données par défaut - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://blog.ordinatous.com/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://blog.ordinatous.com/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://blog.ordinatous.com/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://blog.ordinatous.com/" class="nav-logo">
+    <img src="https://blog.ordinatous.com/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Jeu de données par défaut</h1>
+
+    
+    <span class="article-date">October 15, 2021</span>
+    
+
+    <div class="article-content">
+      
+      <h1 id="iris-mtcars-diamonds">iris, mtcars, diamonds</h1>
+<p>R fourni des jeu de données , très pratique car contenant l&rsquo;ensemble des caractéristiques permettant d&rsquo;exploiter les fonctions de R.</p>
+<p><strong>iris</strong> contient un jeu de données de 50 plantes de 3 <strong>espèces</strong> d&rsquo;iris différentes.</p>
+<p>En <strong>botanique</strong> la <strong>taxonomie</strong> en fait de cette manière: <strong>genre</strong>, <strong>espèce</strong>, <strong>nom commun</strong>, <strong>famille</strong>.</p>
+<p>C&rsquo;est espèces sont:</p>
+<ul>
+<li>setosa</li>
+<li>virginica</li>
+<li>versicolor</li>
+</ul>
+<p>Et pour chacune de ces espèces, les <strong>observation</strong> sont:</p>
+<ul>
+<li>la largeur et la longueur des <strong>sépales</strong></li>
+<li>la largeur et la longueur des <strong>pétales</strong></li>
+</ul>
+<h3 id="exemple-simple-sans-data">Exemple simple sans data</h3>
+<p>On crée un simple graphique en barre <code>barplot</code>, en leur attribuant une valeur arbitraire <code>(c(3, 7))</code>, puis on applique une couleur (moche) de manière tout aussi arbitraire , <code>col = c(&quot;darkblue&quot;, &quot;red&quot;)</code>.</p>
+<p>Avec un jeu comme <strong>iris</strong>, on va pouvoir attribuer des couleurs en fonctions des caractéristiques de chaque espèces, de créer des groupes et mettre en avant les valeurs distinguant les espèces les unes des autres.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme_set</span>(<span style="color:#a6e22e">theme_bw</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">barplot</span>(<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">7</span>), col <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;darkblue&#34;</span>, <span style="color:#e6db74">&#34;red&#34;</span>))
+</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<h4 id="inspectons-iris">Inspectons iris</h4>
+<p>Nous retrouvons bien 150 <strong>observations</strong> réparti en 5 <strong>variables</strong>:</p>
+<ul>
+<li>longueur des sépales</li>
+<li>largeur des sépales</li>
+<li>longueur des pétales</li>
+<li>longueur des pétales</li>
+<li>les espèces</li>
+</ul>
+<p>On notera la présence du terme <strong>factor</strong>, car il y a un facteur catégorisant : les 3 espèces différentes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">str</span>(iris)
+</span></span></code></pre></div><pre tabindex="0"><code>## &#39;data.frame&#39;:	150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &#34;setosa&#34;,&#34;versicolor&#34;,..: 1 1 1 1 1 1 1 1 1 1 ...
+</code></pre><h3 id="créons-donc-un-graphique-de-répartition">Créons donc un graphique de répartition</h3>
+<p>En appliquant une couleur arbitraire pour chaque espèces</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(iris, <span style="color:#a6e22e">aes</span>(Species, Sepal.Length)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_boxplot</span>(<span style="color:#a6e22e">aes</span>(fill <span style="color:#f92672">=</span> Species)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_fill_manual</span>(values <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#00AFBB&#34;</span>, <span style="color:#e6db74">&#34;#E7B800&#34;</span>, <span style="color:#e6db74">&#34;#FC4E07&#34;</span>)) 
+</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<p>En appliquant une palette de couleur</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(iris, <span style="color:#a6e22e">aes</span>(Species, Sepal.Length)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_boxplot</span>(<span style="color:#a6e22e">aes</span>(fill <span style="color:#f92672">=</span> Species)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_fill_brewer</span>(palette <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Pastel2&#34;</span>)
+</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(<span style="color:#e6db74">&#34;ggsci&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(iris, <span style="color:#a6e22e">aes</span>(Species, Sepal.Length)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_boxplot</span>(<span style="color:#a6e22e">aes</span>(fill <span style="color:#f92672">=</span> Species)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_fill_lancet</span>()
+</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggridges)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme_set</span>(<span style="color:#a6e22e">theme_minimal</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(iris, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> Sepal.Length, y <span style="color:#f92672">=</span> Species, fill <span style="color:#f92672">=</span> Species)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_density_ridges</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aes</span>(point_color <span style="color:#f92672">=</span> Species, point_fill <span style="color:#f92672">=</span> Species, point_shape <span style="color:#f92672">=</span> Species),
+</span></span><span style="display:flex;"><span>    alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">.2</span>, point_alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, jittered_points <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_point_color_hue</span>(l <span style="color:#f92672">=</span> <span style="color:#ae81ff">40</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scale_discrete_manual</span>(aesthetics <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;point_shape&#34;</span>, values <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">23</span>))
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning: The `scale_name` argument of `discrete_scale()` is deprecated as of ggplot2
+## 3.5.0.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+</code></pre><pre tabindex="0"><code>## Picking joint bandwidth of 0.181
+</code></pre><img src="https://blog.ordinatous.com/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.ordinatous.com/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

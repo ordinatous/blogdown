@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Les ordinateurs, les autres et moi</title>
+    <link>https://blog.ordinatous.com/tags/docker/</link>
+    <description>Recent content in Docker on Les ordinateurs, les autres et moi</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.ordinatous.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Découverte de Portainer</title>
+      <link>https://blog.ordinatous.com/2025/03/07/d-couverte-de-portainer/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.ordinatous.com/2025/03/07/d-couverte-de-portainer/</guid>
+      <description>&lt;h1 id=&#34;portainer&#34;&gt;&lt;strong&gt;Portainer&lt;/strong&gt;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;le-gestionnaire-de-docker-en-mode-webui&#34;&gt;Le gestionnaire de docker en mode WebUI&lt;/h2&gt;&#xA;&lt;p&gt;Portainer permet de manager vos containers docker , et de connecter plusieurs environnements.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.portainer.io/&#34;&gt;Lien vers le site officiel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;img src=&#34;images/2025-03-07_13-32.png&#34; alt=&#34;&#34; width=&#34;80%&#34; height=&#34;80%&#34;/&gt;&#xA;&lt;p&gt;On constate qu&amp;rsquo;il y a 3 environnements de connecter.&lt;/p&gt;&#xA;&lt;p&gt;C&amp;rsquo;est très pratique , ça fonctionne très bien, cependant prennez l&amp;rsquo;habitude&#xA;de créer un dossier par contenaire , afin d&amp;rsquo;y garder des notes , scripts , model&#xA;de votre docker-compose , et éventuellement des sous dossiers si vous voulez les&#xA;monter dans votre contenaire.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

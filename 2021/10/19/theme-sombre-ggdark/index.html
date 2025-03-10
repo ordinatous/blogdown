@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Theme sombre ggdark - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Theme sombre ggdark - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://blog.ordinatous.com/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://blog.ordinatous.com/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://blog.ordinatous.com/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://blog.ordinatous.com/" class="nav-logo">
+    <img src="https://blog.ordinatous.com/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Theme sombre ggdark</h1>
+
+    
+    <span class="article-date">October 19, 2021</span>
+    
+
+    <div class="article-content">
+      
+      <h2 id="testons-le-mode-sombre">Testons le mode sombre</h2>
+<p>Prenons le jeu de données <strong>diamonds</strong> , et classons les diamants par prix (en dollars) et poids (carat) en fonction de la coupe .</p>
+<p>Dés le début du code , on créé un *<strong>objet</strong> : p .</p>
+<p>Cet <strong>objet</strong> ce créé simplement comme ceci <code>p &lt;-</code> , qui nous permettra de contenir la définition de notre graphique .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot</span>(diamonds) <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">geom_point</span>(<span style="color:#a6e22e">aes</span>(carat, price, color <span style="color:#f92672">=</span> cut)) <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">scale_y_continuous</span>(label <span style="color:#f92672">=</span> scales<span style="color:#f92672">::</span>dollar) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">guides</span>(color <span style="color:#f92672">=</span> <span style="color:#a6e22e">guide_legend</span>(reverse <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Prix de 50 000 diamants taille ronde par carat et par taille&#34;</span>,
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Poid (carats)&#34;</span>,
+</span></span><span style="display:flex;"><span>        y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Prix en Dollars US&#34;</span>,
+</span></span><span style="display:flex;"><span>        color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Qualité de la coupe&#34;</span>)
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> p <span style="color:#f92672">+</span> <span style="color:#a6e22e">theme_gray</span>()
+</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/19/theme-sombre-ggdark/index_files/figure-html/diamant_theme_gris-1.png" width="672" />
+<h3 id="librairie-ggdark">Librairie <strong>ggdark</strong></h3>
+<p>Appliquons un theme sombre , c&rsquo;est vraiment sympa.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggdark)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">+</span> <span style="color:#a6e22e">dark_theme_gray</span>()
+</span></span></code></pre></div><pre tabindex="0"><code>## Inverted geom defaults of fill and color/colour.
+## To change them back, use invert_geom_defaults().
+</code></pre><img src="https://blog.ordinatous.com/2021/10/19/theme-sombre-ggdark/index_files/figure-html/diamant_theme_sombre-1.png" width="672" />
+<h3 id="font-ou-police-de-caractère">Font ou police de caractère</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>p <span style="color:#f92672">+</span> <span style="color:#a6e22e">dark_theme_gray</span>(base_family <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Fira Sans Condensed Light&#34;</span>, base_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>) <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme</span>(plot.title <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_text</span>(family <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Fira Sans Condensed&#34;</span>),
+</span></span><span style="display:flex;"><span>        plot.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_rect</span>(fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;grey10&#34;</span>),
+</span></span><span style="display:flex;"><span>        panel.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_blank</span>(),
+</span></span><span style="display:flex;"><span>        panel.grid.major <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_line</span>(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;grey30&#34;</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>),
+</span></span><span style="display:flex;"><span>        panel.grid.minor <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_line</span>(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;grey30&#34;</span>, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>),
+</span></span><span style="display:flex;"><span>        legend.background <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_blank</span>(),
+</span></span><span style="display:flex;"><span>        axis.ticks <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_blank</span>(),
+</span></span><span style="display:flex;"><span>        legend.key <span style="color:#f92672">=</span> <span style="color:#a6e22e">element_blank</span>(),
+</span></span><span style="display:flex;"><span>        legend.position <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0.815</span>, <span style="color:#ae81ff">0.27</span>))
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+## ℹ Please use the `linewidth` argument instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+</code></pre><pre tabindex="0"><code>## Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
+## 3.5.0.
+## ℹ Please use the `legend.position.inside` argument of `theme()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+</code></pre><img src="https://blog.ordinatous.com/2021/10/19/theme-sombre-ggdark/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.ordinatous.com/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

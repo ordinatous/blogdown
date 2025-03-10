@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Virsh - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Virsh - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://blog.ordinatous.com/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://blog.ordinatous.com/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://blog.ordinatous.com/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://blog.ordinatous.com/" class="nav-logo">
+    <img src="https://blog.ordinatous.com/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Virsh</h1>
+
+    
+    <span class="article-date">October 17, 2021</span>
+    
+
+    <div class="article-content">
+      
+      <h1 id="fixer-des-ip-avec-virsh">Fixer des IP avec virsh</h1>
+<p>Il y a quelques temps, j’ai pris le parti de ne plus utiliser
+<em>virtualbox</em>, ou <em>VMware</em>; pourtant ils sont très agréable à utiliser ,
+très facile , et on les retrouve assez régulièrement un peu partout.</p>
+<p>Je souhaitais un hyper viseur full open-source et natiif , et je me suis
+tourné vers <em>KVM</em>, qui dispose lui aussi d’une interface graphique
+répondant au nom de <em>virt-manager</em>.</p>
+<p>Plutot rustique , mais tout y est, néanmoins pour pour une gestion plus
+fine de la partie <em>réseau</em>, il existe un utilitaire: <strong>virsh</strong>, de la
+librairie <strong>libvirt</strong>.</p>
+<p>Voici les viersions de l’article:</p>
+<ul>
+<li>
+<p><code> Debian Buster 4.19.0-10-amd64</code></p>
+</li>
+<li>
+<p><code>kvm --version QEMU emulator version 3.1.0 (Debian 1:3.1+dfsg-8+deb10u8) Copyright (c) 2003-2018 Fabrice Bellard and the QEMU Project developers</code></p>
+</li>
+<li>
+<p><code>virt-manager --version2.0.0</code></p>
+</li>
+<li>
+<p><code>virsh --version5.0.0</code></p>
+</li>
+</ul>
+<h2 id="guide-de-survie-réseau">Guide de survie réseau</h2>
+<p>De base vous disposez d’un réseau bridgé naté .Qui fait très bien
+l’affaire, mais comment:</p>
+<ul>
+<li>modifier son réseau</li>
+<li>définir une plage <em>DHCP</em></li>
+<li>fixer des adresses</li>
+</ul>
+<p>Je ne vais pas détailler toutes les commandes ici, vous disposez du
+man-page , ainsi que <a href="https://libvirt.org">le site de libvirt</a>.</p>
+<h3 id="lister-les-réseaux">Lister les réseaux</h3>
+<ul>
+<li><code>sudo virsh net-list --all </code></li>
+</ul>
+<pre tabindex="0"><code>sudo virsh net-list --all
+ Name           State    Autostart   Persistent
+-------------------------------------------------
+ default        active   yes         yes
+</code></pre><h2 id="créer-un-nouveau-réseau">Créer un nouveau réseau</h2>
+<p>Nous allons simplement <strong>dumper</strong> la configuration par défaut:</p>
+<ul>
+<li><code>sudo virsh net-dumpxml default &gt; computerclub.xml</code></li>
+<li>Cela génère un fichier de configuration que vous éditez ensuite avec
+cette</li>
+<li>commande: <code>sudo virsh net-edit network computerclub</code></li>
+</ul>
+<pre tabindex="0"><code>&lt;network&gt;
+  &lt;name&gt;default&lt;/name&gt;
+  &lt;uuid&gt;48155b51-d2a5-4d32-a953-86ca4a1bc921&lt;/uuid&gt;
+  &lt;forward mode=&#39;nat&#39;&gt;
+    &lt;nat&gt;
+      &lt;port start=&#39;1024&#39; end=&#39;65535&#39;/&gt;
+    &lt;/nat&gt;
+  &lt;/forward&gt;
+  &lt;bridge name=&#39;virbr0&#39; stp=&#39;on&#39; delay=&#39;0&#39;/&gt;
+  &lt;mac address=&#39;52:54:00:28:d8:81&#39;/&gt;
+  &lt;ip address=&#39;192.168.122.1&#39; netmask=&#39;255.255.255.0&#39;&gt;
+    &lt;dhcp&gt;
+      &lt;range start=&#39;192.168.122.2&#39; end=&#39;192.168.122.254&#39;/&gt;
+    &lt;/dhcp&gt;
+  &lt;/ip&gt;
+&lt;/network&gt;
+</code></pre><p>“Il suffit de modifier” le fichier à votre convenance en vous référant
+<a href="https://libvirt.org/formatnetwork.html#elementsAddress">à la partie réseaux de
+libvirt.org</a></p>
+<p>Voici mon fichier de configuration , a ne pas utiliser dans l’état , si
+vous inspectez la config , vous constaterez que j’ai crée une nouvelle
+interface virtuelle, qui est bridgée sur ma carte wifi.</p>
+<pre tabindex="0"><code>&lt;network&gt;
+  &lt;name&gt;computerclub&lt;/name&gt;
+  &lt;uuid&gt;a7db4f85-5560-488c-a888-e2f16f86a148&lt;/uuid&gt;
+  &lt;forward dev=&#39;wlp2s0&#39; mode=&#39;nat&#39;&gt;
+    &lt;nat&gt;
+      &lt;port start=&#39;1024&#39; end=&#39;65535&#39;/&gt;
+    &lt;/nat&gt;
+    &lt;interface dev=&#39;wlp2s0&#39;/&gt;
+  &lt;/forward&gt;
+  &lt;bridge name=&#39;virbr1&#39; stp=&#39;on&#39; delay=&#39;0&#39;/&gt;
+  &lt;mac address=&#39;52:54:00:93:c7:8a&#39;/&gt;
+  &lt;domain name=&#39;computerclub.local&#39;/&gt;
+  &lt;ip address=&#39;192.168.200.1&#39; netmask=&#39;255.255.255.0&#39;&gt;
+    &lt;dhcp&gt;
+      &lt;range start=&#39;192.168.200.100&#39; end=&#39;192.168.200.254&#39;/&gt;
+      &lt;host mac=&#39;52:54:00:2f:46:ce&#39; name=&#39;srvads-deb-cham-001&#39; ip=&#39;192.168.200.2&#39;/&gt;
+      &lt;host mac=&#39;52:54:00:9d:17:f5&#39; name=&#39;D-DEB-CHAM-001&#39; ip=&#39;192.168.200.10&#39;/&gt;
+      &lt;host mac=&#39;52:54:00:92:d4:7b&#39; name=&#39;D-OSX-HOUC-001&#39; ip=&#39;192.168.200.30&#39;/&gt;
+      &lt;host mac=&#39;52:54:00:a3:0b:38&#39; name=&#39;linuxFX&#39; ip=&#39;192.168.200.40&#39;/&gt;
+      &lt;host mac=&#39;52:54:00:81:ba:67&#39; name=&#39;L-WIN-SERV-001&#39; ip=&#39;192.168.200.50&#39;/&gt;
+    &lt;/dhcp&gt;
+  &lt;/ip&gt;
+&lt;/network&gt;
+</code></pre><p><strong>ATTENTION</strong></p>
+<ul>
+<li>Un détail n’apparait pas ici , lors de la création de ce fichier et
+de son injection , il faut sauter une ligne à la fin du fichier.</li>
+</ul>
+<pre tabindex="0"><code># virsh net-destroy computerclub
+Network computerclub destroyed
+
+# virsh net-undefine computerclub
+Network computerclub has been undefined
+
+# virsh net-create /home/ordinatous/computerclub.xml
+Network computerclub created from /home/ordinatous/computerclub.xml
+
+# virsh net-autostart computerclub
+error: failed to mark network computerclub as autostarted
+error: Requested operation is not valid: cannot set autostart for transient network
+</code></pre><p><strong>ATTENTION</strong></p>
+<ul>
+<li>Comme mentionnée plus haut , n’oubliez d’ajouter une ligne vide.</li>
+</ul>
+<pre tabindex="0"><code>root@gally-reborn:/home/ordinatous# virsh net-edit computerclub
+Network computerclub XML configuration edited.
+
+root@gally-reborn:/home/ordinatous# virsh net-autostart computerclub
+Network computerclub marked as autostarted
+</code></pre><h2 id="modification-à-la-volée">Modification à la volée</h2>
+<p>Il serait possible d’ajouter un hôte , et son adresse fixe dans le
+réseau créé avec cette commande, personnellement je n’ai pas eu de
+succés avec cette méthode:</p>
+<pre tabindex="0"><code>sudo virsh net-update computerclub add ip-dhcp-host \
+&#34;&lt;host mac=&#39;52:54:00:6a:7b:8c&#39; name=&#39;une_machine&#39; ip=&#39;192.168.200.60&#39; &gt;&#34; --live
+--config
+</code></pre><p>C’est peut etre du à une erreur de synthaxe, mais j’aime autant avoir
+mon fichier sous les yeux.</p>
+<ul>
+<li><code>virsh error: network_update_xml:1: attributes construct error</code></li>
+</ul>
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.ordinatous.com/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

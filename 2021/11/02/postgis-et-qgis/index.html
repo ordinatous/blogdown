@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>PostGIS et QGIS - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="PostGIS et QGIS - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://blog.ordinatous.com/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://blog.ordinatous.com/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://blog.ordinatous.com/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://blog.ordinatous.com/" class="nav-logo">
+    <img src="https://blog.ordinatous.com/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Home</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+    <li><a href="https://ordinatous.com/flex/">Flex</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://x.com/ordinatous">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">PostGIS et QGIS</h1>
+
+    
+    <span class="article-date">November 2, 2021</span>
+    
+
+    <div class="article-content">
+      
+      <p>Ravail en cours..</p>
+<p>Pour bénéficier du support des informations <strong>geospatiale</strong> , il faut créer une extension <strong>postgis</strong> dans la base de données.</p>
+<p>Ces informations géospatiale sont des points , des lignes et des polygones, qui sont définis par des coordonnées .</p>
+<p>Cela ce fait simplement avec la commande CREATE EXTENSION :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>gis_test<span style="color:#f92672">=#</span> <span style="color:#66d9ef">create</span> extension postgis;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> EXTENSION
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gis_test<span style="color:#f92672">=#</span> 
+</span></span></code></pre></div><p>On peut voir l&rsquo;extension dans l&rsquo;explorateur de pgAdmin:</p>
+<p><img src="images/2021-11-02_16-56.png" alt=""></p>
+<p>Il en existe d&rsquo;autres:</p>
+<pre tabindex="0"><code>gis_test=# CREATE EXTENSION 
+address_standardizer              insert_username                   &#34;postgis_raster-3&#34;
+&#34;address_standardizer-3&#34;          intagg                            postgis_sfcgal
+address_standardizer_data_us      intarray                          &#34;postgis_sfcgal-3&#34;
+&#34;address_standardizer_data_us-3&#34;  isn                               postgis_tiger_geocoder
+adminpack                         lo                                &#34;postgis_tiger_geocoder-3&#34;
+amcheck                           ltree                             postgis_topology
+autoinc                           moddatetime                       &#34;postgis_topology-3&#34;
+bloom                             pageinspect                       postgres_fdw
+btree_gin                         pg_buffercache                    refint
+btree_gist                        pgcrypto                          seg
+citext                            pg_freespacemap                   sslinfo
+cube                              pg_prewarm                        tablefunc
+dblink                            pgrowlocks                        tcn
+dict_int                          pg_stat_statements                tsm_system_rows
+dict_xsyn                         pgstattuple                       tsm_system_time
+earthdistance                     pg_trgm                           unaccent
+file_fdw                          pg_visibility                     &#34;uuid-ossp&#34;
+fuzzystrmatch                     &#34;postgis-3&#34;                       xml2
+hstore                            postgis_raster                    
+gis_test=# CREATE EXTENSION 
+</code></pre><p>Connectons <strong>QGIS</strong> à la base <strong>gis_test</strong> , en faisant un clic droit sur postgis dans l&rsquo;explorateur:</p>
+<p><img src="images/2021-11-02_17-03.png" alt=""></p>
+<p>Puis accédons au gestionnaire de base de données:</p>
+<p><img src="images/2021-11-02_17-15.png" alt=""></p>
+<p>Nous constatons que des colonnes geography et geometry ont été définis, ainsi qu&rsquo;un référentiel spatial.</p>
+<p>On trouve dans qgis un assistant de création de table, qui nous rappellera de définir une géométrie:</p>
+<p><img src="images/2021-11-02_17-29.png" alt=""></p>
+<p>Petit retour sur pgAdmin , qui nous donne vue sur les connexions, qui, quelles applications:</p>
+<p><img src="images/2021-11-02_17-36.png" alt=""></p>
+<p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
+International</a>.
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
+International"></a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.ordinatous.com/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
