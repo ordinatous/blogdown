@@ -73,27 +73,34 @@
     <div class="article-content">
       
       <h1 id="petit-retex">Petit retex</h1>
-<p>Nous tentons d&rsquo;abandonner la messagerie &ldquo;sécurisée Russe , et hébergée aux Emirats ou je ne sais oû &quot; au profit  de <strong>Tchap</strong> .</p>
-<p>Tchap de base est en mode web . Pour y avoir accès, un membre de l&rsquo;organisation y est invité ,
-et il est de fait admin de l&rsquo;application pour l&rsquo;organisation , et a son tour invite les autres membres.</p>
-<p>Par geekerie , j&rsquo;ai voulu compiler l&rsquo;application desktop , mais aussi par soucis d&rsquo;ergonomie ,
-je pourrais très bien détacher l&rsquo;onglet tchap pour avoir une fenêtre à part ,
-mais je préfère avoir une appli épinglé dans ma barre de tache.</p>
+<p>Nous tentons d&rsquo;abandonner la messagerie &ldquo;sécurisée Russe , et hébergée aux Emirats
+ou je ne sais oû &quot; aka telegram au profit  de <strong>Tchap</strong> .</p>
+<p>Tchap est une application web , exploitant le protocole Matrix , Tchap est un fork
+du client élément, et on peut se connecter au serveurs de Tchap avec élément .</p>
+<p>Tchap est exclusivement réservé aux agents de la fonction public, ainsi que quelques
+externes .</p>
+<p>Pour y avoir accès, un membre de l&rsquo;organisation y est invité , et il est de fait
+admin de l&rsquo;application pour l&rsquo;organisation , et a son tour invite les autres membres.</p>
+<p>Par geekerie , j&rsquo;ai voulu compiler l&rsquo;application desktop. Pour faire cours , c&rsquo;est
+une application électron , qui enferme la page web.</p>
+<p>Mais , je me suis aperçu , que c&rsquo;était du travail supplémentaire que de la maintenir , et de
+la re compiler après une mise à jour, d&rsquo;autant plus qu&rsquo;il faut que les utilisateurs ré installent
+la nouvelle application.</p>
+<p>Le plus simple reste d&rsquo;épingler un raccourci dans la barre de tâche .</p>
 <h2 id="le-readme-de-tchap-desktop">Le readme de tchap-desktop</h2>
 <p><a href="https://github.com/tchapgouv/tchap-desktop-experimentation">Depot Git de tchap desktop</a></p>
-<p>Je trouve juste
-qu&rsquo;il manque un peu de clarté. Et J&rsquo;ajoute , que la méthode fonctionne sous windows 11 également .</p>
+<p>J&rsquo;ai trouvé que ça manquait un peu de clarté.</p>
 <h3 id="les-prérequis">Les prérequis</h3>
-<p>Nous sommes sous windows , et on va installer une série d&rsquo;applications en passant tour à tour
-du navigateur, au powershell puis l&rsquo;invit de commande &hellip;.</p>
-<p>Il est vrai que les liens du prérequis mènent aux sites web de Nodejs et de Yarn : mais c&rsquo;est pas claire.</p>
+<p>Il faut installer NodeJS et Yarn sur son système .</p>
+<p>Mais c&rsquo;est pas très clairement expliqué.</p>
 <p>Présenté de la manière suivante , eut été plus clair .</p>
 <ul>
 <li><a href="https://nodejs.org/en/">Lien de téléchargement Nodejs</a></li>
 <li><a href="https://classic.yarnpkg.com/en/docs/install#windows-stable">Lien de téléchargement Yarn</a></li>
 </ul>
 <p><em>Récupérer les packages et executer en mode administrateur</em></p>
-<p>La gestion des packages avec <em>npm</em> ne fonctionnera pas , vous devez obligatoirement installer le package <strong>yarn</strong> .</p>
+<p>La gestion des packages avec <em>npm</em> ne fonctionnera pas , vous devez obligatoirement
+installer le package <strong>yarn</strong> .</p>
 <h2 id="ajout-de-nativefier">Ajout de nativefier</h2>
 <p>En <em>CMD</em>, entrer cette commande: <code>yarn global add nativefier</code></p>
 <p>Dont voici le résultat.</p>
@@ -108,13 +115,14 @@ success Installed &#34;nativefier@46.2.0&#34; with binaries:
       - nativefier
 Done in 28.35s.
 </code></pre><h2 id="ajout-de-git">Ajout de GIT</h2>
-<p>Etant sous Linux depuis plus de 10 ans , mon réflexe avec github c&rsquo;est un bon : <code>git clone</code> , mais voilà, je suis sous windows et je vais encore tomber sur un truc qui m&rsquo;exaspère chez crosoft.</p>
-<p>On doit passer d&rsquo;un outil à un autre pour utiliser <strong>git</strong> .</p>
+<p>Autant sous debian , l&rsquo;ajout de <strong>git</strong> se fait simplement . Et  <code>git clone</code> permet
+de récupérer un dépôt <strong>git</strong> simplement.</p>
+<p>Ce n&rsquo;est pas vraiement le cas sous <strong>windows</strong> sous windows.</p>
 <p><a href="https://git-scm.com/download/win">Lien d&rsquo;installation de git 4 windows</a></p>
 <p>Je vois alors , qu&rsquo;il existe un outil nommé <strong>winget</strong> qui permet d&rsquo;installer des applications en <em>CLI</em>:
 <em>winget</em> étant un module de <strong>powershell</strong> .</p>
-<p>Je me suis dit : <strong>Cool , enfin une gestion centralisée des applications et des dépendances</strong> : Non , il ne faut pas rêver .</p>
-<p>Non, non : c&rsquo;est l&rsquo;équivalent de <strong>wget</strong> sous linux , rien de plus .</p>
+<p><strong>Cool , enfin une gestion centralisée des applications et des dépendances</strong> .</p>
+<p>Non , il ne faut pas rêver, c&rsquo;est l&rsquo;équivalent de <strong>wget</strong> sous linux , rien de plus .</p>
 <p>Pour installer <strong>winget</strong>: retour vers le web, ou le microsoft store &hellip;..</p>
 <p><a href="https://www.microsoft.com/fr-fr/p/app-installer/9nblggh4nns1?rtc=1&amp;activetab=pivot:overviewtab">Lien d&rsquo;installation winget</a></p>
 <p><img src="images/8hdd4pglb4g81.png" alt=""></p>
@@ -126,50 +134,67 @@ Done in 28.35s.
 <p>Ensuite on passe en powershell .. et on entre cette commande:
 <code>winget install --id Git.Git -e --source winget</code></p>
 <p><img src="images/Screenshot_win10_2022-04-10_17:05:17.png" alt=""></p>
-<p>Le plus drôle , c&rsquo;est que <strong>git</strong> ne sera pas disponnible en <strong>powershell</strong> mais en <strong>CMD</strong> ..</p>
+<p>Le plus drôle , c&rsquo;est que <strong>git</strong> ne sera pas disponible en <strong>powershell</strong> mais en <strong>CMD</strong> ..</p>
 <p><img src="images/Screenshot_win10_2022-04-10_17:12:11.png" alt=""></p>
-<p>Vous comprenez ce qui m&rsquo;exaspère maintenant ? Bref .</p>
+<p>C&rsquo;est un truc qui m&rsquo;exaspère de passer d&rsquo;une console à une autre, d&rsquo;autant qu&rsquo;il
+n&rsquo;y a pas d&rsquo;historique de commande par défaut, une fois qu&rsquo;on a fermé sa console
+il n&rsquo;y aura pas d&rsquo;historique à sa ré ouverture.</p>
+<h2 id="copilation-et-erreurs">Copilation et erreurs</h2>
 <p>Un fois le dépôt cloné, le dev nous indique de se déplacer dans le répertoire assets du projet : OK .</p>
-<p>Et indique également 2 liens pour récupérer les icones , pourtant bien présentes dans le répertoire ,et les liens sont invalides.</p>
+<p>Et indique également 2 liens pour récupérer les icônes , pourtant bien présentes
+dans le répertoire ,et les liens sont invalides.</p>
 <p><img src="images/2022-04-10_17-19.png" alt=""></p>
 <p>Et c&rsquo;est là que 2 erreurs se cumulent dans la ligne de commande .</p>
 <ul>
-<li>1 Si on est dans le répertoire assets , il ne faut pas indiquer <code>./assets/bla bla bla.ico</code> mais directement <code>bla bla bla.ico</code></li>
+<li>1 Si on est dans le répertoire assets , il ne faut pas indiquer <code>./assets/bla bla bla.ico</code>
+mais directement <code>bla bla bla.ico</code></li>
 <li>2 il y a une erreur dans le nom de fichier.</li>
 </ul>
-<p>J&rsquo;ai pas les captures d&rsquo;écran , j&rsquo;en ai pas fait aujurd&rsquo;hui pour ça, et celle que j&rsquo;ai sont au boulot.</p>
-<p>La bonne commande est celle-ci:
-<code>nativefier --name &quot;Tchap&quot; --platform &quot;windows&quot; --arch &quot;x64&quot; --app-copyright &quot;DINUM/MinArm&quot; --conceal --icon &quot;tchap.ico&quot; --insecure --internal-urls &quot;.*?tchap\.gouv\.fr.*?&quot; --maximize --enable-context-menu --enable-dev-tools --single-instance --tray &quot;https://www.tchap.gouv.fr/&quot; </code></p>
-<p>En graphique ?
+<p>J&rsquo;ai pas les captures d&rsquo;écran , j&rsquo;en ai pas fait aujourd’hui pour ça, et celle
+que j&rsquo;ai sont au boulot. Oui, avant de râler , je teste plusieurs fois la méthode.</p>
+<p>La bonne commande est celle-ci:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nativefier --name <span style="color:#e6db74">&#34;Tchap&#34;</span> --platform <span style="color:#e6db74">&#34;windows&#34;</span> --arch <span style="color:#e6db74">&#34;x64&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--app-copyright <span style="color:#e6db74">&#34;DINUM/MinArm&#34;</span> --conceal --icon <span style="color:#e6db74">&#34;tchap.ico&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--insecure --internal-urls <span style="color:#e6db74">&#34;.*?tchap\.gouv\.fr.*?&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--maximize --enable-context-menu --enable-dev-tools <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--single-instance --tray <span style="color:#e6db74">&#34;https://www.tchap.gouv.fr/&#34;</span>
+</span></span></code></pre></div><p>En graphique ?
 <img src="images/2022-04-10_17-21.png" alt=""></p>
 <p>Et en CLI</p>
-<pre tabindex="0"><code>nativefier --name &#34;Tchap&#34; --platform &#34;windows&#34; --arch &#34;x64&#34; --app-copyright &#34;DINUM/MinArm&#34; --conceal --icon &#34;tchap.ico&#34; --insecure --internal-urls &#34;.*?tchap\.gouv\.fr.*?&#34; --maximize --enable-context-menu --enable-dev-tools --single-instance --tray &#34;https://www.tchap.gouv.fr/&#34;
-
-
-    Hi! Nativefier is minimally maintained these days, and needs more hands.
-    If you have the time &amp; motivation, help with bugfixes and maintenance is VERY welcome.
-    Please go to https://github.com/nativefier/nativefier and help how you can. Thanks.
-
-
-
-Processing options...
-
-Preparing Electron app...
-
-Converting icons...
-
-Packaging... This will take a few seconds, maybe minutes if the requested Electron isn&#39;t cached yet...
-Downloading electron-v16.1.0-win32-x64.zip: [====================================================================] 100% ETA: 0.0 seconds
-Packaging app for platform win32 x64 using electron v16.1.0
-
-Finalizing build...
-App built to C:\Users\ordinatous\tchap-desktop-experimentation\assets\Tchap-win32-x64, move to wherever it makes sense for you and run the contained .exe file.
-</code></pre><p>Un truc qui m&rsquo;a fait marrer : M$ n&rsquo;est pas foutu de mettre un répertoire par ordre alphabétique, j&rsquo;ai voulu ajouter aux accés rapide :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nativefier --name <span style="color:#e6db74">&#34;Tchap&#34;</span> --platform <span style="color:#e6db74">&#34;windows&#34;</span> --arch <span style="color:#e6db74">&#34;x64&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--app-copyright <span style="color:#e6db74">&#34;DINUM/MinArm&#34;</span> --conceal --icon <span style="color:#e6db74">&#34;tchap.ico&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--insecure --internal-urls <span style="color:#e6db74">&#34;.*?tchap\.gouv\.fr.*?&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--maximize --enable-context-menu --enable-dev-tools <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--single-instance --tray <span style="color:#e6db74">&#34;https://www.tchap.gouv.fr/&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Hi! Nativefier is minimally maintained these days, and needs more hands.
+</span></span><span style="display:flex;"><span>    If you have the time &amp; motivation, help with bugfixes and maintenance is VERY welcome.
+</span></span><span style="display:flex;"><span>    Please go to https://github.com/nativefier/nativefier and help how you can. Thanks.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Processing options...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Preparing Electron app...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Converting icons...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Packaging... This will take a few seconds, maybe minutes <span style="color:#66d9ef">if</span> the requested Electron isn<span style="color:#960050;background-color:#1e0010">&#39;</span>t cached yet...
+</span></span><span style="display:flex;"><span>Downloading electron-v16.1.0-win32-x64.zip: <span style="color:#f92672">[====================================================================]</span> 100% ETA: 0.0 seconds
+</span></span><span style="display:flex;"><span>Packaging app <span style="color:#66d9ef">for</span> platform win32 x64 using electron v16.1.0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Finalizing build...
+</span></span><span style="display:flex;"><span>App built to C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\o</span>rdinatous<span style="color:#ae81ff">\t</span>chap-desktop-experimentation<span style="color:#ae81ff">\a</span>ssets<span style="color:#ae81ff">\T</span>chap-win32-x64, move to wherever it makes sense <span style="color:#66d9ef">for</span> you and run the contained .exe file.
+</span></span></code></pre></div><p>Un truc qui m&rsquo;a fait marrer : M$ n&rsquo;est pas foutu de mettre un répertoire par ordre
+alphabétique, j&rsquo;ai voulu ajouter aux accés rapide :</p>
 <p><img src="images/2022-04-10_17-58.png" alt=""></p>
 <p>Bref Tchap se lance bien:</p>
 <p><img src="images/2022-04-10_18-00.png" alt=""></p>
 <p><img src="images/2022-04-10_18-02.png" alt=""></p>
-<p>Honnêtement , je ne sais pas si je fait pareil sous debian 11 , j&rsquo;ai pourtant tous les prérequis , j&rsquo;ai un peu la flem&rsquo; .</p>
+<p>Finalement , le fait que ce soit une application électron , rend <strong>compilable</strong>
+également sous linux . Mais est-ce bien utile ?</p>
+<p>L&rsquo;application web suffit.</p>
 <p>(Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
 International </a>.
 <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0
