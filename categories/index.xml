@@ -2,241 +2,241 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Les ordinateurs, les autres et moi</title>
-    <link>https://blog.ordinatous.com/categories/</link>
+    <link>https://ordinatous.github.io/blogdown/categories/</link>
     <description>Recent content in Categories on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.ordinatous.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ordinatous.github.io/blogdown/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker</title>
-      <link>https://blog.ordinatous.com/categories/docker/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/docker/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/docker/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Chiffrement</title>
-      <link>https://blog.ordinatous.com/categories/chiffrement/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/chiffrement/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/chiffrement/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/chiffrement/</guid>
       <description></description>
     </item>
     <item>
       <title>Communication</title>
-      <link>https://blog.ordinatous.com/categories/communication/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/communication/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/communication/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/communication/</guid>
       <description></description>
     </item>
     <item>
       <title>Debian</title>
-      <link>https://blog.ordinatous.com/categories/debian/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/debian/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/debian/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/debian/</guid>
       <description></description>
     </item>
     <item>
       <title>Informatique</title>
-      <link>https://blog.ordinatous.com/categories/informatique/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/informatique/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/informatique/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/informatique/</guid>
       <description></description>
     </item>
     <item>
       <title>Microsoft</title>
-      <link>https://blog.ordinatous.com/categories/microsoft/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/microsoft/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/microsoft/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/microsoft/</guid>
       <description></description>
     </item>
     <item>
       <title>Sécurité</title>
-      <link>https://blog.ordinatous.com/categories/s%C3%A9curit%C3%A9/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/s%C3%A9curit%C3%A9/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/s%C3%A9curit%C3%A9/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/s%C3%A9curit%C3%A9/</guid>
       <description></description>
     </item>
     <item>
       <title>Data</title>
-      <link>https://blog.ordinatous.com/categories/data/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/data/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/data/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/data/</guid>
       <description></description>
     </item>
     <item>
       <title>Musique</title>
-      <link>https://blog.ordinatous.com/categories/musique/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/musique/</link>
       <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/musique/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/musique/</guid>
       <description></description>
     </item>
     <item>
       <title>Internet</title>
-      <link>https://blog.ordinatous.com/categories/internet/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/internet/</link>
       <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/internet/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/internet/</guid>
       <description></description>
     </item>
     <item>
       <title>CSV</title>
-      <link>https://blog.ordinatous.com/categories/csv/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/csv/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/csv/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/csv/</guid>
       <description></description>
     </item>
     <item>
       <title>Database</title>
-      <link>https://blog.ordinatous.com/categories/database/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/database/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/database/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/database/</guid>
       <description></description>
     </item>
     <item>
       <title>GIS</title>
-      <link>https://blog.ordinatous.com/categories/gis/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/gis/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/gis/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/gis/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>https://blog.ordinatous.com/categories/java/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/java/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/java/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/java/</guid>
       <description></description>
     </item>
     <item>
       <title>R</title>
-      <link>https://blog.ordinatous.com/categories/r/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/r/</link>
       <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/r/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/r/</guid>
       <description></description>
     </item>
     <item>
       <title>Air</title>
-      <link>https://blog.ordinatous.com/categories/air/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/air/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/air/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/air/</guid>
       <description></description>
     </item>
     <item>
       <title>Climat</title>
-      <link>https://blog.ordinatous.com/categories/climat/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/climat/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/climat/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/climat/</guid>
       <description></description>
     </item>
     <item>
       <title>Pollution</title>
-      <link>https://blog.ordinatous.com/categories/pollution/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/pollution/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/pollution/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/pollution/</guid>
       <description></description>
     </item>
     <item>
       <title>SIG</title>
-      <link>https://blog.ordinatous.com/categories/sig/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/sig/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/sig/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/sig/</guid>
       <description></description>
     </item>
     <item>
       <title>Terminal</title>
-      <link>https://blog.ordinatous.com/categories/terminal/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/terminal/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/terminal/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/terminal/</guid>
       <description></description>
     </item>
     <item>
       <title>Postgres</title>
-      <link>https://blog.ordinatous.com/categories/postgres/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/postgres/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/postgres/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/postgres/</guid>
       <description></description>
     </item>
     <item>
       <title>SQL</title>
-      <link>https://blog.ordinatous.com/categories/sql/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/sql/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/sql/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/sql/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>https://blog.ordinatous.com/categories/linux/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/linux/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/linux/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Reseau</title>
-      <link>https://blog.ordinatous.com/categories/reseau/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/reseau/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/reseau/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/reseau/</guid>
       <description></description>
     </item>
     <item>
       <title>Réseau</title>
-      <link>https://blog.ordinatous.com/categories/r%C3%A9seau/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/r%C3%A9seau/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/r%C3%A9seau/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/r%C3%A9seau/</guid>
       <description></description>
     </item>
     <item>
       <title>Virtualisation</title>
-      <link>https://blog.ordinatous.com/categories/virtualisation/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/virtualisation/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/virtualisation/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/virtualisation/</guid>
       <description></description>
     </item>
     <item>
       <title>Interoperobilité</title>
-      <link>https://blog.ordinatous.com/categories/interoperobilit%C3%A9/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/interoperobilit%C3%A9/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/interoperobilit%C3%A9/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/interoperobilit%C3%A9/</guid>
       <description></description>
     </item>
     <item>
       <title>Keepass</title>
-      <link>https://blog.ordinatous.com/categories/keepass/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/keepass/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/keepass/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/keepass/</guid>
       <description></description>
     </item>
     <item>
       <title>Mot-De-Passe</title>
-      <link>https://blog.ordinatous.com/categories/mot-de-passe/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/mot-de-passe/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/mot-de-passe/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/mot-de-passe/</guid>
       <description></description>
     </item>
     <item>
       <title>ActivDirectory</title>
-      <link>https://blog.ordinatous.com/categories/activdirectory/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/activdirectory/</link>
       <pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/activdirectory/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/activdirectory/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows10</title>
-      <link>https://blog.ordinatous.com/categories/windows10/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/windows10/</link>
       <pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/windows10/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/windows10/</guid>
       <description></description>
     </item>
     <item>
       <title>Shell</title>
-      <link>https://blog.ordinatous.com/categories/shell/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/shell/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/shell/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/shell/</guid>
       <description></description>
     </item>
     <item>
       <title>Zsh</title>
-      <link>https://blog.ordinatous.com/categories/zsh/</link>
+      <link>https://ordinatous.github.io/blogdown/categories/zsh/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/categories/zsh/</guid>
+      <guid>https://ordinatous.github.io/blogdown/categories/zsh/</guid>
       <description></description>
     </item>
   </channel>

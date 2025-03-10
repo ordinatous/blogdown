@@ -10,7 +10,7 @@
 <meta property="og:title" content="Créer son premier graph - Les ordinateurs, les autres et moi">
 
 
-  <link href='https://blog.ordinatous.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<link rel="icon" href="https://blog.ordinatous.com/images/" type="image/x-icon"/>
-<link rel="stylesheet" href="https://blog.ordinatous.com/css/main.css" media="all">
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
 
   </head>
@@ -28,8 +28,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="https://blog.ordinatous.com/" class="nav-logo">
-    <img src="https://blog.ordinatous.com/images/logo.png" 
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
          width="50" 
          height="50" 
          alt="Logo">
@@ -37,9 +37,9 @@
 
   <ul class="nav-links">
     
-    <li><a href="/">Home</a></li>
+    <li><a href="/blogdown/">Home</a></li>
     
-    <li><a href="/about/">About</a></li>
+    <li><a href="/blogdown/about/">About</a></li>
     
     <li><a href="https://carto.ordinatous.com">Carto</a></li>
     
@@ -113,26 +113,26 @@ Je le choisis , pour poursuivre sur esthétique ensuite .</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(Date,Prix)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_point</span>()
-</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+</span></span></code></pre></div><img src="https://ordinatous.github.io/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 <h4 id="plus-desthétique-">Plus d&rsquo;esthétique ?</h4>
 <p>Modifions les points.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(Date,Prix)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_point</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.2</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;steelblue&#34;</span>, shape <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>)
-</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+</span></span></code></pre></div><img src="https://ordinatous.github.io/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 C'est moins lisible ? Même plus gros, avec une couleur et une forme qui ne convient pas .
 <p>On ne rend pas la données plus lisible, ou intelligible avec un mauvais choix de taille et de couleur, à cause du mauvais choix de forme .</p>
 <p>Donc changeons ça !!</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(Date,Prix)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_point</span>(size <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#FC4E07&#34;</span>, shape <span style="color:#f92672">=</span> <span style="color:#ae81ff">19</span>)
-</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+</span></span></code></pre></div><img src="https://ordinatous.github.io/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 <h4 id="geom_line">geom_line</h4>
 <p>C&rsquo;est plus claire avec geom_line .</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(diesel, <span style="color:#a6e22e">aes</span>(Date,Prix)) <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_line</span>()
-</span></span></code></pre></div><img src="https://blog.ordinatous.com/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+</span></span></code></pre></div><img src="https://ordinatous.github.io/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 #### geom_smooth
 <p>Parfaitement inutile ici.  Il ne correspond pas du tout à notre graphique, et ne le rend pas intelligible.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
@@ -140,7 +140,7 @@ C'est moins lisible ? Même plus gros, avec une couleur et une forme qui ne conv
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_line</span>()<span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_smooth</span>()
 </span></span></code></pre></div><pre tabindex="0"><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;
-</code></pre><img src="https://blog.ordinatous.com/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+</code></pre><img src="https://ordinatous.github.io/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
     </div>
   </article>
@@ -153,7 +153,7 @@ C'est moins lisible ? Même plus gros, avec une couleur et une forme qui ne conv
         <ul class="footer-links">
           
           <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.ordinatous.com/images/hugo-logo.png" width="22" height="22"></a>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
           </li>
         </ul>
       </footer>

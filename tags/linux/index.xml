@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Les ordinateurs, les autres et moi</title>
-    <link>https://blog.ordinatous.com/tags/linux/</link>
+    <link>https://ordinatous.github.io/blogdown/tags/linux/</link>
     <description>Recent content in Linux on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://blog.ordinatous.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ordinatous.github.io/blogdown/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ssh</title>
-      <link>https://blog.ordinatous.com/2021/10/17/ssh/</link>
+      <link>https://ordinatous.github.io/blogdown/2021/10/17/ssh/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/2021/10/17/ssh/</guid>
+      <guid>https://ordinatous.github.io/blogdown/2021/10/17/ssh/</guid>
       <description>&lt;h1 id=&#34;configuration-de-ssh&#34;&gt;Configuration de ssh&lt;/h1&gt;&#xA;&lt;h2 id=&#34;durcissement-de-ssh&#34;&gt;Durcissement de SSH&lt;/h2&gt;&#xA;&lt;p&gt;Je me suis basé sur l’article de&#xA;&lt;a href=&#34;https://doc.huc.fr.eu.org/fr/sec/ssh/sshd-durci/&#34;&gt;StéphaneHUC&lt;/a&gt; , pour durcir la&#xA;configuration du service.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd /etc/ssh&#xA;ls&#xA;sudo cp /etc/ssh/moduli /etc/ssh/moduli.bckp&#xA;sudo chmod 0400 /etc/ssh/moduli.bckp&#xA;sudo awk &amp;#39;$5 &amp;gt;= 3071&amp;#39; /etc/ssh/moduli &amp;gt; /etc/ssh/moduli.safe&#xA;&#xA;rm ssh_host_*&#xA;ssh-keygen -t ed25519 -f ssh_host_ed25519_key -N &amp;#34;&amp;#34; -o -a 64&#xA;ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key -N &amp;#34;&amp;#34; -o -a 64&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;configuration-du-service-sshd&#34;&gt;Configuration du service sshd&lt;/h3&gt;&#xA;&lt;h4 id=&#34;partie-serveur&#34;&gt;Partie serveur&lt;/h4&gt;&#xA;&lt;p&gt;&lt;code&gt;# vi /etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Virsh</title>
-      <link>https://blog.ordinatous.com/2021/10/17/virsh/</link>
+      <link>https://ordinatous.github.io/blogdown/2021/10/17/virsh/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/2021/10/17/virsh/</guid>
+      <guid>https://ordinatous.github.io/blogdown/2021/10/17/virsh/</guid>
       <description>&lt;h1 id=&#34;fixer-des-ip-avec-virsh&#34;&gt;Fixer des IP avec virsh&lt;/h1&gt;&#xA;&lt;p&gt;Il y a quelques temps, j’ai pris le parti de ne plus utiliser&#xA;&lt;em&gt;virtualbox&lt;/em&gt;, ou &lt;em&gt;VMware&lt;/em&gt;; pourtant ils sont très agréable à utiliser ,&#xA;très facile , et on les retrouve assez régulièrement un peu partout.&lt;/p&gt;&#xA;&lt;p&gt;Je souhaitais un hyper viseur full open-source et natiif , et je me suis&#xA;tourné vers &lt;em&gt;KVM&lt;/em&gt;, qui dispose lui aussi d’une interface graphique&#xA;répondant au nom de &lt;em&gt;virt-manager&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Samba Activ Directory</title>
-      <link>https://blog.ordinatous.com/2020/11/22/samba-activ-directory/</link>
+      <link>https://ordinatous.github.io/blogdown/2020/11/22/samba-activ-directory/</link>
       <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/2020/11/22/samba-activ-directory/</guid>
+      <guid>https://ordinatous.github.io/blogdown/2020/11/22/samba-activ-directory/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/SAMBA4-AD-DC.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;samba4-en-mode-activ-directory&#34;&gt;Samba4 en mode Activ Directory&lt;/h1&gt;&#xA;&lt;h1 id=&#34;contexte&#34;&gt;Contexte&lt;/h1&gt;&#xA;&lt;p&gt;Les 4 serveurs seront des &lt;strong&gt;débian stretch&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Un sera une &lt;strong&gt;débian buster&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;table&gt;&#xA;&lt;thead&gt;&#xA;&lt;tr class=&#34;header&#34;&gt;&#xA;&lt;th&gt;Nom&lt;/th&gt;&#xA;&lt;th&gt;domaine&lt;/th&gt;&#xA;&lt;th&gt;OS&lt;/th&gt;&#xA;&lt;th&gt;Fonction&lt;/th&gt;&#xA;&lt;th&gt;IP&lt;/th&gt;&#xA;&lt;th&gt;CIDR&lt;/th&gt;&#xA;&lt;th&gt;Passerelle&lt;/th&gt;&#xA;&lt;/tr&gt;&#xA;&lt;/thead&gt;&#xA;&lt;tbody&gt;&#xA;&lt;tr class=&#34;odd&#34;&gt;&#xA;&lt;td&gt;srvads&lt;/td&gt;&#xA;&lt;td&gt;computerclub.lan&lt;/td&gt;&#xA;&lt;td&gt;débian stretch&lt;/td&gt;&#xA;&lt;td&gt;controleur de domaine annuaire LDAP&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.2&lt;/td&gt;&#xA;&lt;td&gt;/24&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.1&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr class=&#34;even&#34;&gt;&#xA;&lt;td&gt;srvads2&lt;/td&gt;&#xA;&lt;td&gt;computerclub.lan&lt;/td&gt;&#xA;&lt;td&gt;débian stretch&lt;/td&gt;&#xA;&lt;td&gt;Réplication du DC et LDAP/failover&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.3&lt;/td&gt;&#xA;&lt;td&gt;/24&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.1&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr class=&#34;odd&#34;&gt;&#xA;&lt;td&gt;srvrodc&lt;/td&gt;&#xA;&lt;td&gt;computerclub.lan&lt;/td&gt;&#xA;&lt;td&gt;débian stretch&lt;/td&gt;&#xA;&lt;td&gt;controleur de domaine en lecture seule&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.4&lt;/td&gt;&#xA;&lt;td&gt;/24&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.1&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr class=&#34;even&#34;&gt;&#xA;&lt;td&gt;srvfiles&lt;/td&gt;&#xA;&lt;td&gt;computerclub.lan&lt;/td&gt;&#xA;&lt;td&gt;débian stretch&lt;/td&gt;&#xA;&lt;td&gt;serveur de fichiers&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.5&lt;/td&gt;&#xA;&lt;td&gt;/24&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.1&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr class=&#34;odd&#34;&gt;&#xA;&lt;td&gt;srvwapt&lt;/td&gt;&#xA;&lt;td&gt;computerclub.lan&lt;/td&gt;&#xA;&lt;td&gt;débian buster&lt;/td&gt;&#xA;&lt;td&gt;gestion de la bibliothèque logiciel&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.6&lt;/td&gt;&#xA;&lt;td&gt;/24&lt;/td&gt;&#xA;&lt;td&gt;192.168.200.1&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Une machine &lt;strong&gt;windows 10&lt;/strong&gt; servira de console de gestion de l’annuaire&#xA;Active Directory (en réalité openLDAP) a l’aide des outils de gestion à&#xA;distance &lt;strong&gt;Microsoft ActivDirectory&lt;/strong&gt; aka &lt;strong&gt;RSAT&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tuner son shell avec oh-my-zsh</title>
-      <link>https://blog.ordinatous.com/2020/10/30/zsh/</link>
+      <link>https://ordinatous.github.io/blogdown/2020/10/30/zsh/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/2020/10/30/zsh/</guid>
+      <guid>https://ordinatous.github.io/blogdown/2020/10/30/zsh/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/ohmyzsh.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;tuner-son-shell-avec-oh-my-zsh&#34;&gt;Tuner son shell avec oh-my-zsh&lt;/h1&gt;&#xA;&lt;h1 id=&#34;installation-de-zsh-et-oh-my-zsh&#34;&gt;Installation de zsh et oh-my-zsh&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;sudo apt update &amp;amp;&amp;amp; sudo apt -yq upgrade &amp;amp;&amp;amp; sudo apt -yq install git zsh&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;sh -c &amp;quot;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; `Looking for an existing zsh config...&#xA;Using the Oh My Zsh template file and adding it to ~/.zshrc.&#xA;&#xA;Time to change your default shell to zsh:&#xA;Do you want to change your default shell to zsh? [Y/n] Y&#xA;Changing the shell...&#xA;Mot de passe :&#xA;Shell successfully changed to &amp;#39;/usr/bin/zsh&amp;#39;.&#xA;&#xA;         __                                     __&#xA;  ____  / /_     ____ ___  __  __   ____  _____/ /_&#xA; / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \&#xA;/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /&#xA;\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/&#xA;                        /____/                       ....is now installed!&#xA;&#xA;&#xA;Before you scream Oh My Zsh! please look over the ~/.zshrc file to select plugins, themes, and options.&#xA;&#xA;• Follow us on Twitter: https://twitter.com/ohmyzsh&#xA;• Join our Discord server: https://discord.gg/ohmyzsh&#xA;• Get stickers, shirts, coffee mugs and other swag: https://shop.planetargon.com/collections/oh-my-zsh&#xA;&#xA;➜  ~&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;Il y a plein de petites améliorations comme celles ci:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Complétions de chemins et navigation arrière&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;➜  ~ cd /u/lo/sh&#xA;Si le chemin est unique, en appuyant sur TAB vous obtiendez ceci:&#xA;➜  ~ cd /usr/local/share&#xA;Au lieu de taper cd ../../ pour remonter d&amp;#39;un répertoire, il suffit de ..&#xA;➜  share ..&#xA;➜  local ..&#xA;➜  /usr&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;Remplacement des variables&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;TAB permet aussi de remplacer toutes les variables par leur valeur.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Debuter avec debian</title>
-      <link>https://blog.ordinatous.com/2020/09/30/debuter-avec-debian/</link>
+      <link>https://ordinatous.github.io/blogdown/2020/09/30/debuter-avec-debian/</link>
       <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://blog.ordinatous.com/2020/09/30/debuter-avec-debian/</guid>
+      <guid>https://ordinatous.github.io/blogdown/2020/09/30/debuter-avec-debian/</guid>
       <description>&lt;h1 id=&#34;utilitaire-de-base-dune-débian&#34;&gt;Utilitaire de base d’une débian&lt;/h1&gt;&#xA;&lt;h2 id=&#34;ajout-de-lutilisateur-à-sudo&#34;&gt;Ajout de l’utilisateur à sudo&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Passer en root avec cette commande &lt;code&gt;su -&lt;/code&gt; , le temps d’installer&#xA;&lt;em&gt;sudo&lt;/em&gt; et de vous ajouter en tant que sudoers.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;A l’installation seul &lt;em&gt;ROOT&lt;/em&gt; fait parti des &lt;em&gt;sudoers&lt;/em&gt;, sudo est un&#xA;utilisataire permettant de donner des droits d’administration&#xA;temporairement à un utilisateur standard.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;su -&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Puis &lt;code&gt;apt install sudo&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;On ajoute ensuite l’utilisateur via l’éditeur &lt;em&gt;visudo&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;A ce stade votre éditeur de texte est &lt;code&gt;nano&lt;/code&gt; .&lt;/p&gt;</description>
     </item>
   </channel>

@@ -10,7 +10,7 @@
 <meta property="og:title" content="plotting - Les ordinateurs, les autres et moi">
 
 
-  <link href='https://blog.ordinatous.com/favicon.ico' rel='icon' type='image/x-icon'/>
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<link rel="icon" href="https://blog.ordinatous.com/images/" type="image/x-icon"/>
-<link rel="stylesheet" href="https://blog.ordinatous.com/css/main.css" media="all">
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
 
   </head>
@@ -28,8 +28,8 @@
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="https://blog.ordinatous.com/" class="nav-logo">
-    <img src="https://blog.ordinatous.com/images/logo.png" 
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
          width="50" 
          height="50" 
          alt="Logo">
@@ -37,9 +37,9 @@
 
   <ul class="nav-links">
     
-    <li><a href="/">Home</a></li>
+    <li><a href="/blogdown/">Home</a></li>
     
-    <li><a href="/about/">About</a></li>
+    <li><a href="/blogdown/about/">About</a></li>
     
     <li><a href="https://carto.ordinatous.com">Carto</a></li>
     
@@ -73,7 +73,7 @@
     <div class="article-content">
       
       
-<script src="https://blog.ordinatous.com/2021/11/03/plotting/index_files/header-attrs/header-attrs.js"></script>
+<script src="https://ordinatous.github.io/blogdown/2021/11/03/plotting/index_files/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -93,17 +93,17 @@
 <pre class="r"><code> library(maps)
  library(mapdata)
   map_ue &lt;- map(&#39;worldHires&#39;, c(&#39;Canada&#39;,&#39;South Africa&#39;,&#39;USA&#39;,&#39;Russia&#39;,&#39;Brazil&#39;,&#39;China&#39;,&#39;India&#39;,&#39;france&#39;, &#39;UK&#39;,&#39;Japan&#39;,&#39;Ireland&#39;, &#39;Italy&#39; ,&#39;Belgium&#39;,&#39;Spain&#39;,&#39;Portugal&#39;,&#39;Grece&#39;,&#39;Netherland&#39;,&#39;Europe&#39;,&#39;Romania&#39;,&#39;Poland&#39;,&#39;Slovenia&#39;,&#39;Germany&#39;,&#39;Danmark&#39;,&#39;Finland&#39;,&#39;Norway&#39;,&#39;Sueden&#39;,&#39;Bulgaria&#39;,&#39;Austria&#39;,&#39;Slovekia&#39;,&#39;Croatia&#39;,&#39;Lettonia&#39;))</code></pre>
-<p><img src="https://blog.ordinatous.com/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="https://ordinatous.github.io/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <div id="union-européenne" class="section level2">
 <h2>Union Européenne</h2>
 <pre class="r"><code> library(maps)
  library(mapdata)
   map_ue &lt;- map(&#39;worldHires&#39;, c(&#39;france&#39;, &#39;Ireland&#39;, &#39;Italy&#39;, &#39;Isle of Man&#39;,&#39;Isle of Wight&#39;, &#39;Wales:Anglesey&#39;,&#39;Belgium&#39;,&#39;Spain&#39;,&#39;Portugal&#39;,&#39;Grece&#39;,&#39;Netherland&#39;,&#39;Europe&#39;,&#39;Romania&#39;,&#39;Poland&#39;,&#39;Slovenia&#39;,&#39;Germany&#39;,&#39;Danmark&#39;,&#39;Finland&#39;,&#39;Norway&#39;,&#39;Sueden&#39;,&#39;Bulgaria&#39;,&#39;Austria&#39;,&#39;Slovekia&#39;,&#39;Croatia&#39;,&#39;Lettonia&#39;))</code></pre>
-<p><img src="https://blog.ordinatous.com/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="https://ordinatous.github.io/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <div id="plott-europe" class="section level3">
 <h3>Plott Europe</h3>
 <pre class="r"><code>plot(map_ue)</code></pre>
-<p><img src="https://blog.ordinatous.com/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="https://ordinatous.github.io/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 </div>
 <div id="brics" class="section level2">
@@ -111,9 +111,9 @@
 <pre class="r"><code> library(maps)
  library(mapdata)
   map_brics &lt;- map(&#39;worldHires&#39;, c(&#39;Brazil&#39;,&#39;China&#39;,&#39;Russia&#39;,&#39;India&#39;,&#39;South Africa&#39;))</code></pre>
-<p><img src="https://blog.ordinatous.com/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="https://ordinatous.github.io/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>plot(map_brics)</code></pre>
-<p><img src="https://blog.ordinatous.com/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="https://ordinatous.github.io/blogdown/2021/11/03/plotting/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Ce travail est sous licence <a href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0
 International</a>.
 <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Attribution-NonCommercial 4.0 International" /></a></p>
@@ -131,7 +131,7 @@ International</a>.
         <ul class="footer-links">
           
           <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.ordinatous.com/images/hugo-logo.png" width="22" height="22"></a>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
           </li>
         </ul>
       </footer>
