@@ -2,24 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Les ordinateurs, les autres et moi</title>
-    <link>http://localhost:4321/blogdown/categories/docker/</link>
+    <link>https://ordinatous.github.io/blogdown/categories/docker/</link>
     <description>Recent content in Docker on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/blogdown/categories/docker/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Personnalisation d&#39;un docker</title>
-      <link>http://localhost:4321/blogdown/2025/03/10/personnalisation-d-un-docker/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/2025/03/10/personnalisation-d-un-docker/</guid>
-      <description>&lt;h1 id=&#34;rstudio&#34;&gt;Rstudio&lt;/h1&gt;&#xA;&lt;p&gt;J&amp;rsquo;avais utilisé Rstudio, il y a à peu 2 ans , pour faire du R et éditer mon blog ;&#xA;et n&amp;rsquo;ayant pas vraiment pris le temps de lire le mode d&amp;rsquo;emploi , j&amp;rsquo;avais un peu tout&#xA;en plan, et baladant mon dossier web sur une clé USB &amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;En voulant ré installer Rstudio , et reprendre le projet ou il en était, je constatait&#xA;que c&amp;rsquo;était toujours le bazars .&#xA;Je me suis souvenu qu&amp;rsquo;il y avait des équipes qui travaillaient sur du rstudio en&#xA;docker. Avec des dockers à la carte avec des packages R pré-installés.&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ordinatous.github.io/blogdown/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Découverte de Portainer</title>
-      <link>http://localhost:4321/blogdown/2025/03/07/d-couverte-de-portainer/</link>
+      <link>https://ordinatous.github.io/blogdown/2025/03/07/d-couverte-de-portainer/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/2025/03/07/d-couverte-de-portainer/</guid>
+      <guid>https://ordinatous.github.io/blogdown/2025/03/07/d-couverte-de-portainer/</guid>
       <description>&lt;h2 id=&#34;le-gestionnaire-de-dockers-en-mode-webui&#34;&gt;Le gestionnaire de dockers en mode WebUI&lt;/h2&gt;&#xA;&lt;p&gt;Portainer permet de manager vos containers docker , et de connecter plusieurs environnements.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.portainer.io/&#34;&gt;Lien vers le site officiel&lt;/a&gt;&lt;/p&gt;&#xA;&lt;img src=&#34;images/2025-03-07_13-32.png&#34; alt=&#34;&#34; width=&#34;80%&#34; height=&#34;80%&#34;/&gt;&#xA;&lt;p&gt;On constate qu&amp;rsquo;il y a 3 environnements de connecter.&lt;/p&gt;&#xA;&lt;p&gt;C&amp;rsquo;est très pratique , ça fonctionne très bien, cependant prennez l&amp;rsquo;habitude&#xA;de créer un dossier par contenaire , afin d&amp;rsquo;y garder des notes , scripts , model&#xA;de votre docker-compose , et éventuellement des sous dossiers si vous voulez les&#xA;monter dans votre contenaire.&lt;/p&gt;</description>
     </item>
   </channel>

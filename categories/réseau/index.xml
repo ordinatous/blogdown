@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Réseau on Les ordinateurs, les autres et moi</title>
-    <link>http://localhost:4321/blogdown/categories/r%C3%A9seau/</link>
+    <link>https://ordinatous.github.io/blogdown/categories/r%C3%A9seau/</link>
     <description>Recent content in Réseau on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/blogdown/categories/r%C3%A9seau/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ordinatous.github.io/blogdown/categories/r%C3%A9seau/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Le cablage ça compte</title>
-      <link>http://localhost:4321/blogdown/2021/10/17/le-cablage-%C3%A7a-compte/</link>
+      <link>https://ordinatous.github.io/blogdown/2021/10/17/le-cablage-%C3%A7a-compte/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/2021/10/17/le-cablage-%C3%A7a-compte/</guid>
+      <guid>https://ordinatous.github.io/blogdown/2021/10/17/le-cablage-%C3%A7a-compte/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/cover8.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;un-peu-de-théorie-mais-pas-trop&#34;&gt;Un peu de théorie mais pas trop&amp;hellip;.&lt;/h2&gt;&#xA;&lt;p&gt;En entreprise comme à la maison , on aura tendance à vouloir tirer sur&#xA;les prix, à grignoter le budget de ci de là…&lt;/p&gt;&#xA;&lt;p&gt;Très mauvaise idée en réalité. Et nous allons voir pourquoi, et certains&#xA;détails comptent.&lt;/p&gt;&#xA;&lt;p&gt;La qualité de votre réseau tient a un ensemble de détails et de principe&#xA;que l’on ne peut balayer d’un revers de la main.&lt;/p&gt;</description>
     </item>
   </channel>
