@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>QGIS on Les ordinateurs, les autres et moi</title>
-    <link>https://ordinatous.github.io/blogdown/tags/qgis/</link>
+    <link>http://localhost:4321/blogdown/tags/qgis/</link>
     <description>Recent content in QGIS on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Fri, 05 Nov 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://ordinatous.github.io/blogdown/tags/qgis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:4321/blogdown/tags/qgis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mapping, QGis et COP26</title>
-      <link>https://ordinatous.github.io/blogdown/2021/11/05/mapping-qgis-et-cop26/</link>
+      <link>http://localhost:4321/blogdown/2021/11/05/mapping-qgis-et-cop26/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/2021/11/05/mapping-qgis-et-cop26/</guid>
-      <description>&lt;script src=&#34;https://ordinatous.github.io/blogdown/2021/11/05/mapping-qgis-et-cop26/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;&#xA;&#xA;&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#charger-une-carte&#34;&gt;Charger une carte&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#sélectionner-un-objet&#34;&gt;Sélectionner un objet&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#enregistrer-les-entités-sélectionnées&#34;&gt;Enregistrer les entités sélectionnées&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#amélioration-de-la-carte&#34;&gt;Amélioration de la carte&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mise-en-page&#34;&gt;Mise en page&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;charger-une-carte&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h2&gt;Charger une carte&lt;/h2&gt;&#xA;&lt;p&gt;Je vais utiliser le fond de carte &lt;code&gt;Naturalearth&lt;/code&gt; disponible &lt;a href=&#34;https://www.naturalearthdata.com/&#34;&gt;ici&lt;/a&gt; .&lt;/p&gt;&#xA;&lt;p&gt;J’ai récupéré les archives en haute résolution : cultural et physique , et je vais glisser le fichier &lt;strong&gt;ne_10m_admin_0_countries_lakes.shp&lt;/strong&gt; qui est un shapefile .&lt;/p&gt;&#xA;&lt;p&gt;Il contient un ensemble de forme, ainsi qu’une table attributaire permettant de sélectionner des &lt;strong&gt;objets&lt;/strong&gt; en fonction de leurs valeurs.&lt;/p&gt;</description>
+      <guid>http://localhost:4321/blogdown/2021/11/05/mapping-qgis-et-cop26/</guid>
+      <description>&lt;script src=&#34;http://localhost:4321/blogdown/2021/11/05/mapping-qgis-et-cop26/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;&#xA;&#xA;&lt;div id=&#34;TOC&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#charger-une-carte&#34;&gt;Charger une carte&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#sélectionner-un-objet&#34;&gt;Sélectionner un objet&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#enregistrer-les-entités-sélectionnées&#34;&gt;Enregistrer les entités sélectionnées&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#amélioration-de-la-carte&#34;&gt;Amélioration de la carte&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mise-en-page&#34;&gt;Mise en page&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div id=&#34;charger-une-carte&#34; class=&#34;section level2&#34;&gt;&#xA;&lt;h2&gt;Charger une carte&lt;/h2&gt;&#xA;&lt;p&gt;Je vais utiliser le fond de carte &lt;code&gt;Naturalearth&lt;/code&gt; disponible &lt;a href=&#34;https://www.naturalearthdata.com/&#34;&gt;ici&lt;/a&gt; .&lt;/p&gt;&#xA;&lt;p&gt;J’ai récupéré les archives en haute résolution : cultural et physique , et je vais glisser le fichier &lt;strong&gt;ne_10m_admin_0_countries_lakes.shp&lt;/strong&gt; qui est un shapefile .&lt;/p&gt;&#xA;&lt;p&gt;Il contient un ensemble de forme, ainsi qu’une table attributaire permettant de sélectionner des &lt;strong&gt;objets&lt;/strong&gt; en fonction de leurs valeurs.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

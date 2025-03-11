@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Debian - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Debian - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="http://localhost:4321/blogdown/tags/debian/index.xml" title="Les ordinateurs, les autres et moi" />
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<main id="main">
+  <div>
+    <h1 id="title">Debian</h1>
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>ssh - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="ssh - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2021/10/17/ssh/">ssh</a></h2>
+    <div class="post-meta">Sun, Oct 17, 2021 - 1000 Words </div>
+  </header>
+  <h1 id="configuration-de-ssh">Configuration de ssh</h1>
+<h2 id="durcissement-de-ssh">Durcissement de SSH</h2>
+<p>Je me suis basé sur l’article de
+<a href="https://doc.huc.fr.eu.org/fr/sec/ssh/sshd-durci/">StéphaneHUC</a> , pour durcir la
+configuration du service.</p>
+<pre tabindex="0"><code>cd /etc/ssh
+ls
+sudo cp /etc/ssh/moduli /etc/ssh/moduli.bckp
+sudo chmod 0400 /etc/ssh/moduli.bckp
+sudo awk &#39;$5 &gt;= 3071&#39; /etc/ssh/moduli &gt; /etc/ssh/moduli.safe
+
+rm ssh_host_*
+ssh-keygen -t ed25519 -f ssh_host_ed25519_key -N &#34;&#34; -o -a 64
+ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key -N &#34;&#34; -o -a 64
+</code></pre><h3 id="configuration-du-service-sshd">Configuration du service sshd</h3>
+<h4 id="partie-serveur">Partie serveur</h4>
+<p><code># vi /etc/ssh/sshd_config</code></p>
+  <footer>
+  <a href='/blogdown/2021/10/17/ssh/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Debuter avec debian - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Debuter avec debian - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2020/09/30/debuter-avec-debian/">Debuter avec debian</a></h2>
+    <div class="post-meta">Wed, Sep 30, 2020 - 600 Words </div>
+  </header>
+  <h1 id="utilitaire-de-base-dune-débian">Utilitaire de base d’une débian</h1>
+<h2 id="ajout-de-lutilisateur-à-sudo">Ajout de l’utilisateur à sudo</h2>
+<ul>
+<li>Passer en root avec cette commande <code>su -</code> , le temps d’installer
+<em>sudo</em> et de vous ajouter en tant que sudoers.</li>
+</ul>
+<p>A l’installation seul <em>ROOT</em> fait parti des <em>sudoers</em>, sudo est un
+utilisataire permettant de donner des droits d’administration
+temporairement à un utilisateur standard.</p>
+<p><code>su -</code></p>
+<p>Puis <code>apt install sudo</code></p>
+<p>On ajoute ensuite l’utilisateur via l’éditeur <em>visudo</em>.</p>
+<ul>
+<li>
+<p>A ce stade votre éditeur de texte est <code>nano</code> .</p>
+  <footer>
+  <a href='/blogdown/2020/09/30/debuter-avec-debian/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+  </div>
+</main>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="/blogdown/tags/debian/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,303 @@
+<script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script><main id="main">
+  <div>
+    <h1 id="title">Air</h1>
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>COP26 - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="COP26 - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2021/11/02/cop26/">COP26</a></h2>
+    <div class="post-meta">Tue, Nov 2, 2021 - 900 Words </div>
+  </header>
+  <h1 id="source-des-données">Source des données</h1>
+<p>J&rsquo;ai récupéré les données du site <a href="https://www.wri.org/">wri.org</a>, qui est l&rsquo;organisme qui collecte et produit les statistiques pour le climat.</p>
+<p>Ils ont un outils pas mal foutu du tout, par contre il y a des comparaisons qu&rsquo;on ne peut pas faire , comme comparer des groupes de pays .</p>
+<p>J&rsquo;ai donc choisi, les gaz à effet de serre, sur plusieurs groupes de pays différents.</p>
+<h1 id="représentativité-et-géopolitique">Représentativité et géopolitique</h1>
+<p>Attention:  Certains pays sont membres de plusieurs groupes.</p>
+  <footer>
+  <a href='/blogdown/2021/11/02/cop26/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Emissions de PM10 et PM25 du Royaume Uni - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Emissions de PM10 et PM25 du Royaume Uni - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/">Emissions de PM10 et PM25 du Royaume Uni</a></h2>
+    <div class="post-meta">Sat, Oct 23, 2021 - 700 Words </div>
+  </header>
+  <h1 id="total-période-1970-à-2019">Total période 1970 à 2019</h1>
+<h2 id="pm10">PM10</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(readr)
+</span></span><span style="display:flex;"><span>PM10_PM25_Time_Series <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;PM10_PM25_Time_Series.csv&#34;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## Rows: 60 Columns: 4
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &#34;,&#34;
+## dbl (4): year, pm10, pm25, ceiling2020
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(PM10_PM25_Time_Series, <span style="color:#a6e22e">aes</span>(year,pm10)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(<span style="color:#a6e22e">aes</span>(color<span style="color:#f92672">=</span>pm10)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Emission de particules fines (PM10) de 1970 à 2019 au Royaume Uni&#34;</span>,
+</span></span><span style="display:flex;"><span>        caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Source: Gouvernement du Royaume Uni&#34;</span>,
+</span></span><span style="display:flex;"><span>         x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Années&#34;</span>,
+</span></span><span style="display:flex;"><span>         y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Emissions PM10 &#34;</span>,
+</span></span><span style="display:flex;"><span>         colour <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;PM10&#34;</span>,
+</span></span><span style="display:flex;"><span>     )
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+</code></pre><img src="/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/index_files/figure-html/time_serie-1.png" width="672" />
+<h2 id="pm25">PM25</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(readr)
+</span></span><span style="display:flex;"><span>PM10_PM25_Time_Series <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;PM10_PM25_Time_Series.csv&#34;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## Rows: 60 Columns: 4
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &#34;,&#34;
+## dbl (4): year, pm10, pm25, ceiling2020
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(PM10_PM25_Time_Series, <span style="color:#a6e22e">aes</span>(year,pm25)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(<span style="color:#a6e22e">aes</span>(color<span style="color:#f92672">=</span>pm25)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Emission de particules fines (PM25) de 1970 à 2019 au Royaume Uni&#34;</span>,
+</span></span><span style="display:flex;"><span>        caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Source: Gouvernement du Royaume Uni&#34;</span>,
+</span></span><span style="display:flex;"><span>         x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Années&#34;</span>,
+</span></span><span style="display:flex;"><span>         y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Emissions PM25 &#34;</span>,
+</span></span><span style="display:flex;"><span>         colour <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;PM25&#34;</span>,
+</span></span><span style="display:flex;"><span>     ) 
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning: Removed 10 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+</code></pre><img src="/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<h1 id="1990-2005-2018-2019">1990, 2005, 2018, 2019</h1>
+<h2 id="pm25-1">PM25</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(readr)
+</span></span><span style="display:flex;"><span>uk_PM2_5_sector <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;uk_PM2_5_sector.csv&#34;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## Rows: 24 Columns: 4
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &#34;,&#34;
+## chr (2): Sector, ver
+## dbl (2): Year, Emissions
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(uk_PM2_5_sector, <span style="color:#a6e22e">aes</span>(Year,Emissions)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(<span style="color:#a6e22e">aes</span>(color<span style="color:#f92672">=</span>Sector, shape<span style="color:#f92672">=</span>Sector)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(<span style="color:#a6e22e">aes</span>(color<span style="color:#f92672">=</span>Sector)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Emission de particules fines (PM25) par secteur du Royaume Uni&#34;</span>,
+</span></span><span style="display:flex;"><span>        caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Source: Gouvernement du Royaume Uni&#34;</span>,
+</span></span><span style="display:flex;"><span>         x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Années&#34;</span>,
+</span></span><span style="display:flex;"><span>         y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Emissions&#34;</span>,
+</span></span><span style="display:flex;"><span>         colour <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Secteur&#34;</span>,
+</span></span><span style="display:flex;"><span>         shape <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Secteur&#34;</span>
+</span></span><span style="display:flex;"><span>     ) 
+</span></span></code></pre></div><img src="/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/index_files/figure-html/UKPM25-1.png" width="672" />
+<h2 id="pm10-1">PM10</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(readr)
+</span></span><span style="display:flex;"><span>uk_PM10_sector <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;uk_PM10_sector.csv&#34;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## Rows: 24 Columns: 4
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &#34;,&#34;
+## chr (2): Sector, ver
+## dbl (2): Year, Emissions
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(uk_PM10_sector, <span style="color:#a6e22e">aes</span>(Year,Emissions)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(<span style="color:#a6e22e">aes</span>(color<span style="color:#f92672">=</span>Sector, shape<span style="color:#f92672">=</span>Sector)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_line</span>(<span style="color:#a6e22e">aes</span>(color<span style="color:#f92672">=</span>Sector)) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">labs</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Emission de particules fines (PM10) par secteur du Royaume Uni&#34;</span>,
+</span></span><span style="display:flex;"><span>        caption <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Source: Gouvernement du Royaume Uni&#34;</span>,
+</span></span><span style="display:flex;"><span>         x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Années&#34;</span>,
+</span></span><span style="display:flex;"><span>         y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Emissions&#34;</span>,
+</span></span><span style="display:flex;"><span>         colour <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Secteur&#34;</span>,
+</span></span><span style="display:flex;"><span>         shape <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Secteur&#34;</span>
+</span></span><span style="display:flex;"><span>     )
+</span></span></code></pre></div><img src="/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/index_files/figure-html/UKPM10-1.png" width="672" />
+<h1 id="proportion-des-emissions-pm25-par-secteur-en-1990">Proportion des emissions PM25 par secteur en 1990</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(RColorBrewer)
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">43.46717718</span>,<span style="color:#ae81ff">39.75334</span>,<span style="color:#ae81ff">33.4542753</span>,<span style="color:#ae81ff">29.3908903</span>,<span style="color:#ae81ff">95.17064</span>)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Domestique&#34;</span>,<span style="color:#e6db74">&#34;Construction et usine&#34;</span>,<span style="color:#e6db74">&#34;Process industriel&#34;</span>, <span style="color:#e6db74">&#34;Transport&#34;</span>,<span style="color:#e6db74">&#34;Autres&#34;</span>)
+</span></span><span style="display:flex;"><span>color <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">brewer.pal</span>(<span style="color:#a6e22e">length</span>(count), <span style="color:#e6db74">&#34;Set2&#34;</span>) 
+</span></span><span style="display:flex;"><span>pct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">round</span>(count<span style="color:#f92672">/</span><span style="color:#a6e22e">sum</span>(count)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste</span>(lbls,pct)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste</span>(lbls,<span style="color:#e6db74">&#34;%&#34;</span>,sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> )
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pie</span>(count, labels <span style="color:#f92672">=</span> lbls, col <span style="color:#f92672">=</span> color, main <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Proportion des emissions PM25 par secteur en 1990&#34;</span>)
+</span></span></code></pre></div><img src="/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/index_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<h1 id="proportion-des-emissions-pm25-par-secteur-en-2005">Proportion des emissions PM25 par secteur en 2005</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(RColorBrewer)
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">28.68231526</span>,<span style="color:#ae81ff">21.63637793</span>,<span style="color:#ae81ff">19.15784332</span>,<span style="color:#ae81ff">24.23367353</span>,<span style="color:#ae81ff">35.4467</span>)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Domestique&#34;</span>,<span style="color:#e6db74">&#34;Construction et usine&#34;</span>,<span style="color:#e6db74">&#34;Process industriel&#34;</span>, <span style="color:#e6db74">&#34;Transport&#34;</span>,<span style="color:#e6db74">&#34;Autres&#34;</span>)
+</span></span><span style="display:flex;"><span>color <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">brewer.pal</span>(<span style="color:#a6e22e">length</span>(count), <span style="color:#e6db74">&#34;Set2&#34;</span>) 
+</span></span><span style="display:flex;"><span>pct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">round</span>(count<span style="color:#f92672">/</span><span style="color:#a6e22e">sum</span>(count)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste</span>(lbls,pct)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste</span>(lbls,<span style="color:#e6db74">&#34;%&#34;</span>,sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> )
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pie</span>(count, labels <span style="color:#f92672">=</span> lbls, col <span style="color:#f92672">=</span> color, main <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Proportion des emissions PM25 par secteur en 2005&#34;</span>)
+</span></span></code></pre></div><img src="/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<h1 id="proportion-des-emissions-pm25-par-secteur-en-2018">Proportion des emissions PM25 par secteur en 2018</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(RColorBrewer)
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">47.35432128</span>,<span style="color:#ae81ff">20.5864062</span>,<span style="color:#ae81ff">13.94194731</span>,<span style="color:#ae81ff">13.12861116</span>,<span style="color:#ae81ff">16.75408</span>)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Domestique&#34;</span>,<span style="color:#e6db74">&#34;Construction et usine&#34;</span>,<span style="color:#e6db74">&#34;Process industriel&#34;</span>, <span style="color:#e6db74">&#34;Transport&#34;</span>,<span style="color:#e6db74">&#34;Autres&#34;</span>)
+</span></span><span style="display:flex;"><span>color <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">brewer.pal</span>(<span style="color:#a6e22e">length</span>(count), <span style="color:#e6db74">&#34;Set2&#34;</span>) 
+</span></span><span style="display:flex;"><span>pct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">round</span>(count<span style="color:#f92672">/</span><span style="color:#a6e22e">sum</span>(count)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste</span>(lbls,pct)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste</span>(lbls,<span style="color:#e6db74">&#34;%&#34;</span>,sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> )
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pie</span>(count, labels <span style="color:#f92672">=</span> lbls, col <span style="color:#f92672">=</span> color, main <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Proportion des emissions PM25 par secteur en 2018&#34;</span>)
+</span></span></code></pre></div><img src="/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<h1 id="proportion-des-emissions-pm25-par-secteur-en-2019">Proportion des emissions PM25 par secteur en 2019</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(RColorBrewer)
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">47.13659663</span>,<span style="color:#ae81ff">19.25912284</span>,<span style="color:#ae81ff">13.37445948</span>,<span style="color:#ae81ff">13.03611225</span>,<span style="color:#ae81ff">15.90479</span>)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Domestique&#34;</span>,<span style="color:#e6db74">&#34;Construction et usine&#34;</span>,<span style="color:#e6db74">&#34;Process industriel&#34;</span>, <span style="color:#e6db74">&#34;Transport&#34;</span>,<span style="color:#e6db74">&#34;Autres&#34;</span>)
+</span></span><span style="display:flex;"><span>color <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">brewer.pal</span>(<span style="color:#a6e22e">length</span>(count), <span style="color:#e6db74">&#34;Set2&#34;</span>) 
+</span></span><span style="display:flex;"><span>pct <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">round</span>(count<span style="color:#f92672">/</span><span style="color:#a6e22e">sum</span>(count)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste</span>(lbls,pct)
+</span></span><span style="display:flex;"><span>lbls <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste</span>(lbls,<span style="color:#e6db74">&#34;%&#34;</span>,sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> )
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pie</span>(count, labels <span style="color:#f92672">=</span> lbls, col <span style="color:#f92672">=</span> color, main <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Proportion des emissions PM25 par secteur en 2019&#34;</span>)
+</span></span></code></pre></div><img src="/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<p>Source des données disponible sur  <a href="https://www.gov.uk/government/statistical-data-sets/env01-emissions-of-air-pollutants">gov.uk</a></p>
+  <footer>
+  <a href='/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+  </div>
+</main>

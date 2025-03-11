@@ -1,0 +1,189 @@
+<script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script><main id="main">
+  <div>
+    <h1 id="title">Windows10</h1>
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Intégrer un poste windows a un domaine AD - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Intégrer un poste windows a un domaine AD - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2020/11/25/int%C3%A9grer-un-poste-windows-a-un-domaine-ad/">Intégrer un poste windows a un domaine AD</a></h2>
+    <div class="post-meta">Wed, Nov 25, 2020 - 200 Words </div>
+  </header>
+  <p><img src="images/cover6.JPG" alt=""></p>
+<h1 id="vérification-dusage">Vérification d&rsquo;usage</h1>
+<p>Dans un premier temps , on vérifie la configuration IP de la machine ,
+et on veille à ce que ce soit le bon DNS qui réponde.</p>
+<p><img src="images/computerclub-A007.png" alt=""></p>
+<p>Pour cela utiliser l’ancien <strong>panneau de configurations</strong> , et ne pas
+passer par l’icone réseau en bas à droite .</p>
+<h2 id="en-powershell">En powershell</h2>
+<p>Une méthode simple et efficace :</p>
+<ul>
+<li>lancer powershell en mode administrateur , entrer cette commande:
+<ul>
+<li><code>Add-Computer -Domain computerclub.lan</code></li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/images/computerclub-A010.png" alt=""></p>
+  <footer>
+  <a href='/blogdown/2020/11/25/int%C3%A9grer-un-poste-windows-a-un-domaine-ad/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Windows10 - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Windows10 - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2020/11/24/windows10/">Windows10</a></h2>
+    <div class="post-meta">Tue, Nov 24, 2020 - 200 Words </div>
+  </header>
+  <h1 id="fixer-son-ip-avec-windows-10">Fixer son IP avec windows 10</h1>
+<h2 id="contexte">Contexte</h2>
+<p>Dans le cadre d’une maquette de service SambaAD , j’avais besoin de
+fixer l’IP d’une machine windows 10.</p>
+<p>Alors oui, je trouve que cette mouture est plutot joli … mais ça n’en
+fait pas un bon système pour autant.</p>
+<h3 id="le-nouveau-menu-de-configuration">Le nouveau menu de configuration</h3>
+<p>Avec l’arrivée de Win10 , nous avons eu le droit à un nouveau <strong>panneau de configuration</strong> certe très joli , mais malheureusement encore une fois il y a des bugs.</p>
+  <footer>
+  <a href='/blogdown/2020/11/24/windows10/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+  </div>
+</main>

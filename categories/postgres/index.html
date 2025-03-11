@@ -1,0 +1,110 @@
+<script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script><main id="main">
+  <div>
+    <h1 id="title">Postgres</h1>
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Base de données - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Base de données - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2021/10/24/postgres/">Base de données</a></h2>
+    <div class="post-meta">Sun, Oct 24, 2021 - 1800 Words </div>
+  </header>
+  <p>Travail en cours.</p>
+<p>L&rsquo;objectif étant :</p>
+<ul>
+<li>anonymiser un fichier de données <strong>CSV</strong></li>
+<li>l&rsquo;import et l&rsquo;export du fichier CSV dans une database en <strong>SQL</strong></li>
+</ul>
+<h1 id="contexte">Contexte</h1>
+<p>A la base , c&rsquo;est parti d&rsquo;un petit graphique que j&rsquo;ai fait , en réaction de l&rsquo;augmentation du prix du diesel.</p>
+<p><img src="images/unnamed-chunk-9-1.png" alt=""></p>
+<p>A l&rsquo;aide d&rsquo;un fichier <strong>csv</strong> , avec 13 <strong>observations</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csv" data-lang="csv"><span style="display:flex;"><span><span style="color:#e6db74">&#34;Date&#34;</span><span style="color:#e6db74">;&#34;Prix&#34;;&#34;Station&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;30/01/2021&#34;</span><span style="color:#e6db74">;&#34;1.309&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;20/02/2021&#34;</span><span style="color:#e6db74">;&#34;1.359&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;17/03/2021&#34;</span><span style="color:#e6db74">;&#34;1.369&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;26/03/2021&#34;</span><span style="color:#e6db74">;&#34;1.348&#34;;&#34;Magland&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;01/04/2021&#34;</span><span style="color:#e6db74">;&#34;1.359&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;12/04/2021&#34;</span><span style="color:#e6db74">;&#34;1.349&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;22/04/2021&#34;</span><span style="color:#e6db74">;&#34;1.359&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;13/05/2021&#34;</span><span style="color:#e6db74">;&#34;1.519&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;27/05/2021&#34;</span><span style="color:#e6db74">;&#34;1.379&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;20/07/2021&#34;</span><span style="color:#e6db74">;&#34;1.449&#34;;&#34;Amancy&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;01/08/2021&#34;</span><span style="color:#e6db74">;&#34;1.470&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;01/09/2021&#34;</span><span style="color:#e6db74">;&#34;1.470&#34;;&#34;Payot&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;01/10/2021&#34;</span><span style="color:#e6db74">;&#34;1.580&#34;;&#34;Payot&#34;</span>
+</span></span></code></pre></div><p>C&rsquo;est petit, oui .</p>
+  <footer>
+  <a href='/blogdown/2021/10/24/postgres/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+  </div>
+</main>

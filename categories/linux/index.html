@@ -1,0 +1,647 @@
+<script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script><main id="main">
+  <div>
+    <h1 id="title">Linux</h1>
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>ssh - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="ssh - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2021/10/17/ssh/">ssh</a></h2>
+    <div class="post-meta">Sun, Oct 17, 2021 - 1000 Words </div>
+  </header>
+  <h1 id="configuration-de-ssh">Configuration de ssh</h1>
+<h2 id="durcissement-de-ssh">Durcissement de SSH</h2>
+<p>Je me suis basé sur l’article de
+<a href="https://doc.huc.fr.eu.org/fr/sec/ssh/sshd-durci/">StéphaneHUC</a> , pour durcir la
+configuration du service.</p>
+<pre tabindex="0"><code>cd /etc/ssh
+ls
+sudo cp /etc/ssh/moduli /etc/ssh/moduli.bckp
+sudo chmod 0400 /etc/ssh/moduli.bckp
+sudo awk &#39;$5 &gt;= 3071&#39; /etc/ssh/moduli &gt; /etc/ssh/moduli.safe
+
+rm ssh_host_*
+ssh-keygen -t ed25519 -f ssh_host_ed25519_key -N &#34;&#34; -o -a 64
+ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key -N &#34;&#34; -o -a 64
+</code></pre><h3 id="configuration-du-service-sshd">Configuration du service sshd</h3>
+<h4 id="partie-serveur">Partie serveur</h4>
+<p><code># vi /etc/ssh/sshd_config</code></p>
+  <footer>
+  <a href='/blogdown/2021/10/17/ssh/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Virsh - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Virsh - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2021/10/17/virsh/">Virsh</a></h2>
+    <div class="post-meta">Sun, Oct 17, 2021 - 600 Words </div>
+  </header>
+  <h1 id="fixer-des-ip-avec-virsh">Fixer des IP avec virsh</h1>
+<p>Il y a quelques temps, j’ai pris le parti de ne plus utiliser
+<em>virtualbox</em>, ou <em>VMware</em>; pourtant ils sont très agréable à utiliser ,
+très facile , et on les retrouve assez régulièrement un peu partout.</p>
+<p>Je souhaitais un hyper viseur full open-source et natiif , et je me suis
+tourné vers <em>KVM</em>, qui dispose lui aussi d’une interface graphique
+répondant au nom de <em>virt-manager</em>.</p>
+  <footer>
+  <a href='/blogdown/2021/10/17/virsh/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Samba Activ Directory - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Samba Activ Directory - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2020/11/22/samba-activ-directory/">Samba Activ Directory</a></h2>
+    <div class="post-meta">Sun, Nov 22, 2020 - 2100 Words </div>
+  </header>
+  <p><img src="images/SAMBA4-AD-DC.png" alt=""></p>
+<h1 id="samba4-en-mode-activ-directory">Samba4 en mode Activ Directory</h1>
+<h1 id="contexte">Contexte</h1>
+<p>Les 4 serveurs seront des <strong>débian stretch</strong></p>
+<p>Un sera une <strong>débian buster</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Nom</th>
+<th>domaine</th>
+<th>OS</th>
+<th>Fonction</th>
+<th>IP</th>
+<th>CIDR</th>
+<th>Passerelle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>srvads</td>
+<td>computerclub.lan</td>
+<td>débian stretch</td>
+<td>controleur de domaine annuaire LDAP</td>
+<td>192.168.200.2</td>
+<td>/24</td>
+<td>192.168.200.1</td>
+</tr>
+<tr class="even">
+<td>srvads2</td>
+<td>computerclub.lan</td>
+<td>débian stretch</td>
+<td>Réplication du DC et LDAP/failover</td>
+<td>192.168.200.3</td>
+<td>/24</td>
+<td>192.168.200.1</td>
+</tr>
+<tr class="odd">
+<td>srvrodc</td>
+<td>computerclub.lan</td>
+<td>débian stretch</td>
+<td>controleur de domaine en lecture seule</td>
+<td>192.168.200.4</td>
+<td>/24</td>
+<td>192.168.200.1</td>
+</tr>
+<tr class="even">
+<td>srvfiles</td>
+<td>computerclub.lan</td>
+<td>débian stretch</td>
+<td>serveur de fichiers</td>
+<td>192.168.200.5</td>
+<td>/24</td>
+<td>192.168.200.1</td>
+</tr>
+<tr class="odd">
+<td>srvwapt</td>
+<td>computerclub.lan</td>
+<td>débian buster</td>
+<td>gestion de la bibliothèque logiciel</td>
+<td>192.168.200.6</td>
+<td>/24</td>
+<td>192.168.200.1</td>
+</tr>
+</tbody>
+</table>
+<p>Une machine <strong>windows 10</strong> servira de console de gestion de l’annuaire
+Active Directory (en réalité openLDAP) a l’aide des outils de gestion à
+distance <strong>Microsoft ActivDirectory</strong> aka <strong>RSAT</strong>.</p>
+  <footer>
+  <a href='/blogdown/2020/11/22/samba-activ-directory/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Linux Text editor - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Linux Text editor - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2020/11/12/linux-text-editor/">Linux Text editor</a></h2>
+    <div class="post-meta">Thu, Nov 12, 2020 - 500 Words </div>
+  </header>
+  <p><img src="images/linux-text-editor.svg.png" alt=""></p>
+<h1 id="enregistrer-un-fichier-texte">Enregistrer un fichier texte</h1>
+<h1 id="pourquoi-">Pourquoi ?</h1>
+<p>Lorsque vous venez d’installer un systèmes <strong>Gnu/Linux</strong> , nombres de
+configurations se font en mode texte.</p>
+<p>C’est presque un réflexe de se dire quel fichier modifier , c’est plus
+simple et standard. On ne perd pas de temps à expliquer comment accéder
+à tel ou tel logiciel car nous n’avons pas forcément les même environnements
+de bureaux.</p>
+<p>Et lorsque l’on est sur un serveur, nous n’avons pas d’environnement
+graphique du tout.</p>
+  <footer>
+  <a href='/blogdown/2020/11/12/linux-text-editor/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Tuner son shell avec oh-my-zsh - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Tuner son shell avec oh-my-zsh - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2020/10/30/zsh/">Tuner son shell avec oh-my-zsh</a></h2>
+    <div class="post-meta">Fri, Oct 30, 2020 - 900 Words </div>
+  </header>
+  <p><img src="images/ohmyzsh.png" alt=""></p>
+<h1 id="tuner-son-shell-avec-oh-my-zsh">Tuner son shell avec oh-my-zsh</h1>
+<h1 id="installation-de-zsh-et-oh-my-zsh">Installation de zsh et oh-my-zsh</h1>
+<ul>
+<li><code>sudo apt update &amp;&amp; sudo apt -yq upgrade &amp;&amp; sudo apt -yq install git zsh</code></li>
+<li><code>sh -c &quot;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></li>
+</ul>
+<pre tabindex="0"><code> `Looking for an existing zsh config...
+Using the Oh My Zsh template file and adding it to ~/.zshrc.
+
+Time to change your default shell to zsh:
+Do you want to change your default shell to zsh? [Y/n] Y
+Changing the shell...
+Mot de passe :
+Shell successfully changed to &#39;/usr/bin/zsh&#39;.
+
+         __                                     __
+  ____  / /_     ____ ___  __  __   ____  _____/ /_
+ / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \
+/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /
+\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/
+                        /____/                       ....is now installed!
+
+
+Before you scream Oh My Zsh! please look over the ~/.zshrc file to select plugins, themes, and options.
+
+• Follow us on Twitter: https://twitter.com/ohmyzsh
+• Join our Discord server: https://discord.gg/ohmyzsh
+• Get stickers, shirts, coffee mugs and other swag: https://shop.planetargon.com/collections/oh-my-zsh
+
+➜  ~
+</code></pre><ul>
+<li>Il y a plein de petites améliorations comme celles ci:
+<ul>
+<li>Complétions de chemins et navigation arrière</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>➜  ~ cd /u/lo/sh
+Si le chemin est unique, en appuyant sur TAB vous obtiendez ceci:
+➜  ~ cd /usr/local/share
+Au lieu de taper cd ../../ pour remonter d&#39;un répertoire, il suffit de ..
+➜  share ..
+➜  local ..
+➜  /usr
+</code></pre><ul>
+<li>Remplacement des variables</li>
+</ul>
+<p>TAB permet aussi de remplacer toutes les variables par leur valeur.</p>
+  <footer>
+  <a href='/blogdown/2020/10/30/zsh/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Debuter avec debian - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Debuter avec debian - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2020/09/30/debuter-avec-debian/">Debuter avec debian</a></h2>
+    <div class="post-meta">Wed, Sep 30, 2020 - 600 Words </div>
+  </header>
+  <h1 id="utilitaire-de-base-dune-débian">Utilitaire de base d’une débian</h1>
+<h2 id="ajout-de-lutilisateur-à-sudo">Ajout de l’utilisateur à sudo</h2>
+<ul>
+<li>Passer en root avec cette commande <code>su -</code> , le temps d’installer
+<em>sudo</em> et de vous ajouter en tant que sudoers.</li>
+</ul>
+<p>A l’installation seul <em>ROOT</em> fait parti des <em>sudoers</em>, sudo est un
+utilisataire permettant de donner des droits d’administration
+temporairement à un utilisateur standard.</p>
+<p><code>su -</code></p>
+<p>Puis <code>apt install sudo</code></p>
+<p>On ajoute ensuite l’utilisateur via l’éditeur <em>visudo</em>.</p>
+<ul>
+<li>
+<p>A ce stade votre éditeur de texte est <code>nano</code> .</p>
+  <footer>
+  <a href='/blogdown/2020/09/30/debuter-avec-debian/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+  </div>
+</main>

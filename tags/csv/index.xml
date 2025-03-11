@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CSV on Les ordinateurs, les autres et moi</title>
-    <link>https://ordinatous.github.io/blogdown/tags/csv/</link>
+    <link>http://localhost:4321/blogdown/tags/csv/</link>
     <description>Recent content in CSV on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Fri, 05 Nov 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://ordinatous.github.io/blogdown/tags/csv/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:4321/blogdown/tags/csv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tabula, extraction de données</title>
-      <link>https://ordinatous.github.io/blogdown/2021/11/05/tabula-extraction-de-donn%C3%A9es/</link>
+      <link>http://localhost:4321/blogdown/2021/11/05/tabula-extraction-de-donn%C3%A9es/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/2021/11/05/tabula-extraction-de-donn%C3%A9es/</guid>
+      <guid>http://localhost:4321/blogdown/2021/11/05/tabula-extraction-de-donn%C3%A9es/</guid>
       <description>&lt;p&gt;Ce travail est sous licence &lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34;&gt;Attribution-NonCommercial 4.0&#xA;International&lt;/a&gt;.&#xA;&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34;&gt;&lt;img src=&#34;https://i.creativecommons.org/l/by-nc/4.0/88x31.png&#34; alt=&#34;Attribution-NonCommercial 4.0&#xA;International&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,0 +1,134 @@
+<script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script><main id="main">
+  <div>
+    <h1 id="title">Zsh</h1>
+    
+      <!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Tuner son shell avec oh-my-zsh - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Tuner son shell avec oh-my-zsh - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+<article class="main">
+  <header>
+    <h2><a href="/blogdown/2020/10/30/zsh/">Tuner son shell avec oh-my-zsh</a></h2>
+    <div class="post-meta">Fri, Oct 30, 2020 - 900 Words </div>
+  </header>
+  <p><img src="images/ohmyzsh.png" alt=""></p>
+<h1 id="tuner-son-shell-avec-oh-my-zsh">Tuner son shell avec oh-my-zsh</h1>
+<h1 id="installation-de-zsh-et-oh-my-zsh">Installation de zsh et oh-my-zsh</h1>
+<ul>
+<li><code>sudo apt update &amp;&amp; sudo apt -yq upgrade &amp;&amp; sudo apt -yq install git zsh</code></li>
+<li><code>sh -c &quot;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></li>
+</ul>
+<pre tabindex="0"><code> `Looking for an existing zsh config...
+Using the Oh My Zsh template file and adding it to ~/.zshrc.
+
+Time to change your default shell to zsh:
+Do you want to change your default shell to zsh? [Y/n] Y
+Changing the shell...
+Mot de passe :
+Shell successfully changed to &#39;/usr/bin/zsh&#39;.
+
+         __                                     __
+  ____  / /_     ____ ___  __  __   ____  _____/ /_
+ / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \
+/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /
+\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/
+                        /____/                       ....is now installed!
+
+
+Before you scream Oh My Zsh! please look over the ~/.zshrc file to select plugins, themes, and options.
+
+• Follow us on Twitter: https://twitter.com/ohmyzsh
+• Join our Discord server: https://discord.gg/ohmyzsh
+• Get stickers, shirts, coffee mugs and other swag: https://shop.planetargon.com/collections/oh-my-zsh
+
+➜  ~
+</code></pre><ul>
+<li>Il y a plein de petites améliorations comme celles ci:
+<ul>
+<li>Complétions de chemins et navigation arrière</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>➜  ~ cd /u/lo/sh
+Si le chemin est unique, en appuyant sur TAB vous obtiendez ceci:
+➜  ~ cd /usr/local/share
+Au lieu de taper cd ../../ pour remonter d&#39;un répertoire, il suffit de ..
+➜  share ..
+➜  local ..
+➜  /usr
+</code></pre><ul>
+<li>Remplacement des variables</li>
+</ul>
+<p>TAB permet aussi de remplacer toutes les variables par leur valeur.</p>
+  <footer>
+  <a href='/blogdown/2020/10/30/zsh/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+    
+  </div>
+</main>
