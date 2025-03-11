@@ -159,7 +159,18 @@ la stack.</p>
 <h4 id="léditeur-de-stack">L&rsquo;éditeur de stack</h4>
 <img src="images/2025-03-08_14-44.png" alt="" width="80%" height="80%"/>
 <p>Je vais modifier 2 ou 3 éléments puis relancer la stack . Ce n&rsquo;est pas un docker que
-j&rsquo;utilise vraiment . Il peut bien servir d&rsquo;exemple .</p>
+j&rsquo;utilise vraiment beaucoup. Il peut bien servir d&rsquo;exemple.</p>
+<p>Quelques précisions sur les docker files:</p>
+<p>Une chose importante à savoir , le format de fichier est du yaml ou yml.</p>
+<p>L&rsquo;indentation est très précise, et ne supporte pas la tabulation, il faut faire des espaces,
+sinon vous aurez des erreurs.</p>
+<p>Par exemple , copiez collez le contenu dans un éditeur de texte , comme NotePad++,
+mettez l&rsquo;indentation automatique , et détecter depuis le contenu , NP++ devrait détecter les espaces.</p>
+<p>De plus, il fallait préciser la version de la syntaxe du compose , mais c&rsquo;est terminé ,
+à priori , c&rsquo;est figé.</p>
+<p>Maintenant , les déclarations tels que services, ou volumes démarre des le débuts de
+la ligne , et se terminent par :  , lorsque vous faites entrée avec un éditeur correctement
+configuré , la ligne suivante sera bien positionnée .</p>
 <p>Et , je vais détailler , un peu le fichier.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">nextcloud</span>:
@@ -192,17 +203,7 @@ j&rsquo;utilise vraiment . Il peut bien servir d&rsquo;exemple .</p>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_DATABASE=nextcloud</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_USER=nextcloud</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_HOST=db</span>
-</span></span></code></pre></div><p>Une chose importante à savoir , le format de fichier est du yaml ou yml.</p>
-<p>L&rsquo;indentation est très précise, et ne supporte pas la tabulation, il faut faire des espaces,
-sinon vous aurez des erreurs.</p>
-<p>Par exemple , copiez collez le contenu dans un éditeur de texte , comme NotePad++,
-mettez l&rsquo;indentation automatique , et détecter depuis le contenu , NP++ devrait détecter les espaces.</p>
-<p>De plus, il fallait préciser la version de la syntaxe du compose , mais c&rsquo;est terminé ,
-à priori , c&rsquo;est figé.</p>
-<p>Maintenant , les déclarations tels que services, ou volumes démarre des le débuts de
-la ligne , et se terminent par :  , lorsque vous faites entrée avec un éditeur correctement
-configuré , la ligne suivante sera bien positionnée .</p>
-<h4 id="volumes">volumes</h4>
+</span></span></code></pre></div><h4 id="volumes">volumes</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">nextcloud</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
@@ -264,6 +265,15 @@ On remarque également , que le nom est préfixé par le nom de la stack .</p>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_USER=nextcloud</span>
 </span></span></code></pre></div><p>Ici , en seconde déclaration nous avons les services (on peut parfaitement mettre les
 volumes aprés.)</p>
+<p>Nous voyions 2 services de déclaré , l&rsquo;un pour la db , qui appelle l&rsquo;image mariadb
+avec son N° de version, la récupération se fait automatiquement;
+et l&rsquo;autre service app , qui appelle l&rsquo;image nextcloud .</p>
+<p>Vient ensuite la politique de redémarrage restart :</p>
+<ul>
+<li>always</li>
+<li>unless-stop</li>
+<li>on-faillur</li>
+</ul>
 
     </div>
   </article>
