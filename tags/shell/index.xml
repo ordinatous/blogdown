@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell on Les ordinateurs, les autres et moi</title>
-    <link>https://ordinatous.github.io/blogdown/tags/shell/</link>
+    <link>http://localhost:4321/blogdown/tags/shell/</link>
     <description>Recent content in Shell on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Fri, 30 Oct 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://ordinatous.github.io/blogdown/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:4321/blogdown/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tuner son shell avec oh-my-zsh</title>
-      <link>https://ordinatous.github.io/blogdown/2020/10/30/zsh/</link>
+      <link>http://localhost:4321/blogdown/2020/10/30/zsh/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/2020/10/30/zsh/</guid>
+      <guid>http://localhost:4321/blogdown/2020/10/30/zsh/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/ohmyzsh.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;tuner-son-shell-avec-oh-my-zsh&#34;&gt;Tuner son shell avec oh-my-zsh&lt;/h1&gt;&#xA;&lt;h1 id=&#34;installation-de-zsh-et-oh-my-zsh&#34;&gt;Installation de zsh et oh-my-zsh&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;sudo apt update &amp;amp;&amp;amp; sudo apt -yq upgrade &amp;amp;&amp;amp; sudo apt -yq install git zsh&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;sh -c &amp;quot;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; `Looking for an existing zsh config...&#xA;Using the Oh My Zsh template file and adding it to ~/.zshrc.&#xA;&#xA;Time to change your default shell to zsh:&#xA;Do you want to change your default shell to zsh? [Y/n] Y&#xA;Changing the shell...&#xA;Mot de passe :&#xA;Shell successfully changed to &amp;#39;/usr/bin/zsh&amp;#39;.&#xA;&#xA;         __                                     __&#xA;  ____  / /_     ____ ___  __  __   ____  _____/ /_&#xA; / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \&#xA;/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /&#xA;\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/&#xA;                        /____/                       ....is now installed!&#xA;&#xA;&#xA;Before you scream Oh My Zsh! please look over the ~/.zshrc file to select plugins, themes, and options.&#xA;&#xA;• Follow us on Twitter: https://twitter.com/ohmyzsh&#xA;• Join our Discord server: https://discord.gg/ohmyzsh&#xA;• Get stickers, shirts, coffee mugs and other swag: https://shop.planetargon.com/collections/oh-my-zsh&#xA;&#xA;➜  ~&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;Il y a plein de petites améliorations comme celles ci:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Complétions de chemins et navigation arrière&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;➜  ~ cd /u/lo/sh&#xA;Si le chemin est unique, en appuyant sur TAB vous obtiendez ceci:&#xA;➜  ~ cd /usr/local/share&#xA;Au lieu de taper cd ../../ pour remonter d&amp;#39;un répertoire, il suffit de ..&#xA;➜  share ..&#xA;➜  local ..&#xA;➜  /usr&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;Remplacement des variables&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;TAB permet aussi de remplacer toutes les variables par leur valeur.&lt;/p&gt;</description>
     </item>
   </channel>

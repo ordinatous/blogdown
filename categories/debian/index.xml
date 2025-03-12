@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debian on Les ordinateurs, les autres et moi</title>
-    <link>https://ordinatous.github.io/blogdown/categories/debian/</link>
+    <link>http://localhost:4321/blogdown/categories/debian/</link>
     <description>Recent content in Debian on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://ordinatous.github.io/blogdown/categories/debian/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:4321/blogdown/categories/debian/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ssh</title>
-      <link>https://ordinatous.github.io/blogdown/2021/10/17/ssh/</link>
+      <link>http://localhost:4321/blogdown/2021/10/17/ssh/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/2021/10/17/ssh/</guid>
+      <guid>http://localhost:4321/blogdown/2021/10/17/ssh/</guid>
       <description>&lt;h1 id=&#34;configuration-de-ssh&#34;&gt;Configuration de ssh&lt;/h1&gt;&#xA;&lt;h2 id=&#34;durcissement-de-ssh&#34;&gt;Durcissement de SSH&lt;/h2&gt;&#xA;&lt;p&gt;Je me suis basé sur l’article de&#xA;&lt;a href=&#34;https://doc.huc.fr.eu.org/fr/sec/ssh/sshd-durci/&#34;&gt;StéphaneHUC&lt;/a&gt; , pour durcir la&#xA;configuration du service.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd /etc/ssh&#xA;ls&#xA;sudo cp /etc/ssh/moduli /etc/ssh/moduli.bckp&#xA;sudo chmod 0400 /etc/ssh/moduli.bckp&#xA;sudo awk &amp;#39;$5 &amp;gt;= 3071&amp;#39; /etc/ssh/moduli &amp;gt; /etc/ssh/moduli.safe&#xA;&#xA;rm ssh_host_*&#xA;ssh-keygen -t ed25519 -f ssh_host_ed25519_key -N &amp;#34;&amp;#34; -o -a 64&#xA;ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key -N &amp;#34;&amp;#34; -o -a 64&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;configuration-du-service-sshd&#34;&gt;Configuration du service sshd&lt;/h3&gt;&#xA;&lt;h4 id=&#34;partie-serveur&#34;&gt;Partie serveur&lt;/h4&gt;&#xA;&lt;p&gt;&lt;code&gt;# vi /etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Debuter avec debian</title>
-      <link>https://ordinatous.github.io/blogdown/2020/09/30/debuter-avec-debian/</link>
+      <link>http://localhost:4321/blogdown/2020/09/30/debuter-avec-debian/</link>
       <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/2020/09/30/debuter-avec-debian/</guid>
+      <guid>http://localhost:4321/blogdown/2020/09/30/debuter-avec-debian/</guid>
       <description>&lt;h1 id=&#34;utilitaire-de-base-dune-débian&#34;&gt;Utilitaire de base d’une débian&lt;/h1&gt;&#xA;&lt;h2 id=&#34;ajout-de-lutilisateur-à-sudo&#34;&gt;Ajout de l’utilisateur à sudo&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Passer en root avec cette commande &lt;code&gt;su -&lt;/code&gt; , le temps d’installer&#xA;&lt;em&gt;sudo&lt;/em&gt; et de vous ajouter en tant que sudoers.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;A l’installation seul &lt;em&gt;ROOT&lt;/em&gt; fait parti des &lt;em&gt;sudoers&lt;/em&gt;, sudo est un&#xA;utilisataire permettant de donner des droits d’administration&#xA;temporairement à un utilisateur standard.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;su -&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Puis &lt;code&gt;apt install sudo&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;On ajoute ensuite l’utilisateur via l’éditeur &lt;em&gt;visudo&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;A ce stade votre éditeur de texte est &lt;code&gt;nano&lt;/code&gt; .&lt;/p&gt;</description>
     </item>
   </channel>
