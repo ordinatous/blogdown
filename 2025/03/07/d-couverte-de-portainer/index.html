@@ -77,7 +77,7 @@
   </div>
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">7 min read</span>
     
 
     <h1 class="article-title">Découverte de Portainer</h1>
@@ -95,31 +95,44 @@
         <li><a href="#dashboard-principal">Dashboard principal</a></li>
         <li><a href="#noeud-principal">Noeud principal</a></li>
         <li><a href="#les-stacks">Les stacks</a></li>
+        <li><a href="#volumes">volumes</a></li>
         <li><a href="#services">services</a></li>
+        <li><a href="#environment">Environment</a></li>
+        <li><a href="#connexion-app-db">Connexion app db</a></li>
+        <li><a href="#network">Network</a></li>
+        <li><a href="#modification-à-chaud">Modification à chaud</a></li>
       </ul>
     </li>
+    <li><a href="#its-work-">It&rsquo;s work !!</a></li>
   </ul>
 </nav>
       
       <h2 id="le-gestionnaire-de-dockers-en-mode-webui">Le gestionnaire de dockers en mode WebUI</h2>
 <p>Portainer permet de manager vos containers docker , et de connecter plusieurs environnements.</p>
 <p><a href="https://www.portainer.io/">Lien vers le site officiel</a></p>
-<img src="images/2025-03-07_13-32.png" alt="" width="80%" height="80%"/>
-<p>On constate qu&rsquo;il y a 3 environnements de connecter.</p>
-<p>C&rsquo;est très pratique , ça fonctionne très bien, cependant prennez l&rsquo;habitude
-de créer un dossier par contenaire , afin d&rsquo;y garder des notes , scripts , model
+<img src="images/2025-03-07_13-32.png" alt="" width="100%" height="100%"/>
+<p>On constate qu&rsquo;il y a 3 environnements de connecté.</p>
+<p>C&rsquo;est très pratique , ça fonctionne très bien, cependant prenez l&rsquo;habitude
+de créer un dossier par contenaire , afin d&rsquo;y garder vos notes , vos scripts , le model
 de votre docker-compose , et éventuellement des sous dossiers si vous voulez les
 monter dans votre contenaire.</p>
 <p>Exemple:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p mon_docker/<span style="color:#f92672">{</span>data_mon_docker,config_mon_docker,logs_mon_docker<span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Portainer est lui même un docker , pour l&rsquo;environnement local , portainer va utiliser
+</span></span></code></pre></div><p>Sans portainer , c&rsquo;est de cette manière que vous allez le faire . Et c&rsquo;est même
+comme ça que vous risquez de le faire par facilité . Par ce que ça fonctionne très bien
+sans portainer. Et c&rsquo;est même formateur.</p>
+<p>Comme ça :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd mon_docker
+</span></span><span style="display:flex;"><span>docker compose up -d .
+</span></span></code></pre></div><p>Et c&rsquo;est tout , si le compose est bien fait: le docker démarre.</p>
+<p>Portainer est lui même un docker , pour l&rsquo;environnement local , portainer va utiliser
 le domain socket unix ( <a href="https://en.wikipedia.org/wiki/Inter-process_communication">interprocess communication IPC</a> ) , et qui
 va exploiter un agent pour les environnements distant , agent qui est également un docker.</p>
 <p>De la même manière que portainer , l&rsquo;agent utilise le domain socket unix pour ensuite
 exposer le service via un socket IP.</p>
 <p>C&rsquo;est un peu magique .</p>
 <h3 id="dashboard-principal">Dashboard principal</h3>
-<img src="images/2025-03-07_16-46.png" alt="" width="80%" height="80%"/>
+<img src="images/2025-03-07_16-46.png" alt="" width="100%" height="100%"/>
 <p>Au premier coup d’œil , vous connaissez:</p>
 <ul>
 <li>le nombre de NODE</li>
@@ -130,7 +143,7 @@ exposer le service via un socket IP.</p>
 <li>leurs états</li>
 </ul>
 <h3 id="noeud-principal">Noeud principal</h3>
-<img src="images/2025-03-08_10-22.png" alt="" width="80%" height="80%"/>
+<img src="images/2025-03-08_10-22.png" alt="" width="100%" height="100%"/>
 <p>Ici portainer CE est installé sur une petite VM debian. Le
 dashboard nous donne un récapitulatif de la machine hôte (environnement local).</p>
 <ul>
@@ -141,7 +154,7 @@ dashboard nous donne un récapitulatif de la machine hôte (environnement local)
 <li>le nombre de volumes</li>
 </ul>
 <h3 id="les-stacks">Les stacks</h3>
-<img src="images/2025-03-08_14-09.png" alt="" width="80%" height="80%"/>
+<img src="images/2025-03-08_14-09.png" alt="" width="100%" height="100%"/>
 <p>Stacks correspond à <strong>docker compose</strong> qui permet de lancer plusieurs dockers en même temps, ou de lancer
 une stack web , soit l&rsquo;application web et sa db.</p>
 <p>Super pratique!! c&rsquo;est ici que vous placez vos docker-compose , mais surtout ça permet de
@@ -203,7 +216,7 @@ configuré , la ligne suivante sera bien positionnée .</p>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_DATABASE=nextcloud</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_USER=nextcloud</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_HOST=db</span>
-</span></span></code></pre></div><h4 id="volumes">volumes</h4>
+</span></span></code></pre></div><h3 id="volumes">volumes</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">nextcloud</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
@@ -229,6 +242,8 @@ Ils sont situé dans <code>/var/lib/docker/</code></p>
 étaient <em>volatiles</em> . Ce qui était évidemment faux , seulement à chaque lancement
 ; puis destruction; puis re lancement d&rsquo;un docker , un nouveau volume se créait ,
 avec une suite de nombre aléatoire .</p>
+<p>Tout est transparent et ce fait automatiquement . A aucun moment vous n&rsquo;avez demandé
+de créer un volume , ni même un réseau&hellip; donc docker le fait pour vous , à la volée.</p>
 <p>Typiquement en faisant ce genre de commande:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -it --rm busybox
 </span></span></code></pre></div><p>Alors, forcément à lancer, puis détruire à la chaîne des dockers, fatalement , le user
@@ -248,7 +263,15 @@ bien sagement dans <em>/var/lib/docker/volumes</em>.</p>
 </span></span><span style="display:flex;"><span>    └── rustdesk_hbbs_data
 </span></span></code></pre></div><p>On peut bien plus facilement les réutiliser , qu&rsquo;une suite de nombre .
 On remarque également , que le nom est préfixé par le nom de la stack .</p>
-<p>C&rsquo;est malin.</p>
+<p>Le volume que l&rsquo;on a déclaré plus haut , le docker va y stocker les données,
+ainsi vous ne perdrez rien , pour le peu que vous réutilisiez le même volume.</p>
+<p>Rien ne vous empêche , de déclarer un nouveau volume en cas de réécriture ,
+pour repartir sur un volume vide , et éviter des conflit entre version .</p>
+<p>C&rsquo;est très souple , vous n&rsquo;avez pas idée. Ça vous évite la ré installation d&rsquo;un
+serveur et de sa configuration.
+Vous pouvez bosser avec plusieurs version d&rsquo;une db ou de php , sans même modifier
+quoi que ce soit sur votre serveur . A part installer docker.</p>
+<p>C&rsquo;est très malin.</p>
 <h3 id="services">services</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
@@ -264,16 +287,79 @@ On remarque également , que le nom est préfixé par le nom de la stack .</p>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_DATABASE=nextcloud</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_USER=nextcloud</span>
 </span></span></code></pre></div><p>Ici , en seconde déclaration nous avons les services (on peut parfaitement mettre les
-volumes aprés.)</p>
-<p>Nous voyions 2 services de déclaré , l&rsquo;un pour la db , qui appelle l&rsquo;image mariadb
+volumes après.)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span></code></pre></div><p>Nous voyions 2 services de déclaré , l&rsquo;un pour la db , qui appelle l&rsquo;image mariadb
 avec son N° de version, la récupération se fait automatiquement;
 et l&rsquo;autre service app , qui appelle l&rsquo;image nextcloud .</p>
-<p>Vient ensuite la politique de redémarrage restart :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span></code></pre></div><p>Vient ensuite la politique de redémarrage restart :</p>
 <ul>
 <li>always</li>
 <li>unless-stop</li>
 <li>on-failur</li>
+<li>no</li>
 </ul>
+<p>Ensuite une commande envoyé directement au <em>serveur</em> mariadb .</p>
+<h3 id="environment">Environment</h3>
+<p>C&rsquo;est ici , que vous allez passer les <strong>crédentials</strong> d&rsquo;un service .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_ROOT_PASSWORD=P@ssw0rdC0mpliqu3</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_PASSWORD=changeme</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_DATABASE=nextcloud</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MYSQL_USER=nextcloud</span>
+</span></span></code></pre></div><p>La bonne pratique voudrait créer un fichier .env contenant les variables .</p>
+<p>Mais en vrai , ça change quoi ? C&rsquo;est qu&rsquo;un délire . Juste ça marche .
+Et c&rsquo;est ce qui compte.</p>
+<p>Pour la partie application : app</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>  <span style="color:#f92672">app</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nextcloud</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">8080</span>:<span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">links</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">db</span>
+</span></span></code></pre></div><p>On voit que des ports sont définis . C&rsquo;est là qu&rsquo;il faut savoir (ou comprendre)
+que les ports de gauche  correspondent aux ports de votre machine ,
+les ports de droite correspondent au service du docker.</p>
+<p>En somme , pour s&rsquo;y connecter en mode web , il faudra y aller sur le port 8080.</p>
+<h3 id="connexion-app-db">Connexion app db</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>    <span style="color:#f92672">links</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">db</span>
+</span></span></code></pre></div><p>Avec ça , on ne s&rsquo;embête même plus à configurer la méthode de connexion de la db.
+Elle est directement connecté à l&rsquo;application.</p>
+<p>C&rsquo;est toujours du travail en moins.</p>
+<h3 id="network">Network</h3>
+<p>Pas besoin de s&rsquo;en occuper. Docker travail dans un réseau en 172.17.0.0/16.
+Et va créer automatiquement un nouvelle plage : 172.18.0.0/16 , puis 172.19.0.0/16
+et ainsi de suite .</p>
+<p>Rien ne vous empêche de déconnecter vos dockers d&rsquo;un réseau pour les connecter à
+un autre réseau.
+Vous pouvez même redéfinir , la plage de base , en modifiant le daemon docker.</p>
+<h3 id="modification-à-chaud">Modification à chaud</h3>
+<p>Admettons , que je veuille ajouter , un hostname à la partie application .</p>
+<p><img src="images/2025-03-12_00-00.png" alt=""></p>
+<p>Je vais l&rsquo;appeler <a href="cloud.ordinatous.com">cloud.ordinatous.com</a> , vu qu&rsquo;elle est
+déjà accessible sous ce nom.</p>
+<p><img src="images/2025-03-12_00-03.png" alt=""></p>
+<p>Succés !!</p>
+<p><img src="images/2025-03-12_00-04.png" alt=""></p>
+<p>On vérifie dans le docker inspect</p>
+<p><img src="images/2025-03-12_00-09.png" alt=""></p>
+<p>Et on se connecte en web. Bon &hellip; j&rsquo;ai pas le bon crédential..</p>
+<p><img src="images/2025-03-12_00-40.png" alt=""></p>
+<p>C&rsquo;est parti pour la console pour réinitialiser le mot de passe..</p>
+<p><img src="images/2025-03-12_00-49.png" alt=""></p>
+<p>Avec cette commande:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>php /var/www/html/occ user:resetpassword ordinatous
+</span></span></code></pre></div><p><img src="images/2025-03-12_00-33.png" alt=""></p>
+<p><img src="images/zelda.jpeg" alt=""></p>
+<h2 id="its-work-">It&rsquo;s work !!</h2>
+<p><img src="images/2025-03-12_00-55.png" alt=""></p>
+<p>Et vous pensez bien , que j&rsquo;ai changé l&rsquo;heure de mon ordi &hellip;</p>
+<p><img src="images/2025-03-12_00-59.png" alt=""></p>
 
     </div>
   </article>
