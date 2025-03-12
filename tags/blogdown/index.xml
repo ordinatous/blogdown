@@ -2,25 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogdown on Les ordinateurs, les autres et moi</title>
-    <link>http://localhost:4321/blogdown/tags/blogdown/</link>
+    <link>https://ordinatous.github.io/blogdown/tags/blogdown/</link>
     <description>Recent content in Blogdown on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/blogdown/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ordinatous.github.io/blogdown/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Personnalisation d&#39;un docker</title>
-      <link>http://localhost:4321/blogdown/2025/03/10/personnalisation-d-un-docker/</link>
+      <link>https://ordinatous.github.io/blogdown/2025/03/10/personnalisation-d-un-docker/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/2025/03/10/personnalisation-d-un-docker/</guid>
-      <description>&lt;h1 id=&#34;rstudio&#34;&gt;Rstudio&lt;/h1&gt;&#xA;&lt;p&gt;J&amp;rsquo;avais utilisé Rstudio, il y a à peu 2 ans , pour faire du R et éditer mon blog ;&#xA;et n&amp;rsquo;ayant pas vraiment pris le temps de lire le mode d&amp;rsquo;emploi , j&amp;rsquo;avais un peu tout&#xA;en plan, et baladant mon dossier web sur une clé USB &amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;En voulant ré installer Rstudio , et reprendre le projet ou il en était, je constatait&#xA;que c&amp;rsquo;était toujours le bazars .&#xA;Je me suis souvenu qu&amp;rsquo;il y avait des équipes qui travaillaient sur du rstudio en&#xA;docker. Avec des dockers à la carte avec des packages R pré-installés.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Rstudio et blogdown</title>
-      <link>http://localhost:4321/blogdown/2025/03/10/rstudio-et-blogdown/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/2025/03/10/rstudio-et-blogdown/</guid>
-      <description>&lt;h2 id=&#34;présentation&#34;&gt;Présentation&lt;/h2&gt;&#xA;&lt;p&gt;Rstudio est un IDE , orienté &lt;em&gt;exploitation de données&lt;/em&gt; , il est en particulier&#xA;utilisé dans le domaine scientifique , principalement pour faire du R .&lt;/p&gt;&#xA;&lt;p&gt;Il est maintenu par &lt;a href=&#34;https://posit.co/&#34;&gt;posit.co&lt;/a&gt; , et j&amp;rsquo;ai découvert que la créatrice&#xA;du template &lt;strong&gt;hugo-lithium&lt;/strong&gt; :  Yihui Xie travaillait pour eux , elle développe donc maintenant&#xA;Rstudio , et que surtout elle avait créé l&amp;rsquo;outil blogdown , qui permet de créer son blog&#xA;avec un éditeur en MarkDown .&lt;/p&gt;</description>
+      <guid>https://ordinatous.github.io/blogdown/2025/03/10/personnalisation-d-un-docker/</guid>
+      <description>&lt;h2 id=&#34;présentation-de-rstudio&#34;&gt;&lt;strong&gt;Présentation de Rstudio&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Rstudio est un IDE permettant de faire du R et d&amp;rsquo;éditer R Markdown pour inclure du code&#xA;R dans le document, de l&amp;rsquo;exécuter et d&amp;rsquo;avoir le rendu dans la page.&lt;/p&gt;&#xA;&lt;p&gt;Cet IDE est plein de fonctionnalités que je détaillerais dans un autre article.&lt;/p&gt;&#xA;&lt;h2 id=&#34;contexte&#34;&gt;&lt;strong&gt;Contexte&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;J&amp;rsquo;avais utilisé Rstudio, il y a à peu 2 ans , pour faire du R et éditer mon blog ;&#xA;et n&amp;rsquo;ayant pas vraiment pris le temps de lire le mode d&amp;rsquo;emploi , c&amp;rsquo;était un véritable&#xA;chantier dans le dossier de travail , et 2 ou 3 ans plus tard , je ne me souvenais plus en j&amp;rsquo;en étais.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

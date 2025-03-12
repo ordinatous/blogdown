@@ -2,28 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ordinatous.github.io/blogdown/tags/blogdown/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ordinatous.github.io/blogdown/categories/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ordinatous.github.io/blogdown/categories/docker/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ordinatous.github.io/blogdown/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ordinatous.github.io/blogdown/2025/03/10/personnalisation-d-un-docker/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ordinatous.github.io/blogdown/post/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ordinatous.github.io/blogdown/categories/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
+    <loc>https://ordinatous.github.io/blogdown/tags/rstudio/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ordinatous.github.io/blogdown/tags/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ordinatous.github.io/blogdown/2025/03/07/d-couverte-de-portainer/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ordinatous.github.io/blogdown/categories/docker/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ordinatous.github.io/blogdown/tags/docker/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ordinatous.github.io/blogdown/tags/portainer/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ordinatous.github.io/blogdown/tags/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ordinatous.github.io/blogdown/categories/chiffrement/</loc>

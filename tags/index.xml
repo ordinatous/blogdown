@@ -6,8 +6,22 @@
     <description>Recent content in Tags on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ordinatous.github.io/blogdown/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blogdown</title>
+      <link>https://ordinatous.github.io/blogdown/tags/blogdown/</link>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/tags/blogdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rstudio</title>
+      <link>https://ordinatous.github.io/blogdown/tags/rstudio/</link>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/tags/rstudio/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Docker</title>
       <link>https://ordinatous.github.io/blogdown/tags/docker/</link>
