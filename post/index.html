@@ -6,6 +6,43 @@
       
 <article class="main">
   <header>
+    <h2><a href="/blogdown/2025/03/13/mise-en-place-du-registry-local/">Mise en place du registry local</a></h2>
+    <div class="post-meta">Thu, Mar 13, 2025 - 600 Words </div>
+  </header>
+  <h2 id="préparatation-du-registry">Préparatation du registry</h2>
+<h3 id="création-des-répertoires-de-travail">Création des répertoires de travail</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir -p registry/<span style="color:#f92672">{</span>data_registry,certs<span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="docker-compose">Docker-compose</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">registry</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">registry:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">registry</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#e6db74">&#39;registry.ordinatous.local&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/home/ordinatous/registry/data_registry:/var/lib/registry</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/home/ordinatous/registry/certs:/certs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">REGISTRY_HTTP_TLS_CERTIFICATE=/certs/registry.ordinatous.local+3.pem</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">REGISTRY_HTTP_TLS_KEY=/certs/registry.ordinatous.local+3-key.pem</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5000:5000&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span></code></pre></div><h2 id="mise-en-place-de-lautorité-de-certification">Mise en place de l&rsquo;autorité de certification</h2>
+<p><a href="https://github.com/FiloSottile/mkcert">Dépot du projet</a></p>
+<p>Ce n&rsquo;est pas super bien expliqué, je pense que j&rsquo;aurais du utiliser <strong>go</strong> pour
+le lancer.</p>
+<p>Sur le site d&rsquo;un French DevOp, ce n&rsquo;était pas claire non plus, sa commande était
+tronquée, j&rsquo;ai tourné un peu en rond..</p>
+  <footer>
+  <a href='/blogdown/2025/03/13/mise-en-place-du-registry-local/'>Read&nbsp;more&nbsp;&raquo;</a>
+  </footer>
+</article>
+
+    
+      
+<article class="main">
+  <header>
     <h2><a href="/blogdown/2025/03/10/personnalisation-d-un-docker/">Personnalisation d&#39;un docker</a></h2>
     <div class="post-meta">Mon, Mar 10, 2025 - 1500 Words </div>
   </header>

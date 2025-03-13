@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Mise en place du registry local - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Mise en place du registry local - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com/explore">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    Categories:
+    
+    <a href='/categories/docker'>docker</a>
+    
+    <a href='/categories/chiffrement'>chiffrement</a>
+    
+    
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Mise en place du registry local</h1>
+
+    
+    <span class="article-date">March 13, 2025</span>
+    
+
+    <div class="article-content">
+      
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#préparatation-du-registry">Préparatation du registry</a>
+      <ul>
+        <li><a href="#création-des-répertoires-de-travail">Création des répertoires de travail</a></li>
+        <li><a href="#docker-compose">Docker-compose</a></li>
+      </ul>
+    </li>
+    <li><a href="#mise-en-place-de-lautorité-de-certification">Mise en place de l&rsquo;autorité de certification</a>
+      <ul>
+        <li><a href="#asdf-le-couteau-suisse-devop">asdf le couteau suisse DevOp</a></li>
+      </ul>
+    </li>
+    <li><a href="#mkcert">MKCert</a>
+      <ul>
+        <li><a href="#installation-du-caroot">Installation du CARoot</a></li>
+        <li><a href="#mise-a-jour-de-magasin-des-certificats-racines">Mise a jour de magasin des certificats racines</a></li>
+        <li><a href="#création-des-certificats">Création des certificats</a></li>
+      </ul>
+    </li>
+    <li><a href="#lancement-de-la-stack-avec-portainer">Lancement de la stack avec portainer</a></li>
+    <li><a href="#ajout-du-caroot-dans-le-magasin-firefox">Ajout du CARoot dans le magasin Firefox</a></li>
+  </ul>
+</nav>
+      
+      <h2 id="préparatation-du-registry">Préparatation du registry</h2>
+<h3 id="création-des-répertoires-de-travail">Création des répertoires de travail</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir -p registry/<span style="color:#f92672">{</span>data_registry,certs<span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="docker-compose">Docker-compose</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">registry</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">registry:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">registry</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#e6db74">&#39;registry.ordinatous.local&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/home/ordinatous/registry/data_registry:/var/lib/registry</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/home/ordinatous/registry/certs:/certs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">REGISTRY_HTTP_TLS_CERTIFICATE=/certs/registry.ordinatous.local+3.pem</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">REGISTRY_HTTP_TLS_KEY=/certs/registry.ordinatous.local+3-key.pem</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5000:5000&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span></code></pre></div><h2 id="mise-en-place-de-lautorité-de-certification">Mise en place de l&rsquo;autorité de certification</h2>
+<p><a href="https://github.com/FiloSottile/mkcert">Dépot du projet</a></p>
+<p>Ce n&rsquo;est pas super bien expliqué, je pense que j&rsquo;aurais du utiliser <strong>go</strong> pour
+le lancer.</p>
+<p>Sur le site d&rsquo;un French DevOp, ce n&rsquo;était pas claire non plus, sa commande était
+tronquée, j&rsquo;ai tourné un peu en rond..</p>
+<h3 id="asdf-le-couteau-suisse-devop">asdf le couteau suisse DevOp</h3>
+<p><a href="https://asdf-vm.com/">Site du projet</a>
+<a href="https://github.com/asdf-vm/asdf">Dépot Git du projet</a></p>
+<ul>
+<li>Récupération de l&rsquo;archive</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://github.com/asdf-vm/asdf/releases/download/v0.16.2/asdf-v0.16.2-linux-amd64.tar.gz
+</span></span></code></pre></div><ul>
+<li>Dés archivage</li>
+</ul>
+<p>Attention de bien adapter le chemin, votre répertoire /bin n&rsquo;est peut être pas à
+la même place que moi. Ce répertoire fait déjà parti de votre <strong>$PATH</strong>, aucune
+action a effectuer dans le <strong>.bashrc</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar -xvzf asdf-v0.16.2-linux-amd64.tar.gz -C <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/bin <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>chmod +x <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/bin/asdf
+</span></span></code></pre></div><ul>
+<li>Vérification des la liste des pluggins</li>
+</ul>
+<p>En fait, non, la liste est beaucoup trop grande, faites un <code>bash asdf plugin list all</code></p>
+<p>Je ne suis pas certain que les pluggins soient installés, et activés. Je n&rsquo;ai pas
+encore lu le README.md</p>
+<ul>
+<li>Récupération du pluggin mkcert pour asdf</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>asdf plugin add mkcert https://github.com/salasrod/asdf-mkcert.git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>asdf install mkcert latest <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>asdf set --home mkcert latest
+</span></span></code></pre></div><h2 id="mkcert">MKCert</h2>
+<h3 id="installation-du-caroot">Installation du CARoot</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>asdf exec mkcert -install
+</span></span></code></pre></div><p>Le ROOTCA sera installé là: ~/.local/share/mkcert/</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls ~/.local/share/mkcert/
+</span></span><span style="display:flex;"><span>rootCA.crt  rootCA-key.pem  rootCA.pem
+</span></span></code></pre></div><p>J&rsquo;ai converti le .pem en .crt avec openssl</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>openssl x509 -in rootCA.pem -inform PEM -out rootCA.crt
+</span></span></code></pre></div><h3 id="mise-a-jour-de-magasin-des-certificats-racines">Mise a jour de magasin des certificats racines</h3>
+<p>Le /home utilisateur n&rsquo;étant pas l&rsquo;endroit qui va être scanné , il faut copier
+le certificat au bon endroit.</p>
+<p>Le répertoire de destination peut varier d&rsquo;un système à un autre.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp ~/.local/share/mkcert/rootCA.crt /usr/share/ca-certificates/
+</span></span><span style="display:flex;"><span>sudo update-ca-certificates
+</span></span></code></pre></div><p>J&rsquo;ai également crée un répertoire dans le système docker , pour lui copier le CARoot.
+Mais , je n&rsquo;aurais pas du le nommer comme ça, ça n&rsquo;a pas de sens .Mais ce n&rsquo;est pas grave.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p /etc/docker/certs.d/registry.ordinatous.local/
+</span></span><span style="display:flex;"><span>rootCA.crt /etc/docker/certs.d/registry.ordinatous.local/
+</span></span></code></pre></div><h3 id="création-des-certificats">Création des certificats</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd registry/certs <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>asdf exec mkcert portainer.ordinatous.local localhost 127.0.0.1 ::1
+</span></span></code></pre></div><p>Les certificats sont bien là</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls ~/registry/certs/
+</span></span><span style="display:flex;"><span>registry.ordinatous.local+3-key.pem  registry.ordinatous.local+3.pem
+</span></span></code></pre></div><h2 id="lancement-de-la-stack-avec-portainer">Lancement de la stack avec portainer</h2>
+<p>Nous avons vu comment faire pour utiliser le système de stack <a href="https://ordinatous.github.io/blogdown/2025/03/07/d-couverte-de-portainer/">dans cet article</a>
+à l&rsquo;aide du fichier docker-compose vu plus haut.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">registry</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">registry:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">registry</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#e6db74">&#39;registry.ordinatous.local&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/home/ordinatous/registry/data_registry:/var/lib/registry</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/home/ordinatous/registry/certs:/certs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">REGISTRY_HTTP_TLS_CERTIFICATE=/certs/registry.ordinatous.local+3.pem</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">REGISTRY_HTTP_TLS_KEY=/certs/registry.ordinatous.local+3-key.pem</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5000:5000&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span></code></pre></div><p>Si vous n&rsquo;avez pas portainer , il vous suffit de copier ce fichier dans votre projet
+de l&rsquo;adapter, puis de le lancer avec:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker compose up -d .
+</span></span></code></pre></div><p>J&rsquo;ai rencontré des erreurs de certificat , j&rsquo;ai donc redémarré le service docker.
+Puis c&rsquo;est rentré dans l&rsquo;ordre.</p>
+<p>Nous avons vu <a href="https://ordinatous.github.io/blogdown/2025/03/10/personnalisation-d-un-docker/#construction-de-limage">dans cet article</a>,
+comment tagger, puis pousser une image vers le registry local.</p>
+<h2 id="ajout-du-caroot-dans-le-magasin-firefox">Ajout du CARoot dans le magasin Firefox</h2>
+<p><img src="images/2025-03-13_14-09.png" alt=""></p>
+<p>Je n&rsquo;ai pas d&rsquo;erreur de certificat</p>
+<p><img src="images/2025-03-13_14-10.png" alt=""></p>
+<p>Ce qui confirme bien , que l&rsquo;image rstudio du précédent article, ce trouve bien
+dans le registry .
+Je vais pouvoir ajouté des certificats à tous mes services locaux, j&rsquo;ai horreur
+du message d&rsquo;alerte : <strong>votre connexion n&rsquo;est pas sécurisée</strong>.</p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
