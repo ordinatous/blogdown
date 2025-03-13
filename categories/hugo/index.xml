@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Les ordinateurs, les autres et moi</title>
-    <link>http://localhost:4321/blogdown/categories/hugo/</link>
+    <link>https://ordinatous.github.io/blogdown/categories/hugo/</link>
     <description>Recent content in Hugo on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/blogdown/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ordinatous.github.io/blogdown/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rstudio et blogdown</title>
-      <link>http://localhost:4321/blogdown/2025/03/10/rstudio-et-blogdown/</link>
+      <link>https://ordinatous.github.io/blogdown/2025/03/10/rstudio-et-blogdown/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/2025/03/10/rstudio-et-blogdown/</guid>
-      <description>&lt;h2 id=&#34;l&#34;&gt;&lt;strong&gt;L&amp;rsquo;IDE scientifique couteau suisse&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;présentation&#34;&gt;Présentation&lt;/h3&gt;&#xA;&lt;p&gt;Rstudio est un IDE , orienté &lt;em&gt;exploitation de données&lt;/em&gt; , il est en particulier&#xA;utilisé dans le domaine scientifique .&lt;/p&gt;&#xA;&lt;p&gt;Il est maintenu par &lt;a href=&#34;https://posit.co/&#34;&gt;posit.co&lt;/a&gt;,&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;fonctionnalités&#34;&gt;&lt;strong&gt;Fonctionnalités&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;visual-rmarkdown&#34;&gt;Visual RMarkdown&lt;/h3&gt;&#xA;&lt;p&gt;C&amp;rsquo;est la clef de l&amp;rsquo;IDE. Il envoie le document des son enregistrement à &lt;strong&gt;pandoc&lt;/strong&gt;&#xA;qui va le convertir à la volée en &lt;strong&gt;html&lt;/strong&gt; , en &lt;strong&gt;pdf&lt;/strong&gt; pour l&amp;rsquo;afficher.&#xA;&lt;img src=&#34;images/2025-03-12_19-11.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;rmarkdown&#34;&gt;RMarkdown&lt;/h3&gt;&#xA;&lt;p&gt;Rmarkdown permet d&amp;rsquo;inclure des blocs de code &lt;strong&gt;R&lt;/strong&gt; dans le document, de&#xA;le traiter et produire un graphique.&lt;/p&gt;</description>
+      <guid>https://ordinatous.github.io/blogdown/2025/03/10/rstudio-et-blogdown/</guid>
+      <description>&lt;h2 id=&#34;l&#34;&gt;&lt;strong&gt;L&amp;rsquo;IDE scientifique couteau suisse&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;présentation&#34;&gt;Présentation&lt;/h3&gt;&#xA;&lt;p&gt;Rstudio est un IDE , orienté &lt;em&gt;exploitation de données&lt;/em&gt; , il est en particulier&#xA;utilisé dans le domaine scientifique .&lt;/p&gt;&#xA;&lt;p&gt;Il est maintenu par &lt;a href=&#34;https://posit.co/&#34;&gt;posit.co&lt;/a&gt;,&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;fonctionnalités&#34;&gt;&lt;strong&gt;Fonctionnalités&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;visual-rmarkdown&#34;&gt;Visual RMarkdown&lt;/h3&gt;&#xA;&lt;p&gt;C&amp;rsquo;est la clef de l&amp;rsquo;IDE. Il envoie le document des son enregistrement à &lt;strong&gt;pandoc&lt;/strong&gt;&#xA;qui va le convertir à la volée en &lt;strong&gt;html&lt;/strong&gt; , en &lt;strong&gt;pdf&lt;/strong&gt; pour l&amp;rsquo;afficher.&#xA;&lt;img src=&#34;images/2025-03-12_19-11.png&#34; alt=&#34;&#34;&gt;.&lt;/p&gt;&#xA;&lt;p&gt;En 3 c&amp;rsquo;est la console qui indique les commandes exécutées , et les erreurs rencontrées.&#xA;C&amp;rsquo;est également depuis cette console que l&amp;rsquo;on peut installer des Rpackages.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
