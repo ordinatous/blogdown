@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows10 on Les ordinateurs, les autres et moi</title>
-    <link>http://localhost:4321/blogdown/categories/windows10/</link>
+    <link>https://ordinatous.github.io/blogdown/categories/windows10/</link>
     <description>Recent content in Windows10 on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Wed, 25 Nov 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/blogdown/categories/windows10/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ordinatous.github.io/blogdown/categories/windows10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Intégrer un poste windows a un domaine AD</title>
-      <link>http://localhost:4321/blogdown/2020/11/25/int%C3%A9grer-un-poste-windows-a-un-domaine-ad/</link>
+      <link>https://ordinatous.github.io/blogdown/2020/11/25/int%C3%A9grer-un-poste-windows-a-un-domaine-ad/</link>
       <pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/2020/11/25/int%C3%A9grer-un-poste-windows-a-un-domaine-ad/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;images/cover6.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;vérification-dusage&#34;&gt;Vérification d&amp;rsquo;usage&lt;/h1&gt;&#xA;&lt;p&gt;Dans un premier temps , on vérifie la configuration IP de la machine ,&#xA;et on veille à ce que ce soit le bon DNS qui réponde.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/computerclub-A007.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Pour cela utiliser l’ancien &lt;strong&gt;panneau de configurations&lt;/strong&gt; , et ne pas&#xA;passer par l’icone réseau en bas à droite .&lt;/p&gt;&#xA;&lt;h2 id=&#34;en-powershell&#34;&gt;En powershell&lt;/h2&gt;&#xA;&lt;p&gt;Une méthode simple et efficace :&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;lancer powershell en mode administrateur , entrer cette commande:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Add-Computer -Domain computerclub.lan&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:4321/blogdown/assets/images/computerclub-A010.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+      <guid>https://ordinatous.github.io/blogdown/2020/11/25/int%C3%A9grer-un-poste-windows-a-un-domaine-ad/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/cover6.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;vérification-dusage&#34;&gt;Vérification d&amp;rsquo;usage&lt;/h1&gt;&#xA;&lt;p&gt;Dans un premier temps , on vérifie la configuration IP de la machine ,&#xA;et on veille à ce que ce soit le bon DNS qui réponde.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/computerclub-A007.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Pour cela utiliser l’ancien &lt;strong&gt;panneau de configurations&lt;/strong&gt; , et ne pas&#xA;passer par l’icone réseau en bas à droite .&lt;/p&gt;&#xA;&lt;h2 id=&#34;en-powershell&#34;&gt;En powershell&lt;/h2&gt;&#xA;&lt;p&gt;Une méthode simple et efficace :&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;lancer powershell en mode administrateur , entrer cette commande:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Add-Computer -Domain computerclub.lan&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://ordinatous.github.io/blogdown/assets/images/computerclub-A010.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Windows10</title>
-      <link>http://localhost:4321/blogdown/2020/11/24/windows10/</link>
+      <link>https://ordinatous.github.io/blogdown/2020/11/24/windows10/</link>
       <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/2020/11/24/windows10/</guid>
+      <guid>https://ordinatous.github.io/blogdown/2020/11/24/windows10/</guid>
       <description>&lt;h1 id=&#34;fixer-son-ip-avec-windows-10&#34;&gt;Fixer son IP avec windows 10&lt;/h1&gt;&#xA;&lt;h2 id=&#34;contexte&#34;&gt;Contexte&lt;/h2&gt;&#xA;&lt;p&gt;Dans le cadre d’une maquette de service SambaAD , j’avais besoin de&#xA;fixer l’IP d’une machine windows 10.&lt;/p&gt;&#xA;&lt;p&gt;Alors oui, je trouve que cette mouture est plutot joli … mais ça n’en&#xA;fait pas un bon système pour autant.&lt;/p&gt;&#xA;&lt;h3 id=&#34;le-nouveau-menu-de-configuration&#34;&gt;Le nouveau menu de configuration&lt;/h3&gt;&#xA;&lt;p&gt;Avec l’arrivée de Win10 , nous avons eu le droit à un nouveau &lt;strong&gt;panneau de configuration&lt;/strong&gt; certe très joli , mais malheureusement encore une fois il y a des bugs.&lt;/p&gt;</description>
     </item>
   </channel>
