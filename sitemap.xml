@@ -2,363 +2,351 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:4321/blogdown/categories/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/</loc>
     <lastmod>2025-03-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/chiffrement/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/chiffrement/</loc>
     <lastmod>2025-03-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/docker/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/docker/</loc>
     <lastmod>2025-03-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/</loc>
+    <loc>https://ordinatous.github.io/blogdown/</loc>
     <lastmod>2025-03-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2025/03/13/mise-en-place-du-registry-local/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2025/03/13/mise-en-place-du-registry-local/</loc>
     <lastmod>2025-03-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/post/</loc>
+    <loc>https://ordinatous.github.io/blogdown/post/</loc>
     <lastmod>2025-03-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/blog/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/blog/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/blogdown/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/blogdown/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/blogdown/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/blogdown/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/hugo/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/hugo/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2025/03/10/personnalisation-d-un-docker/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2025/03/10/personnalisation-d-un-docker/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/rstudio/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/rstudio/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/rstudio/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/rstudio/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2025/03/10/rstudio-et-blogdown/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2025/03/10/rstudio-et-blogdown/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/test/</loc>
-    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/blogdown/2025/03/10/test-toc/</loc>
-    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/blogdown/tags/toc/</loc>
-    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/blogdown/2025/03/07/d-couverte-de-portainer/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2025/03/07/d-couverte-de-portainer/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/docker/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/docker/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/portainer/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/portainer/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2025/03/06/connexion-ldap-avec-gitlab/</loc>
-    <lastmod>2025-03-06T19:46:26+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/blogdown/tags/chiffrement/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/chiffrement/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/communication/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/communication/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/communication/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/communication/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/data/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/data/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/data/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/data/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/informatique/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/informatique/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/informatique/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/informatique/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/s%C3%A9curit%C3%A9/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/s%C3%A9curit%C3%A9/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2022/04/07/tchap/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2022/04/07/tchap/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/11/26/ce-bordel/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/11/26/ce-bordel/</loc>
     <lastmod>2021-11-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/csv/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/csv/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/csv/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/csv/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/database/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/database/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/database/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/database/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/gis/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/gis/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/gis/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/gis/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/java/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/java/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/java/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/java/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/mapping/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/mapping/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/11/05/mapping-qgis-et-cop26/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/11/05/mapping-qgis-et-cop26/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/qgis/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/qgis/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/11/05/tabula-extraction-de-donn%C3%A9es/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/11/05/tabula-extraction-de-donn%C3%A9es/</loc>
     <lastmod>2021-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/11/03/mesure-%C3%A0-l-americaine/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/11/03/mesure-%C3%A0-l-americaine/</loc>
     <lastmod>2021-11-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/11/03/plotting/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/11/03/plotting/</loc>
     <lastmod>2021-11-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/r/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/r/</loc>
     <lastmod>2021-11-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/r/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/r/</loc>
     <lastmod>2021-11-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/air/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/air/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/air/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/air/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/climat/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/climat/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/climat/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/climat/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/11/02/cop26/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/11/02/cop26/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/pollution/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/pollution/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/pollution/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/pollution/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/postgis/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/postgis/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/11/02/postgis-et-qgis/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/11/02/postgis-et-qgis/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/postgres/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/postgres/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/sig/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/sig/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/sig/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/sig/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/terminal/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/terminal/</loc>
     <lastmod>2021-11-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/24/postgres/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/24/postgres/</loc>
     <lastmod>2021-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/postgres/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/postgres/</loc>
     <lastmod>2021-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/sql/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/sql/</loc>
     <lastmod>2021-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/sql/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/sql/</loc>
     <lastmod>2021-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/23/emissions-de-pm10-et-pm25-du-royaume-uni/</loc>
     <lastmod>2021-10-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/plot/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/plot/</loc>
     <lastmod>2021-10-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/pm10/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/pm10/</loc>
     <lastmod>2021-10-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/pm25/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/pm25/</loc>
     <lastmod>2021-10-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/r-markdown/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/r-markdown/</loc>
     <lastmod>2021-10-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/23/theme-pr%C3%A9d%C3%A9fini/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/23/theme-pr%C3%A9d%C3%A9fini/</loc>
     <lastmod>2021-10-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/20/air/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/20/air/</loc>
     <lastmod>2021-10-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/19/theme-sombre-ggdark/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/19/theme-sombre-ggdark/</loc>
     <lastmod>2021-10-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/debian/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/debian/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/debian/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/debian/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/17/le-cablage-%C3%A7a-compte/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/17/le-cablage-%C3%A7a-compte/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/17/les-couleurs-dans-r/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/17/les-couleurs-dans-r/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/linux/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/linux/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/linux/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/linux/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/reseau/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/reseau/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/reseau/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/reseau/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/r%C3%A9seau/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/r%C3%A9seau/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/r%C3%A9seau/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/r%C3%A9seau/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/s%C3%A9curit%C3%A9/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/s%C3%A9curit%C3%A9/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/17/ssh/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/17/ssh/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/17/virsh/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/17/virsh/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/virtualisation/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/virtualisation/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/virtualisation/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/virtualisation/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/15/a-plain-markdown-post/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/15/a-plain-markdown-post/</loc>
     <lastmod>2021-10-15T21:49:57-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/15/jeu-de-donn%C3%A9es-par-d%C3%A9faut/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/15/theme-titre-et-label/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/15/theme-titre-et-label/</loc>
     <lastmod>2021-10-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/14/cr%C3%A9er-son-premier-graph/</loc>
     <lastmod>2021-10-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/14/exploration-du-dataframe/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/14/exploration-du-dataframe/</loc>
     <lastmod>2021-10-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2021/10/14/importer-un-fichier-csv/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2021/10/14/importer-un-fichier-csv/</loc>
     <lastmod>2021-10-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/about/</loc>
+    <loc>https://ordinatous.github.io/blogdown/about/</loc>
     <lastmod>2021-10-12T21:48:51-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/12/01/hello-r-markdown/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/12/01/hello-r-markdown/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/regression/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/regression/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/11/28/int%C3%A9grer-keepasxc-au-navigateur/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/11/28/int%C3%A9grer-keepasxc-au-navigateur/</loc>
     <lastmod>2020-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/interoperobilit%C3%A9/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/interoperobilit%C3%A9/</loc>
     <lastmod>2020-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/keepass/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/keepass/</loc>
     <lastmod>2020-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/mot-de-passe/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/mot-de-passe/</loc>
     <lastmod>2020-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/11/26/keepassxc/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/11/26/keepassxc/</loc>
     <lastmod>2020-11-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/activdirectory/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/activdirectory/</loc>
     <lastmod>2020-11-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/11/25/int%C3%A9grer-un-poste-windows-a-un-domaine-ad/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/11/25/int%C3%A9grer-un-poste-windows-a-un-domaine-ad/</loc>
     <lastmod>2020-11-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/microsoft/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/microsoft/</loc>
     <lastmod>2020-11-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/windows-microsoft/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/windows-microsoft/</loc>
     <lastmod>2020-11-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/windows10/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/windows10/</loc>
     <lastmod>2020-11-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/11/24/windows10/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/11/24/windows10/</loc>
     <lastmod>2020-11-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/windows10/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/windows10/</loc>
     <lastmod>2020-11-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/11/22/fusionner-2-bases-avec-keepassxc/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/11/22/fusionner-2-bases-avec-keepassxc/</loc>
     <lastmod>2020-11-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/11/22/samba-activ-directory/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/11/22/samba-activ-directory/</loc>
     <lastmod>2020-11-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/11/12/linux-text-editor/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/11/12/linux-text-editor/</loc>
     <lastmod>2020-11-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/bash/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/bash/</loc>
     <lastmod>2020-10-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/shell/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/shell/</loc>
     <lastmod>2020-10-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/shell/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/shell/</loc>
     <lastmod>2020-10-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/tags/terminal/</loc>
+    <loc>https://ordinatous.github.io/blogdown/tags/terminal/</loc>
     <lastmod>2020-10-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/10/30/zsh/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/10/30/zsh/</loc>
     <lastmod>2020-10-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/categories/zsh/</loc>
+    <loc>https://ordinatous.github.io/blogdown/categories/zsh/</loc>
     <lastmod>2020-10-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/2020/09/30/debuter-avec-debian/</loc>
+    <loc>https://ordinatous.github.io/blogdown/2020/09/30/debuter-avec-debian/</loc>
     <lastmod>2020-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/blogdown/1/01/01/</loc>
+    <loc>https://ordinatous.github.io/blogdown/1/01/01/</loc>
   </url>
 </urlset>

@@ -2,283 +2,276 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Les ordinateurs, les autres et moi</title>
-    <link>http://localhost:4321/blogdown/tags/</link>
+    <link>https://ordinatous.github.io/blogdown/tags/</link>
     <description>Recent content in Tags on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/blogdown/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ordinatous.github.io/blogdown/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blogdown</title>
-      <link>http://localhost:4321/blogdown/tags/blogdown/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/blogdown/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/blogdown/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/blogdown/</guid>
       <description></description>
     </item>
     <item>
       <title>Rstudio</title>
-      <link>http://localhost:4321/blogdown/tags/rstudio/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/rstudio/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/rstudio/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Toc</title>
-      <link>http://localhost:4321/blogdown/tags/toc/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/toc/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/rstudio/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>http://localhost:4321/blogdown/tags/docker/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/docker/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/docker/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Portainer</title>
-      <link>http://localhost:4321/blogdown/tags/portainer/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/portainer/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/portainer/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/portainer/</guid>
       <description></description>
     </item>
     <item>
       <title>Chiffrement</title>
-      <link>http://localhost:4321/blogdown/tags/chiffrement/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/chiffrement/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/chiffrement/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/chiffrement/</guid>
       <description></description>
     </item>
     <item>
       <title>Communication</title>
-      <link>http://localhost:4321/blogdown/tags/communication/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/communication/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/communication/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/communication/</guid>
       <description></description>
     </item>
     <item>
       <title>Data</title>
-      <link>http://localhost:4321/blogdown/tags/data/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/data/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/data/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/data/</guid>
       <description></description>
     </item>
     <item>
       <title>Informatique</title>
-      <link>http://localhost:4321/blogdown/tags/informatique/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/informatique/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/informatique/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/informatique/</guid>
       <description></description>
     </item>
     <item>
       <title>CSV</title>
-      <link>http://localhost:4321/blogdown/tags/csv/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/csv/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/csv/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/csv/</guid>
       <description></description>
     </item>
     <item>
       <title>Database</title>
-      <link>http://localhost:4321/blogdown/tags/database/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/database/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/database/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/database/</guid>
       <description></description>
     </item>
     <item>
       <title>GIS</title>
-      <link>http://localhost:4321/blogdown/tags/gis/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/gis/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/gis/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/gis/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>http://localhost:4321/blogdown/tags/java/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/java/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/java/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Mapping</title>
-      <link>http://localhost:4321/blogdown/tags/mapping/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/mapping/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/mapping/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/mapping/</guid>
       <description></description>
     </item>
     <item>
       <title>QGIS</title>
-      <link>http://localhost:4321/blogdown/tags/qgis/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/qgis/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/qgis/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/qgis/</guid>
       <description></description>
     </item>
     <item>
       <title>R</title>
-      <link>http://localhost:4321/blogdown/tags/r/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/r/</link>
       <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/r/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/r/</guid>
       <description></description>
     </item>
     <item>
       <title>Air</title>
-      <link>http://localhost:4321/blogdown/tags/air/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/air/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/air/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/air/</guid>
       <description></description>
     </item>
     <item>
       <title>Climat</title>
-      <link>http://localhost:4321/blogdown/tags/climat/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/climat/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/climat/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/climat/</guid>
       <description></description>
     </item>
     <item>
       <title>Pollution</title>
-      <link>http://localhost:4321/blogdown/tags/pollution/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/pollution/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/pollution/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/pollution/</guid>
       <description></description>
     </item>
     <item>
       <title>Postgis</title>
-      <link>http://localhost:4321/blogdown/tags/postgis/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/postgis/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/postgis/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/postgis/</guid>
       <description></description>
     </item>
     <item>
       <title>Postgres</title>
-      <link>http://localhost:4321/blogdown/tags/postgres/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/postgres/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/postgres/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/postgres/</guid>
       <description></description>
     </item>
     <item>
       <title>SIG</title>
-      <link>http://localhost:4321/blogdown/tags/sig/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/sig/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/sig/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/sig/</guid>
       <description></description>
     </item>
     <item>
       <title>SQL</title>
-      <link>http://localhost:4321/blogdown/tags/sql/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/sql/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/sql/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/sql/</guid>
       <description></description>
     </item>
     <item>
       <title>Plot</title>
-      <link>http://localhost:4321/blogdown/tags/plot/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/plot/</link>
       <pubDate>Sat, 23 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/plot/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/plot/</guid>
       <description></description>
     </item>
     <item>
       <title>PM10</title>
-      <link>http://localhost:4321/blogdown/tags/pm10/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/pm10/</link>
       <pubDate>Sat, 23 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/pm10/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/pm10/</guid>
       <description></description>
     </item>
     <item>
       <title>PM25</title>
-      <link>http://localhost:4321/blogdown/tags/pm25/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/pm25/</link>
       <pubDate>Sat, 23 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/pm25/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/pm25/</guid>
       <description></description>
     </item>
     <item>
       <title>R Markdown</title>
-      <link>http://localhost:4321/blogdown/tags/r-markdown/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/r-markdown/</link>
       <pubDate>Sat, 23 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/r-markdown/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/r-markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>Debian</title>
-      <link>http://localhost:4321/blogdown/tags/debian/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/debian/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/debian/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/debian/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>http://localhost:4321/blogdown/tags/linux/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/linux/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/linux/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Reseau</title>
-      <link>http://localhost:4321/blogdown/tags/reseau/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/reseau/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/reseau/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/reseau/</guid>
       <description></description>
     </item>
     <item>
       <title>Réseau</title>
-      <link>http://localhost:4321/blogdown/tags/r%C3%A9seau/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/r%C3%A9seau/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/r%C3%A9seau/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/r%C3%A9seau/</guid>
       <description></description>
     </item>
     <item>
       <title>Sécurité</title>
-      <link>http://localhost:4321/blogdown/tags/s%C3%A9curit%C3%A9/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/s%C3%A9curit%C3%A9/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/s%C3%A9curit%C3%A9/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/s%C3%A9curit%C3%A9/</guid>
       <description></description>
     </item>
     <item>
       <title>Virtualisation</title>
-      <link>http://localhost:4321/blogdown/tags/virtualisation/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/virtualisation/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/virtualisation/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/virtualisation/</guid>
       <description></description>
     </item>
     <item>
       <title>Regression</title>
-      <link>http://localhost:4321/blogdown/tags/regression/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/regression/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/regression/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/regression/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows Microsoft</title>
-      <link>http://localhost:4321/blogdown/tags/windows-microsoft/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/windows-microsoft/</link>
       <pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/windows-microsoft/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/windows-microsoft/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows10</title>
-      <link>http://localhost:4321/blogdown/tags/windows10/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/windows10/</link>
       <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/windows10/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/windows10/</guid>
       <description></description>
     </item>
     <item>
       <title>Bash</title>
-      <link>http://localhost:4321/blogdown/tags/bash/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/bash/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/bash/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/bash/</guid>
       <description></description>
     </item>
     <item>
       <title>Shell</title>
-      <link>http://localhost:4321/blogdown/tags/shell/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/shell/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/shell/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/shell/</guid>
       <description></description>
     </item>
     <item>
       <title>Terminal</title>
-      <link>http://localhost:4321/blogdown/tags/terminal/</link>
+      <link>https://ordinatous.github.io/blogdown/tags/terminal/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/blogdown/tags/terminal/</guid>
+      <guid>https://ordinatous.github.io/blogdown/tags/terminal/</guid>
       <description></description>
     </item>
   </channel>
