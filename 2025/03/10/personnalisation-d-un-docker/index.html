@@ -97,7 +97,6 @@
         <li><a href="#le-dockerfiles">Le Dockerfiles</a></li>
         <li><a href="#construction-de-limage">Construction de l&rsquo;image</a></li>
         <li><a href="#vérification">Vérification</a></li>
-        <li><a href="#tag">tag</a></li>
         <li><a href="#push">push</a></li>
       </ul>
     </li>
@@ -118,42 +117,24 @@
 </nav>
       
       <h2 id="présentation-de-rstudio"><strong>Présentation de Rstudio</strong></h2>
-<p>Rstudio est un IDE permettant de faire du R et d&rsquo;éditer R Markdown pour inclure du code
-R dans le document, de l&rsquo;exécuter et d&rsquo;avoir le rendu dans la page.</p>
+<p>Rstudio est un IDE permettant de faire du R et d&rsquo;éditer R Markdown pour inclure du code R dans le document, de l&rsquo;exécuter et d&rsquo;avoir le rendu dans la page.</p>
 <p>Cet IDE est plein de fonctionnalités que je détaillerais dans un autre article.</p>
 <h2 id="contexte"><strong>Contexte</strong></h2>
-<p>J&rsquo;avais utilisé Rstudio, il y a à peu 2 ans , pour faire du R et éditer mon blog ;
-et n&rsquo;ayant pas vraiment pris le temps de lire le mode d&rsquo;emploi , c&rsquo;était un véritable
-chantier dans le dossier de travail , et 2 ou 3 ans plus tard , je ne me souvenais plus en j&rsquo;en étais.</p>
-<p>En voulant ré installer Rstudio , et reprendre le projet ou il en était, je constatais
-que c&rsquo;était toujours le bazars .
-Je me suis souvenu qu&rsquo;il y avait des équipes qui travaillaient sur du rstudio en
-docker. Avec des dockers à la carte avec des packages R pré-installés.</p>
-<p>Comme si , faire tourner rstudio en docker allait arranger mes affaires&hellip; finalement
-oui , j&rsquo;ai fini par comprendre comment bien m&rsquo;en servir .</p>
+<p>J&rsquo;avais utilisé Rstudio, il y a à peu 2 ans , pour faire du R et éditer mon blog ; et n&rsquo;ayant pas vraiment pris le temps de lire le mode d&rsquo;emploi , c&rsquo;était un véritable chantier dans le dossier de travail , et 2 ou 3 ans plus tard , je ne me souvenais plus en j&rsquo;en étais.</p>
+<p>En voulant ré installer Rstudio , et reprendre le projet ou il en était, je constatais que c&rsquo;était toujours le bazars . Je me suis souvenu qu&rsquo;il y avait des équipes qui travaillaient sur du rstudio en docker. Avec des dockers à la carte avec des packages R pré-installés.</p>
+<p>Comme si , faire tourner rstudio en docker allait arranger mes affaires&hellip; finalement oui , j&rsquo;ai fini par comprendre comment bien m&rsquo;en servir .</p>
 <p>Bref, j&rsquo;ai adapté une image de RStudio-server pour y installer le package blogdown.</p>
 <p>C&rsquo;est parti de l&rsquo;article de <a href="https://davetang.org/muse/2021/04/24/running-rstudio-server-with-docker/">Dave Tang</a> qui traité de rstudio-server.</p>
 <h2 id="adaptation"><strong>Adaptation</strong></h2>
-<p>Je vais simplement reprendre son Dockerfiles , et ajouter blogdown dans les packages,
-et supprimer des éléments qui sont adaptés à son environnement à lui .</p>
-<p>Il me manque tout de même la persistance des packages R , mais ce n&rsquo;est pas grave, on peut
-reconstruire une image avec les packages manquant , le principe ici étant d&rsquo;avoir
-un RStudio-server avec blogdown.</p>
+<p>Je vais simplement reprendre son Dockerfiles , et ajouter blogdown dans les packages, et supprimer des éléments qui sont adaptés à son environnement à lui .</p>
+<p>Il me manque tout de même la persistance des packages R , mais ce n&rsquo;est pas grave, on peut reconstruire une image avec les packages manquant , le principe ici étant d&rsquo;avoir un RStudio-server avec blogdown.</p>
 <h3 id="le-dockerfiles">Le Dockerfiles</h3>
-<p>L&rsquo;image de base est celle développée par l&rsquo;équipe rocker, c&rsquo;est une image optimisé
-construite sur une debian like. On appelle cette image avec <strong>FROM rocker/rstudio:4.2.3</strong></p>
+<p>L&rsquo;image de base est celle développée par l&rsquo;équipe rocker, c&rsquo;est une image optimisé construite sur une debian like. On appelle cette image avec <strong>FROM rocker/rstudio:4.2.3</strong></p>
 <p>Viennent ensuite les <strong>LABEL</strong>.</p>
-<p>La série de commande envoyée au système de base debian (c&rsquo;est une ubuntu en réalité),
-avec <strong>RUN apt</strong> pour la mise à jour du système , et l&rsquo;installation des packages utiles,
-tel que git , pandoc (c&rsquo;est un convertisseur de document très puissant), il y a
-une version <a href="https://pandoc.org/try/">pandoc</a> en ligne.</p>
-<p>Les librairies de chiffrement <strong>openssl</strong>, de compression <strong>lzma</strong>, de manipulation
-d&rsquo;images <strong>libmagick</strong>.</p>
-<p>Et l&rsquo;installation des packages R qui nous intéressent dont <strong>blogdown</strong>,
-avec la commande <strong>RUN Rscript -e &ldquo;install.packages(c(&lsquo;rmarkdown&rsquo;, &rsquo;tidyverse&rsquo;, &lsquo;workflowr&rsquo;, &lsquo;blogdown&rsquo;));&rdquo;</strong>.</p>
-<p>Il faudra que j&rsquo;ajoute <strong>shiny</strong> au prochain build. Il n&rsquo;y a pas de mystère la
-construction d&rsquo;une image, ou tout autre type de développement se fait par itération
-d&rsquo;erreur, c&rsquo;est toujours en faisant des erreurs que l&rsquo;on apprend.</p>
+<p>La série de commande envoyée au système de base debian (c&rsquo;est une ubuntu en réalité), avec <strong>RUN apt</strong> pour la mise à jour du système , et l&rsquo;installation des packages utiles, tel que git , pandoc (c&rsquo;est un convertisseur de document très puissant), il y a une version <a href="https://pandoc.org/try/">pandoc</a> en ligne.</p>
+<p>Les librairies de chiffrement <strong>openssl</strong>, de compression <strong>lzma</strong>, de manipulation d&rsquo;images <strong>libmagick</strong>.</p>
+<p>Et l&rsquo;installation des packages R qui nous intéressent dont <strong>blogdown</strong>, avec la commande <strong>RUN Rscript -e &ldquo;install.packages(c(&lsquo;rmarkdown&rsquo;, &rsquo;tidyverse&rsquo;, &lsquo;workflowr&rsquo;, &lsquo;blogdown&rsquo;));&rdquo;</strong>.</p>
+<p>Il faudra que j&rsquo;ajoute <strong>shiny</strong> au prochain build. Il n&rsquo;y a pas de mystère la construction d&rsquo;une image, ou tout autre type de développement se fait par itération d&rsquo;erreur, c&rsquo;est toujours en faisant des erreurs que l&rsquo;on apprend.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#ae81ff">FROM rocker/rstudio:4.2.3</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">LABEL &#34;com.ordinatous.vendor&#34;=&#34;&lt;contact@ordinatous.com&gt;&#34;</span>
@@ -164,31 +145,30 @@ d&rsquo;erreur, c&rsquo;est toujours en faisant des erreurs que l&rsquo;on appre
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">apt update &amp;&amp; \</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">apt upgrade -y &amp;&amp; \</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">apt install -y \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">pandoc \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">pandoc \</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">git \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">cmake \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libhdf5-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">cmake \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libhdf5-dev \</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">libcurl4-openssl-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libssl-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libxml2-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libpng-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libxt-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">zlib1g-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libbz2-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">liblzma-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libglpk40 \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libgit2-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libgsl-dev \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">patch \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">libmagick++-dev &amp;&amp; \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">apt clean all &amp;&amp; \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">apt purge &amp;&amp; \</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libssl-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libxml2-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libpng-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libxt-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">zlib1g-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libbz2-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">liblzma-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libglpk40 \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libgit2-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libgsl-dev \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">patch \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">libmagick++-dev &amp;&amp; \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">apt clean all &amp;&amp; \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">apt purge &amp;&amp; \</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">RUN Rscript -e &#34;install.packages(c(&#39;rmarkdown&#39;, &#39;tidyverse&#39;, &#39;workflowr&#39;, &#39;blogdown&#39;));&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">WORKDIR /home/rstudio</span>
-</span></span></code></pre></div><p>Etant donné que m&rsquo;a précédente utilisation de Rstudio , était un véritable bazars,
-je n&rsquo;ai pas osé copier mon profil, ni mes préférences , ne sachant pas trop ou j&rsquo;allais.</p>
+</span></span></code></pre></div><p>Etant donné que m&rsquo;a précédente utilisation de Rstudio , était un véritable bazars, je n&rsquo;ai pas osé copier mon profil, ni mes préférences , ne sachant pas trop ou j&rsquo;allais.</p>
 <h3 id="construction-de-limage">Construction de l&rsquo;image</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t ordinatous/rstudio:v1.1 .
 </span></span></code></pre></div><h3 id="vérification">Vérification</h3>
@@ -197,40 +177,21 @@ je n&rsquo;ai pas osé copier mon profil, ni mes préférences , ne sachant pas 
 </span></span><span style="display:flex;"><span>REPOSITORY                               TAG       IMAGE ID       CREATED       SIZE
 </span></span><span style="display:flex;"><span>ordinatous/rstudio                       v1.1      c972c0af0fc6   <span style="color:#ae81ff">6</span> days ago    2.68GB
 </span></span><span style="display:flex;"><span>registry.ordinatous.local:5000/rstudio   latest    c972c0af0fc6   <span style="color:#ae81ff">6</span> days ago    2.68GB
-</span></span></code></pre></div><p>On voit 2 images , car curieusement je n&rsquo;ai pas réussi à la lancer , alors j&rsquo;ai
-une chose que je voulais faire depuis longtemps: créer mon registre d&rsquo;images auto-hébergé.</p>
-<p>On passera l&rsquo;étape de la création du registre , car ça va s&rsquo;accompagne de la création
-d&rsquo;une autorité de certification CAcert (avec MKCert) ainsi que des certificats
-pour le registre, l&rsquo;intégration des certificats, mise à jour de la base des certificats,
-cela fera l&rsquo;objet d&rsquo;un autre article.</p>
-<p>Normalement cette commande aurait permis de tester l&rsquo;image:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --rm -p 8888:8787 -d --name rstudio_server <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-v /home/ordinatous/test_rstudio/:/packages <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-e PASSWORD<span style="color:#f92672">=</span>password <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>-e USERID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>id -u<span style="color:#66d9ef">)</span> -e GROUPID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>id -g<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>ordinatous/rstudio:v1.1:local
-</span></span></code></pre></div><p>A savoir que l&rsquo;utilisateur par défaut est : rstudio , mais l&rsquo;on peut définir un
-autre utilisateur, mais ce n&rsquo;est pas très utile , l&rsquo;image semble optimisée pour
-que le volume (dossier local) ne soit pas utilisé par l&rsquo;utilisateur root.</p>
-<p>Ainsi il semble également que définir le <strong>USERID</strong> et le <strong>GROUPID</strong> ne soit
-plus utile.</p>
+</span></span></code></pre></div><p>On voit 2 images , curieusement je n&rsquo;ai pas réussi à lancer celle que j&rsquo;ai construit, le prétexte était tout trouvé pour créer mon registre d&rsquo;images auto-hébergé.</p>
+<p>Les étapes de l&rsquo;installation du registry et de l&rsquo;autoritée de certification sont traîtés dans cet <a href="https://ordinatous.github.io/blogdown/2025/03/13/mise-en-place-du-registry-local/">article</a></p>
+<p>Normalement cette commande aurait permis de tester l&rsquo;image: <code>bash  docker run --rm -p 8888:8787 -d --name rstudio_server \  -v /home/ordinatous/test_rstudio/:/packages \  -e PASSWORD=password \  -e USERID=$(id -u) -e GROUPID=$(id -g) \  ordinatous/rstudio:v1.1:local</code> A savoir que l&rsquo;utilisateur par défaut est : rstudio , mais l&rsquo;on peut définir un autre utilisateur, mais ce n&rsquo;est pas très utile , l&rsquo;image semble optimisée pour que le volume (dossier local) ne soit pas utilisé par l&rsquo;utilisateur root.</p>
+<p>Ainsi il semble également que définir le <strong>USERID</strong> et le <strong>GROUPID</strong> ne soit plus utile.</p>
 <p>Few moment later, 🍾 le registre est créé.</p>
 <p>Je vais donc tagger puis pousser l&rsquo;image vers le registre.</p>
-<h3 id="tag">tag</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker tag ordinatous/rstudio:v1.1 registry.ordinatous.local:5000/rstudio
-</span></span></code></pre></div><h3 id="push">push</h3>
+<p>### tag <code>bash  docker tag ordinatous/rstudio:v1.1 registry.ordinatous.local:5000/rstudio</code></p>
+<h3 id="push">push</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker push registry.ordinatous.local:5000/rstudio:latest
-</span></span></code></pre></div><p>Je pourrais supprimer l&rsquo;image local pour gagner de la place, puisque je vais en reconstruire
-une , mais pour rappel cette image contient un système de base ubuntu, avec R d&rsquo;installé,
-et d&rsquo;autres packages pour seulement 2,68GB , alors en comparaison d&rsquo;une <strong>VM</strong>.</p>
+</span></span></code></pre></div><p>Je pourrais supprimer l&rsquo;image local pour gagner de la place, puisque je vais en reconstruire une , mais pour rappel cette image contient un système de base ubuntu, avec R d&rsquo;installé, et d&rsquo;autres packages pour seulement 2,68GB , alors en comparaison d&rsquo;une <strong>VM</strong>.</p>
 <p>Le choix est assez vite fait.</p>
 <h2 id="exploitation-avec-portainer"><strong>Exploitation avec portainer</strong></h2>
-<p>C&rsquo;est une chose que je voulais tester depuis longtemps , car ça donne de nouvelles
-possibilités.</p>
-<p>Contrairement à ce que je préconisais: créer un dossier pour le projet afin d&rsquo;y garder
-les fichiers &hellip;😅 , ça n&rsquo;a pas raté , le <strong>Dockerfiles</strong> est dans mon <strong>home</strong> ..</p>
-<p>Avec <strong>portainer</strong> je vais pouvoir configurer le <strong>docker</strong>, et ensuite il va me permettre
-le dupliquer et le modifier.</p>
+<p>C&rsquo;est une chose que je voulais tester depuis longtemps , car ça donne de nouvelles possibilités.</p>
+<p>Contrairement à ce que je préconisais: créer un dossier pour le projet afin d&rsquo;y garder les fichiers &hellip;😅 , ça n&rsquo;a pas raté , le <strong>Dockerfiles</strong> est dans mon <strong>home</strong> ..</p>
+<p>Avec <strong>portainer</strong> je vais pouvoir configurer le <strong>docker</strong>, et ensuite il va me permettre le dupliquer et le modifier.</p>
 <h3 id="création-du-docker">Création du docker</h3>
 <p><img src="images/2025-03-12_12-18.png" alt=""></p>
 <ol>
@@ -240,8 +201,7 @@ le dupliquer et le modifier.</p>
 <li>Le nommer</li>
 <li>Sélectionner le registre, ici local</li>
 <li>Sélectionner l&rsquo;image, ici rstudio:latest</li>
-<li>Dans le cas présent , j&rsquo;ai utiliser la fonction de dupplication pour montrer
-la configuration.</li>
+<li>Dans le cas présent , j&rsquo;ai utiliser la fonction de dupplication pour montrer la configuration.</li>
 </ol>
 <h3 id="mappage-des-ports">Mappage des ports</h3>
 <p><img src="images/2025-03-12_12-49.png" alt=""></p>
@@ -252,83 +212,57 @@ la configuration.</li>
 </ol>
 <h3 id="configurations-avancées-du-container">Configurations avancées du container</h3>
 <p><img src="images/2025-03-12_12-59.png" alt=""></p>
-<p>Beaucoup de choses sont déjà défini par défaut lors des constructions précédentes
-de l&rsquo;image. Je déconseille fortement d&rsquo;y toucher.</p>
+<p>Beaucoup de choses sont déjà défini par défaut lors des constructions précédentes de l&rsquo;image. Je déconseille fortement d&rsquo;y toucher.</p>
 <ol>
 <li><strong>Commands and logging</strong> : inutile de modifier dans notre cas.</li>
-<li><strong>Volumes</strong> : c&rsquo;est ici que l&rsquo;on va définir les options de montages.
-<img src="images/2025-03-12_13-06.png" alt=""> Je n&rsquo;ai pour l&rsquo;instant pas compris,
-pourquoi , j&rsquo;arrivais à écrire dans lithium , et pas dans packages.</li>
-<li><strong>Network</strong> : configuration totalement facultative, excepté le mode bridge,
-tout ce fait automatiquement.
-<img src="images/2025-03-12_13-09.png" alt=""></li>
-<li><strong>Environment variables</strong> : idem modifications facultatives, j&rsquo;avais testé la
-modification du mot de passe pour voir , et ça a fonctionné. A part peut être
-la <strong>TZ</strong> , pour Time zone , afin d&rsquo;éviter un horodatage incohérent dans le dossier
-monté.
-<img src="images/2025-03-12_13-13.png" alt=""></li>
-<li><strong>Labels</strong> : ne pas y toucher , c&rsquo;est ce qui a été défini à la construction de l&rsquo;image.
-<img src="images/2025-03-12_13-17.png" alt=""></li>
-<li><strong>Restart policy</strong> : la politique de redémarrage du container , dans mon cas
-c&rsquo;est un docker que je souhaite lancer à la demande , je choisi <strong>unless-stopped</strong>.
-<img src="images/2025-03-12_13-21.png" alt=""></li>
-<li><strong>Runtime &amp; Resources</strong> : Inutile de modifier quoi que ce soit , mais c&rsquo;est
-ici que l&rsquo;on peut outre passer la politique d&rsquo;isolement d&rsquo;un docker . Pour accéder
-totalement au ressouces de la machine hôte comme la carte réseau, ou le partage
-de la mémoire.
-<img src="images/2025-03-12_13-24.png" alt=""></li>
-<li><strong>Capabilities</strong> : Ce sont les capacités qui ont été donné au docker lors
-de sa construction, évitez d&rsquo;y toucher au risque d&rsquo;avoir de gros effets de bord.
-<img src="images/2025-03-12_13-30.png" alt=""></li>
+<li><strong>Volumes</strong> : c&rsquo;est ici que l&rsquo;on va définir les options de montages. <img src="images/2025-03-12_13-06.png" alt=""> Je n&rsquo;ai pour l&rsquo;instant pas compris, pourquoi , j&rsquo;arrivais à écrire dans lithium , et pas dans packages.</li>
+<li><strong>Network</strong> : configuration totalement facultative, excepté le mode bridge, tout ce fait automatiquement. <img src="images/2025-03-12_13-09.png" alt=""></li>
+<li><strong>Environment variables</strong> : idem modifications facultatives, j&rsquo;avais testé la modification du mot de passe pour voir , et ça a fonctionné. A part peut être la <strong>TZ</strong> , pour Time zone , afin d&rsquo;éviter un horodatage incohérent dans le dossier monté. <img src="images/2025-03-12_13-13.png" alt=""></li>
+<li><strong>Labels</strong> : ne pas y toucher , c&rsquo;est ce qui a été défini à la construction de l&rsquo;image. <img src="images/2025-03-12_13-17.png" alt=""></li>
+<li><strong>Restart policy</strong> : la politique de redémarrage du container , dans mon cas c&rsquo;est un docker que je souhaite lancer à la demande , je choisi <strong>unless-stopped</strong>. <img src="images/2025-03-12_13-21.png" alt=""></li>
+<li><strong>Runtime &amp; Resources</strong> : Inutile de modifier quoi que ce soit , mais c&rsquo;est ici que l&rsquo;on peut outre passer la politique d&rsquo;isolement d&rsquo;un docker . Pour accéder totalement au ressouces de la machine hôte comme la carte réseau, ou le partage de la mémoire. <img src="images/2025-03-12_13-24.png" alt=""></li>
+<li><strong>Capabilities</strong> : Ce sont les capacités qui ont été donné au docker lors de sa construction, évitez d&rsquo;y toucher au risque d&rsquo;avoir de gros effets de bord. <img src="images/2025-03-12_13-30.png" alt=""></li>
 </ol>
 <h2 id="démarrage-du-docker"><strong>Démarrage du docker</strong></h2>
-<p>Je sais qu&rsquo;il a démarré , sans quoi je ne me serais pas amusé à écrire , mais est-ce
-qu&rsquo;il va redémarrer ? On voit qu&rsquo;elle a quitté avec un code 0 , ce qui est bon
-signe , il n&rsquo;y a pas eu d&rsquo;erreurs.</p>
-<p>Je viens de penser, que ça ne vous prouve pas que blogdown était bien installé..
-il suffit de lire le <strong>Dockerfile</strong> pour comprendre que oui.</p>
-<p><img src="images/2025-03-12_13-37.png" alt="">
-Elle démarre bien 🤘
-<img src="images/2025-03-12_13-47.png" alt=""></p>
-<p>J&rsquo;avais tenté de faire une entrée <strong>DNS</strong> , et une redirection avec le reverse-proxy
-mais j&rsquo;ai un 502 bad gateway , alors je vais y aller en IP.</p>
+<p>Je sais qu&rsquo;il a démarré , sans quoi je ne me serais pas amusé à écrire , mais est-ce qu&rsquo;il va redémarrer ? On voit qu&rsquo;elle a quitté avec un code 0 , ce qui est bon signe , il n&rsquo;y a pas eu d&rsquo;erreurs.</p>
+<p>Je viens de penser, que ça ne vous prouve pas que blogdown était bien installé.. il suffit de lire le <strong>Dockerfile</strong> pour comprendre que oui.</p>
+<p><img src="images/2025-03-12_13-37.png" alt=""> Elle démarre bien 🤘 <img src="images/2025-03-12_13-47.png" alt=""></p>
+<p>J&rsquo;avais tenté de faire une entrée <strong>DNS</strong> , et une redirection avec le reverse-proxy mais j&rsquo;ai un 502 bad gateway , alors je vais y aller en IP.</p>
 <p><img src="images/2025-03-12_13-40.png" alt=""></p>
-<p>L&rsquo;interface web est accessible , les <strong>crédentials</strong> sont bien <strong>rstudio</strong> et le mot
-de passe que j&rsquo;ai défini.</p>
+<p>L&rsquo;interface web est accessible , les <strong>crédentials</strong> sont bien <strong>rstudio</strong> et le mot de passe que j&rsquo;ai défini.</p>
 <p>J&rsquo;étais d&rsquo;ailleurs en train d&rsquo;utiliser blogdown , quand j&rsquo;ai compris que la commande</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">blogdown</span>::<span style="color:#a6e22e">serve_site</span>()
-</span></span></code></pre></div><p>appelait un script livereloadJS qui semble communiquer sur le port 443, ce que je
-n&rsquo;avais pas anticipé , et ça me casse ma mise en page. L&rsquo;une des fonctionnalités
-intéressante de Rstudio, et en particulier de blogdown , c&rsquo;est de visualiser en temps
-réel le rendu du document durant l&rsquo;édition.</p>
+</span></span></code></pre></div><p>appelait un script livereloadJS qui semble communiquer sur le port 443, ce que je n&rsquo;avais pas anticipé , et ça me casse ma mise en page. L&rsquo;une des fonctionnalités intéressante de Rstudio, et en particulier de blogdown , c&rsquo;est de visualiser en temps réel le rendu du document durant l&rsquo;édition.</p>
 <p><img src="images/2025-03-12_13-42.png" alt=""></p>
 <h3 id="test-décriture-système-de-fichiers-local">Test d&rsquo;écriture système de fichiers local</h3>
-<p>Point intéressant a vérifier , le propriétaire des fichiers, donc l&rsquo;accès en écriture.
-<img src="images/2025-03-12_13-57.png" alt=""></p>
+<p>Point intéressant a vérifier , le propriétaire des fichiers, donc l&rsquo;accès en écriture. <img src="images/2025-03-12_13-57.png" alt=""></p>
 <ol>
 <li>pwd pour montrer que je suis bien dans /home/rstudio</li>
 <li>date pour vérifier la <strong>TZ</strong> , c&rsquo;est pas à l&rsquo;heure</li>
 <li>touch cestpasalheure pour créer un fichier</li>
 </ol>
-<p>En <strong>ssh</strong> sur la machine distante , je constate que le fichier existe bien.
-<img src="images/2025-03-12_13-59.png" alt=""></p>
-<p>J&rsquo;en suis bien propriétaire. Comme défini à la construction du docker.
-<img src="images/2025-03-12_14-01.png" alt=""></p>
-<p>Je vais écrire dedans.
-<img src="images/2025-03-12_14-03.png" alt="">
-<img src="images/2025-03-12_14-03_1.png" alt=""></p>
-<p>Vérification depuis <strong>rstudio-server</strong>.
-<img src="images/2025-03-12_14-05.png" alt=""></p>
+<p>En <strong>ssh</strong> sur la machine distante , je constate que le fichier existe bien.</p>
+<p><img src="images/2025-03-12_13-59.png" alt=""></p>
+<p>J&rsquo;en suis bien propriétaire. Comme défini à la construction du docker. <img src="images/2025-03-12_14-01.png" alt=""></p>
+<p>Je vais écrire dedans. <img src="images/2025-03-12_14-03.png" alt=""> <img src="images/2025-03-12_14-03_1.png" alt=""></p>
+<p>Vérification depuis <strong>rstudio-server</strong>. <img src="images/2025-03-12_14-05.png" alt=""></p>
 <h2 id="conclusion"><strong>Conclusion</strong></h2>
 <p>Nous avons vu comment :</p>
 <ul>
-<li>modifier une image et la construire</li>
-<li>la tagger</li>
-<li>la pousser vers un registre (local ou distant, c&rsquo;est la même chose)</li>
-<li>la lancer depuis <strong>portainer</strong></li>
+<li>
+<p>modifier une image et la construire</p>
+</li>
+<li>
+<p>la tagger</p>
+</li>
+<li>
+<p>la pousser vers un registre (local ou distant, c&rsquo;est la même chose)</p>
+</li>
+<li>
+<p>la lancer depuis <strong>portainer</strong></p>
+<p><a href="https://ordinatous.github.io/blogdown/2025/03/13/mise-en-place-du-registry-local/" title="installation du registry et du RootCA">article</a> de la mise en place d&rsquo;un registry local , du RootCA , et l&rsquo;édition des certificats.</p>
+</li>
 </ul>
-<p>Prochain article la mise en place d&rsquo;un registre local, plus le CAcert et l&rsquo;édition
-des certficat , et la mise a jour du référentiel des certificats locaux.</p>
 
     </div>
   </article>
