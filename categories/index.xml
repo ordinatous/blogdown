@@ -6,8 +6,15 @@
     <description>Recent content in Categories on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Thu, 13 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ordinatous.github.io/blogdown/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RaspberryPi</title>
+      <link>https://ordinatous.github.io/blogdown/categories/raspberrypi/</link>
+      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/categories/raspberrypi/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Chiffrement</title>
       <link>https://ordinatous.github.io/blogdown/categories/chiffrement/</link>
