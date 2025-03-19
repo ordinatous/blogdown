@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RaspberryPi on Les ordinateurs, les autres et moi</title>
+    <link>http://localhost:4321/blogdown/categories/raspberrypi/</link>
+    <description>Recent content in RaspberryPi on Les ordinateurs, les autres et moi</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Wed, 19 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:4321/blogdown/categories/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installation de Raspbian</title>
+      <link>http://localhost:4321/blogdown/2025/03/19/installation-de-raspbian/</link>
+      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/blogdown/2025/03/19/installation-de-raspbian/</guid>
+      <description>&lt;h2 id=&#34;contexte&#34;&gt;Contexte&lt;/h2&gt;&#xA;&lt;p&gt;Lors de la sortie du &lt;strong&gt;RaspberryPi&lt;/strong&gt; en 2012, la préparation de la carte SD n&amp;rsquo;était pas chose&#xA;aisée pour les débutants.&#xA;Il fallait partitionner la carte SD à la main, préparer le système de fichiers,&#xA;copier l&amp;rsquo;image.&lt;/p&gt;&#xA;&lt;p&gt;Bref, le nouvel acquéreur était vite plongé dans un challenge technique qu&amp;rsquo;il n&amp;rsquo;imaginait&#xA;pas.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://fr.wikipedia.org/wiki/Raspberry_Pi&#34;&gt;Voir la fiche wikipedia du RaspberryPi&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;linstalleur-rpi-imager&#34;&gt;L&amp;rsquo;installeur rpi-imager&lt;/h2&gt;&#xA;&lt;p&gt;Plus récemment, même avec des utilitaire tel que Balena Etcher, ou Rufus, préparer&#xA;sa carte ne donnait pas forcément le résultat escompté, même avec &lt;strong&gt;dd&lt;/strong&gt; sous linux.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

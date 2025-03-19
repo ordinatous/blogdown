@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head><script src="/blogdown/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=blogdown/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Installation de Raspbian - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Installation de Raspbian - Les ordinateurs, les autres et moi">
+
+
+  <link href='http://localhost:4321/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:4321/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="http://localhost:4321/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://localhost:4321/blogdown/" class="nav-logo">
+    <img src="http://localhost:4321/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com/explore">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    Categories:
+    
+    <a href='/categories/raspberrypi'>RaspberryPi</a>
+    
+    
+    
+    
+    Tags:
+    
+    <a href='/tags/raspberrypi'>RaspberryPi</a>
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+
+    <h1 class="article-title">Installation de Raspbian</h1>
+
+    
+    <span class="article-date">March 19, 2025</span>
+    
+
+    <div class="article-content">
+      
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#contexte">Contexte</a></li>
+    <li><a href="#linstalleur-rpi-imager">L&rsquo;installeur rpi-imager</a></li>
+    <li><a href="#linterface">L&rsquo;interface</a>
+      <ul>
+        <li><a href="#choix-du-modèle">choix du modèle</a></li>
+        <li><a href="#choix-de-los">Choix de l&rsquo;OS</a></li>
+        <li><a href="#configuration-personnallisée">Configuration personnallisée</a></li>
+        <li><a href="#activation-du-serveur-ssh">Activation du serveur <strong>SSH</strong></a></li>
+        <li><a href="#finalisation-">Finalisation &hellip;.</a></li>
+        <li><a href="#ecriture">Ecriture</a></li>
+        <li><a href="#vérification-de-lécriture">Vérification de l&rsquo;écriture</a></li>
+        <li><a href="#premier-boot">Premier boot</a></li>
+        <li><a href="#suite">Suite</a></li>
+        <li><a href="#connexion-ssh">Connexion SSH</a></li>
+        <li><a href="#création-de-la-clef">Création de la clef</a></li>
+        <li><a href="#copy-de-la-clef">Copy de la clef</a></li>
+        <li><a href="#modification-du-sshconfig">Modification du .ssh/config</a></li>
+        <li><a href="#connexion-par-clef">Connexion par clef</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      
+      <h2 id="contexte">Contexte</h2>
+<p>Lors de la sortie du <strong>RaspberryPi</strong> en 2012, la préparation de la carte SD n&rsquo;était pas chose
+aisée pour les débutants.
+Il fallait partitionner la carte SD à la main, préparer le système de fichiers,
+copier l&rsquo;image.</p>
+<p>Bref, le nouvel acquéreur était vite plongé dans un challenge technique qu&rsquo;il n&rsquo;imaginait
+pas.</p>
+<p><a href="https://fr.wikipedia.org/wiki/Raspberry_Pi">Voir la fiche wikipedia du RaspberryPi</a></p>
+<h2 id="linstalleur-rpi-imager">L&rsquo;installeur rpi-imager</h2>
+<p>Plus récemment, même avec des utilitaire tel que Balena Etcher, ou Rufus, préparer
+sa carte ne donnait pas forcément le résultat escompté, même avec <strong>dd</strong> sous linux.</p>
+<p>La société RaspberryPi propose maintenant <a href="https://www.raspberrypi.com/software/">rpi-imager</a>,
+qui est une adaptation de <a href="https://pibakery.org/">Pi Bakery</a>.</p>
+<p>Avec cette outil, nous avons l&rsquo;installation d&rsquo;un OS la moins technique qu&rsquo;il soit.</p>
+<h2 id="linterface">L&rsquo;interface</h2>
+<p><img src="images/2025-03-17_14-58.png" alt=""></p>
+<p>Avec 3 menu aussi parlant difficile de se tromper.</p>
+<ul>
+<li>Choisir le modèle</li>
+<li>Choisir l&rsquo;OS</li>
+<li>Choisir le stockage</li>
+</ul>
+<h3 id="choix-du-modèle">choix du modèle</h3>
+<p><img src="images/2025-03-17_14-58_1.png" alt=""></p>
+<p>Depuis sa sortie, il y a eu de nombreuses évolutions du RaspberryPi de créé, le sélecteur
+permet facilement de trouver son modèle.</p>
+<h3 id="choix-de-los">Choix de l&rsquo;OS</h3>
+<p><img src="images/2025-03-17_14-59.png" alt=""></p>
+<p>Dés sa sortie, le premier <strong>OS</strong> à être porté sur <strong>ARM</strong> fut <strong>debian</strong>, qui donnera
+<strong>Raspbian</strong> et maintenant <strong>RaspberryOS</strong>.</p>
+<p>Il existe d&rsquo;autres projets, comme <strong>Recalbox</strong>
+un émulateur de jeu (Top!!), <strong>Kodi</strong> le gestionnaire de multimédia (ça marche bien!!), ou
+encore des plateformes de développement.</p>
+<p>Personnellement, j&rsquo;avais besoin d&rsquo;un <strong>RapberryPi</strong> plus récent pour mettre à jour
+mon <strong>Pi-Hole</strong>, j&rsquo;ai donc sacrifié ma <strong>Recalbox</strong>, provisoirement, j&rsquo;ai gardé la carteSD,
+et je pourrais récupérer mes configurations, et mes <strong>ROM</strong> plus tard.</p>
+<p>Il me fallait un serveur, j&rsquo;ai alors pris <strong>Raspberry OS Lite</strong>.</p>
+<h3 id="configuration-personnallisée">Configuration personnallisée</h3>
+<p><img src="images/2025-03-17_15-00_1.png" alt=""></p>
+<p>Il est ppossible d&rsquo;accéder à un menu, pour configurer le compte, et la connexion <strong>wifi</strong>.</p>
+<p><img src="images/2025-03-17_15-02.png" alt=""></p>
+<ol>
+<li>le hostname</li>
+<li>le user et le mot de passe</li>
+<li>le réseau wifi (oui, je trolle les bouzeux de voisins)</li>
+<li>préciser si le wifi est caché ou non</li>
+<li>la norme wifi</li>
+<li>le fuseau horaire (tz time zone)</li>
+<li>le type de clavier (les locales)</li>
+</ol>
+<p>Encore une fois difficile de se tromper.</p>
+<h3 id="activation-du-serveur-ssh">Activation du serveur <strong>SSH</strong></h3>
+<p><img src="images/2025-03-17_15-02_1.png" alt=""></p>
+<p>Pour une installation dans son réseau local, il faut arrêter la parano, si vous
+avez peur de taper un mot de passe dans votre propre réseau: le problème est ailleur
+et déjà présent.</p>
+<p>authentification par mot de passe ça ira très bien. On verra la création de clefs
+asymétrique dans un autre article, avec la configuration du serveur <strong>open-ssh</strong>.</p>
+<p>Pour ma part, j&rsquo;ai déjà des clefs <strong>ssh</strong>, et je ne peut pas laisser un soft écrire
+des clefs sans savoir ce qu&rsquo;il va ce passer.</p>
+<h3 id="finalisation-">Finalisation &hellip;.</h3>
+<p><img src="images/2025-03-17_15-02_2.png" alt=""></p>
+<p>C&rsquo;est pour faire, comme une <em>vraie</em> installation d&rsquo;une debian. Jouer un son &hellip;.
+Bof, ça marche pas forcément, mais on s&rsquo;en fout.</p>
+<p>Ejecter le média, dans ce cas précis, il s&rsquo;agit de la carteSD, mais en temps normale
+il est demandé d&rsquo;éjecter l&rsquo;<strong>ISO</strong>. Et de redémarrer, or nous ne sommes pas dans ce
+cas de figure.</p>
+<p>Et forcément, comme dans tous les logiciels <strong>open-source</strong>, il est demandé si on
+veut envoyer des infos au serveur.</p>
+<h3 id="ecriture">Ecriture</h3>
+<p><img src="images/2025-03-17_15-05_1.png" alt=""></p>
+<p>C&rsquo;est parti, il suffit d&rsquo;attendre.</p>
+<h3 id="vérification-de-lécriture">Vérification de l&rsquo;écriture</h3>
+<p><img src="images/2025-03-17_15-19.png" alt=""></p>
+<p>Il y a une vérification de l&rsquo;écriture&hellip;. c&rsquo;est normale, il suffit d&rsquo;attendre.</p>
+<h3 id="premier-boot">Premier boot</h3>
+<p><img src="images/2025-03-19_20-44.png" alt=""></p>
+<p>J&rsquo;avais branché un écran, pour voir, et une routine s&rsquo;exécute pour correctement redimensionner
+les partitions.</p>
+<h3 id="suite">Suite</h3>
+<p><img src="images/2025-03-17_15-41.png" alt=""></p>
+<p>Et bien, il faut aller sur votre box, pour être certain que votre pi, est bien détecté.</p>
+<p>Lui réserver son IP, faire un reboot, etc&hellip;. du pi, par de la box.
+<img src="images/2025-03-17_15-49.png" alt=""></p>
+<h3 id="connexion-ssh">Connexion SSH</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh ordinatous@192.168.1.2
+</span></span></code></pre></div><p><img src="images/2025-03-17_15-55.png" alt=""></p>
+<p>Oui, enfin ça sert un peu à rien de cacher l&rsquo;IP&hellip;.</p>
+<p><img src="images/2025-03-17_15-55_1.png" alt="">
+Je suis bien connecté.</p>
+<h3 id="création-de-la-clef">Création de la clef</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -f ~/.ssh/ordinatoused25519 -t ed25519 -b <span style="color:#ae81ff">4094</span>
+</span></span></code></pre></div><h3 id="copy-de-la-clef">Copy de la clef</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-copy-id -i ~/.ssh/ordinatoused25519.pub ordinatous@192.168.1.2
+</span></span></code></pre></div><h3 id="modification-du-sshconfig">Modification du .ssh/config</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vi ~/.ssh/config 
+</span></span><span style="display:flex;"><span>Host	gallypi.ordinatous.local
+</span></span><span style="display:flex;"><span>	Hostname	192.168.1.2
+</span></span><span style="display:flex;"><span>	User	ordinatous
+</span></span><span style="display:flex;"><span>	Port	<span style="color:#ae81ff">22</span>
+</span></span><span style="display:flex;"><span>	IdentityFile	~/.ssh/ordinatoused25519
+</span></span></code></pre></div><h3 id="connexion-par-clef">Connexion par clef</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ordinatous@gallyair:~$ ssh gallypi.ordinatous.local 
+</span></span><span style="display:flex;"><span>Linux gallypi 6.6.74+rpt-rpi-v8 <span style="color:#75715e">#1 SMP PREEMPT Debian 1:6.6.74-1+rpt1 (2025-01-27) aarch64</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The programs included with the Debian GNU/Linux system are free software;
+</span></span><span style="display:flex;"><span>the exact distribution terms <span style="color:#66d9ef">for</span> each program are described in the
+</span></span><span style="display:flex;"><span>individual files in /usr/share/doc/*/copyright.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+</span></span><span style="display:flex;"><span>permitted by applicable law.
+</span></span><span style="display:flex;"><span>Last login: Mon Mar <span style="color:#ae81ff">17</span> 21:49:28 <span style="color:#ae81ff">2025</span> from 192.168.1.43
+</span></span><span style="display:flex;"><span>ordinatous@gallypi:~ $ 
+</span></span></code></pre></div><p>Prochain article sur la configuration du serveur open-ssh</p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://localhost:4321/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
