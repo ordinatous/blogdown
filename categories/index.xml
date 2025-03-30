@@ -6,8 +6,36 @@
     <description>Recent content in Categories on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Wed, 19 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ordinatous.github.io/blogdown/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://ordinatous.github.io/blogdown/categories/blog/</link>
+      <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/categories/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blogdown</title>
+      <link>https://ordinatous.github.io/blogdown/categories/blogdown/</link>
+      <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/categories/blogdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>https://ordinatous.github.io/blogdown/categories/hugo/</link>
+      <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/categories/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rstudio</title>
+      <link>https://ordinatous.github.io/blogdown/categories/rstudio/</link>
+      <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/categories/rstudio/</guid>
+      <description></description>
+    </item>
     <item>
       <title>RaspberryPi</title>
       <link>https://ordinatous.github.io/blogdown/categories/raspberrypi/</link>
@@ -27,34 +55,6 @@
       <link>https://ordinatous.github.io/blogdown/categories/docker/</link>
       <pubDate>Thu, 13 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://ordinatous.github.io/blogdown/categories/docker/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Blog</title>
-      <link>https://ordinatous.github.io/blogdown/categories/blog/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/categories/blog/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Blogdown</title>
-      <link>https://ordinatous.github.io/blogdown/categories/blogdown/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/categories/blogdown/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hugo</title>
-      <link>https://ordinatous.github.io/blogdown/categories/hugo/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/categories/hugo/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Rstudio</title>
-      <link>https://ordinatous.github.io/blogdown/categories/rstudio/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/categories/rstudio/</guid>
       <description></description>
     </item>
     <item>

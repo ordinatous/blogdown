@@ -2,16 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ordinatous.github.io/blogdown/categories/</loc>
-    <lastmod>2025-03-19T00:00:00+00:00</lastmod>
+    <loc>https://ordinatous.github.io/blogdown/categories/blog/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ordinatous.github.io/blogdown/2025/03/19/installation-de-raspbian/</loc>
-    <lastmod>2025-03-19T00:00:00+00:00</lastmod>
+    <loc>https://ordinatous.github.io/blogdown/categories/blogdown/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ordinatous.github.io/blogdown/categories/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ordinatous.github.io/blogdown/categories/hugo/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ordinatous.github.io/blogdown/</loc>
-    <lastmod>2025-03-19T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ordinatous.github.io/blogdown/post/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ordinatous.github.io/blogdown/categories/rstudio/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ordinatous.github.io/blogdown/2025/03/29/rstudio-et-blogdown-partie-2/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ordinatous.github.io/blogdown/2025/03/19/installation-de-raspbian/</loc>
     <lastmod>2025-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ordinatous.github.io/blogdown/categories/raspberrypi/</loc>
@@ -32,22 +47,10 @@
     <loc>https://ordinatous.github.io/blogdown/2025/03/13/mise-en-place-du-registry-local/</loc>
     <lastmod>2025-03-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ordinatous.github.io/blogdown/categories/blog/</loc>
-    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ordinatous.github.io/blogdown/categories/blogdown/</loc>
-    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://ordinatous.github.io/blogdown/tags/blogdown/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ordinatous.github.io/blogdown/categories/hugo/</loc>
-    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://ordinatous.github.io/blogdown/2025/03/10/personnalisation-d-un-docker/</loc>
-    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ordinatous.github.io/blogdown/categories/rstudio/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ordinatous.github.io/blogdown/tags/rstudio/</loc>

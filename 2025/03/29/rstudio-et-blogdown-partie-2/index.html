@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Rstudio et blogdown partie 2 - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Rstudio et blogdown partie 2 - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com/explore">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    Categories:
+    
+    <a href='/categories/blog'>blog</a>
+    
+    <a href='/categories/blogdown'>blogdown</a>
+    
+    <a href='/categories/hugo'>hugo</a>
+    
+    <a href='/categories/rstudio'>rstudio</a>
+    
+    
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">10 min read</span>
+    
+
+    <h1 class="article-title">Rstudio et blogdown partie 2</h1>
+
+    
+    <span class="article-date">March 29, 2025</span>
+    
+
+    <div class="article-content">
+      
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#contexte">Contexte</a></li>
+    <li><a href="#mes-tests">Mes tests</a>
+      <ul>
+        <li><a href="#zim">ZIM</a></li>
+        <li><a href="#jekyll-et-les-github-pages">Jekyll et les github-pages</a></li>
+        <li><a href="#le-r-rstudio-et-blogdown">Le R, RStudio et blogdown</a></li>
+      </ul>
+    </li>
+    <li><a href="#blogdown">Blogdown</a>
+      <ul>
+        <li><a href="#créer-un-projet">Créer un projet</a></li>
+        <li><a href="#nouveau-répertoire">Nouveau Répertoire</a></li>
+        <li><a href="#type-de-projet">Type de projet</a></li>
+        <li><a href="#nommage">Nommage</a></li>
+        <li><a href="#nouveau-site-exemple">Nouveau site exemple</a></li>
+      </ul>
+    </li>
+    <li><a href="#architechture-dun-site-hugo">Architechture d&rsquo;un site hugo</a>
+      <ul>
+        <li><a href="#hugotoml--configyaml">hugo.toml / config.yaml</a></li>
+        <li><a href="#theme-hugo-lithium-toc">Theme hugo-lithium-toc</a></li>
+        <li><a href="#archetype">Archetype</a></li>
+        <li><a href="#layout">Layout</a></li>
+        <li><a href="#catégorie">Catégorie</a></li>
+        <li><a href="#le-workflow">Le workflow</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      
+      <p>Dans le précédent article , j&rsquo;avais fait un peu le tour de rstudio, beaucoup parlé du markdown
+mais pas du module que j&rsquo;utilise , à savoir <strong>blogdown</strong>.</p>
+<h2 id="contexte">Contexte</h2>
+<p>Spoiler alert !! Digression en vue !!</p>
+<p>Comme de nombreux <strong>geek</strong>, j&rsquo;ai acheté un nom de domaine dans l&rsquo;idée de partager
+un peu de connaissance. Et je me suis retrouvé avec un site <strong>wordpress</strong> sur les bras.</p>
+<p>J&rsquo;ai vite constaté que ça ne me convenait pas, je ne voulait pas consacrer de temps à son
+apprentissage. Je n&rsquo;avais pas la prétention de gérer des utilisateurs, ou de publier des
+newsletter, et encore moins faire de la modération contre des bots.</p>
+<p><a href="https://web.archive.org/web/20180315072000/http://ordinatous.com/blog/anti-malware-corner/">Archive du blog informatique 15 Mar 2018 - 22 Feb 2020</a></p>
+<p>Durant ma formation à Lyon en 2014/2015, on m&rsquo;a fait découvrir <strong>spip</strong>, bof, bof, pas convaincu non plus.</p>
+<p>J&rsquo;ai vite &ldquo;développé&rdquo; un simple site en <strong>html css</strong>, juste pour comprendre comment ça
+fonctionnait. Un peu de <strong>javascript</strong> pour faire un joli.
+<a href="https://web.archive.org/web/20150224165022/http://ordinatous.com/CV/">Archive du site CV-en-ligne 24 Feb 2015 - 4 Nov 2016</a></p>
+<p>C&rsquo;était mon CV et lettre de motivations
+en mode web.</p>
+<p>Le <strong>web design</strong> n&rsquo;est pas le sujet qui me passionne le plus, mais cela m&rsquo;a
+amené à découvrir d&rsquo;autres choses, comme les fondamentaux du <strong>document texte</strong>,
+mais aussi à <em>débugger</em> une application web.</p>
+<p>Définitivement le <strong>web design</strong>, ce n&rsquo;est pas pour moi, et <strong>wordpress</strong> encore moins.</p>
+<h2 id="mes-tests">Mes tests</h2>
+<h3 id="zim">ZIM</h3>
+<p>J&rsquo;ai testé <a href="https://zim-wiki.org/">ZIM</a> aussi , je l&rsquo;utilisais comme wiki de bureau puis
+en creusant un peu, j&rsquo;ai vu qu&rsquo;on pouvait en faire une version <strong>web</strong>. J&rsquo;avais bricolé un
+peu le template, sans tout casser; j&rsquo;étais content.</p>
+<p>Mais je devais réécrire les chemins dans les pages <strong>html</strong>, alors j&rsquo;ai utilisé <strong>sed</strong>,
+au début ça ce passait bien, puis je me souviens avoir fait une boulette, j&rsquo;ai tout pété mon site.</p>
+<p>J&rsquo;étais dépité, souvenez vous: le mieux est l&rsquo;ennemi du bien. Quand vous avez un truc qui va
+bien arrêtez vous avant de vouloir faire mieux.</p>
+<p>Ensuite, ça a été un fiasco, vu que je bricolais plein de truc en même temps, j&rsquo;ai foutu
+le bordel dans les versions de <strong>python</strong>, et c&rsquo;est <strong>zim</strong> qui ne fonctionnait plus.</p>
+<p>Moral dans les chaussettes, je n&rsquo;avais vraiment pas de temps à consacrer à ça, j&rsquo;étais alors
+en formation à Marseille avec bien assez de travail sur les bras.</p>
+<p>J&rsquo;ai republié l&rsquo;ancienne version du site il me semble.</p>
+<h3 id="jekyll-et-les-github-pages">Jekyll et les github-pages</h3>
+<p>Je me suis ensuite tourné vers <strong>github</strong>, les <strong>github-pages</strong>, et <strong>jekyll</strong>, en quelques mots:</p>
+<blockquote>
+<p><a href="https://jekyllrb.com/">jekyll</a> est un moteur de blog statique, vous rédigez votre article en <strong>markdown</strong>,
+vous lancez le processus, et lui ce charge de convertir votre markdown en html, réécrit
+les liens, met les pages et les images au bon endroit, et c&rsquo;est tout.</p></blockquote>
+<p>Ce type de site, utilise des thèmes que l&rsquo;on peut modifier, ou changer assez <em>facilement</em>.
+Quand on y comprends quelques choses au <strong>CSS</strong>, ce n&rsquo;est pas très difficile non plus, mais il faut
+s&rsquo;y intéresser un peu.</p>
+<p>Mais considérant
+que c&rsquo;était tricher que de publier sur la plateforme, j&rsquo;ai trouvé le moyen de continuer à me compliquer
+la vie, en persistant à publier sur mon hébergement, rendant ainsi la publication d&rsquo;articles
+laborieux et pas plaisant du tout.</p>
+<p>Et par dessus tout, je ne me sentais pas la légitimité de publier sur la plateforme,
+je ne suis pas <strong>dev</strong>, je ne présente pas un projet qui va changer la vie des gens,
+je sentais la démarche un peu trop opportuniste.</p>
+<p><a href="https://web.archive.org/web/20210423114028/http://ordinatous.com/">Archive du blog jekyll</a></p>
+<h3 id="le-r-rstudio-et-blogdown">Le R, RStudio et blogdown</h3>
+<p>Puis au détour d&rsquo;une candidature, je découvre le <strong>R</strong>, <strong>RStudio</strong> et miraculeusement son
+module <strong>blogdown</strong>.</p>
+<p>Je me suis beaucoup amusé avec le <strong>R</strong>, mais je persistais toujours à me compliquer la vie
+en publiant sur mon hébergement via le <strong>FTP</strong>, alors qu&rsquo;en réalité les outils étaient là
+disponible.</p>
+<p>Avec le recul, je me dis que j&rsquo;étais idiot de persister dans une méthode aussi contraignante.</p>
+<p><a href="https://web.archive.org/web/20220410190827/http://ordinatous.com/">Archive du site avec l&rsquo;ancien workflow</a></p>
+<h2 id="blogdown">Blogdown</h2>
+<p><strong>Blogdown</strong> a été développé par <a href="https://yihui.org/en/">Yihui Xie</a>, également créateur du template <strong>hugo-lithium</strong>,
+il travaillait pour posit.co, société éditrice de <strong>RStudio</strong>. Et a annoncé son départ
+tout récemment.</p>
+<p>Ce module s&rsquo;installe très facilement dans l&rsquo;éditeur, il vous faut simplement installer <strong>go</strong> auparavant.</p>
+<p>go étant un langage de programmation développé par google, voir article <a href="https://fr.wikipedia.org/wiki/Go_(langage)">wikipédia</a>.
+<a href="https://go.dev/">Source</a></p>
+<p>Dans la console R, il suffit d&rsquo;entrer:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;blogdown&#34;</span>)
+</span></span></code></pre></div><p>Ce module permet d&rsquo;exploiter <a href="https://gohugo.io/"><strong>Hugo</strong></a>, qui est un moteur de blog statique.</p>
+<p>Tout comme <strong>jekyll</strong>, il va convertir les documents <strong>markdown</strong> en <strong>html</strong>, tout mettre
+à la bonne place, réécrire les liens. En réalité , il passe les documents textuels
+à <strong>pandoc</strong> qui fait la conversion.</p>
+<h3 id="créer-un-projet">Créer un projet</h3>
+<p>En haut à droite , il y a un sélecteur de projet, et puisque je suis en train d&rsquo;éditer
+l&rsquo;article, je suis dans le projet <strong>lithium</strong> .Oui, je fais preuve de beaucoup d&rsquo;imagination.</p>
+<p><img src="images/2025-03-29_13-58.png" alt=""></p>
+<h3 id="nouveau-répertoire">Nouveau Répertoire</h3>
+<p>L&rsquo;assistant s&rsquo;ouvre , et sélectionnez Nouveau répertoire.</p>
+<p><img src="images/2025-03-29_13-59.png" alt=""></p>
+<h3 id="type-de-projet">Type de projet</h3>
+<p>On choisi Website using blogdown. Mais RStudio peut faire beaucoup plus de choses.</p>
+<p><img src="images/2025-03-29_14-00.png" alt=""></p>
+<h3 id="nommage">Nommage</h3>
+<p>Débordant d&rsquo;imagination, je le nomme exemple. Je laisse tout par défaut, et demande
+à ouvrir une nouvelle session.</p>
+<p><img src="images/2025-03-29_14-02.png" alt=""></p>
+<p>On voit dans la console que tout est clairement indiqué. Chose que je n&rsquo;avais pas lu,
+la première fois &hellip;</p>
+<p><img src="images/2025-03-29_14-03.png" alt=""></p>
+<h3 id="nouveau-site-exemple">Nouveau site exemple</h3>
+<p>Je suis dans la nouvelle session, et on voit que le répertoire du site exemple est peuplé.</p>
+<p><img src="images/2025-03-29_14-04.png" alt=""></p>
+<h2 id="architechture-dun-site-hugo">Architechture d&rsquo;un site hugo</h2>
+<p>Par défaut, voici le contenu d&rsquo;un site hugo. Le mien est un peu différent, ça fait
+un peu plus 2 ans que je l&rsquo;ai fait, et je l&rsquo;ai personnalisé récemment, en prenant le temps de
+bien lire la documentation.</p>
+<p>Lorsque vous créez un article, blogdown va le placer automatiquement dans content, qui lui même,
+une série de sous répertoire classé par date, lorsque vous lancez la construction du site,
+le processus hugo démarre, modifiant les fichiers selon votre configuration, puis les place
+dans le répertoire public.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ordinatous@gallyair:~/exemple$ tree -L <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── config.yaml
+</span></span><span style="display:flex;"><span>├── content
+</span></span><span style="display:flex;"><span>├── exemple.Rproj
+</span></span><span style="display:flex;"><span>├── index.Rmd
+</span></span><span style="display:flex;"><span>├── netlify.toml
+</span></span><span style="display:flex;"><span>├── public
+</span></span><span style="display:flex;"><span>├── R
+</span></span><span style="display:flex;"><span>├── resources
+</span></span><span style="display:flex;"><span>├── static
+</span></span><span style="display:flex;"><span>└── themes
+</span></span></code></pre></div><p>Voici le mien:</p>
+<p>Il me semble que j&rsquo;avais cloné un projet pour le nettoyer et me l&rsquo;approprier, dans l&rsquo;ensemble
+ils sont relativement semblable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ordinatous@gallyair:~/lithium$ tree -L <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── content
+</span></span><span style="display:flex;"><span>├── hugo.toml
+</span></span><span style="display:flex;"><span>├── index.Rmd
+</span></span><span style="display:flex;"><span>├── layouts
+</span></span><span style="display:flex;"><span>├── lithium.Rproj
+</span></span><span style="display:flex;"><span>├── netlify.toml
+</span></span><span style="display:flex;"><span>├── public
+</span></span><span style="display:flex;"><span>├── resources
+</span></span><span style="display:flex;"><span>└── themes
+</span></span></code></pre></div><ul>
+<li>
+<h3 id="hugotoml--configyaml">hugo.toml / config.yaml</h3>
+</li>
+</ul>
+<p>Ces 2 fichiers ont la même fonction, c&rsquo;est la configuration du site, elle est
+découpée en bloc.</p>
+<p>Relativement simple à comprendre, je vais commenter la configuration directement
+dans le fichier.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># baseurl correspond à l&#39;adresse du site</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># c&#39;est cette adresse qui va être écrit dans les fichiers html</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">baseurl</span> = <span style="color:#e6db74">&#34;https://ordinatous.github.io/blogdown/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># languageCode c&#39;est simplement la langue du site, </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mais on peut en mettre plusieus.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;fr-FR&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># title c&#39;est le titre qui apparait dans l&#39;onglet du navigateur</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;Les ordinateurs, les autres et moi&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># theme c&#39;est le thème du site, il est placé dans le répertoire theme</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># de l&#39;arborescence du site. Celui-ci est justement un thème que j&#39;ai</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># forké, et modifié sans tout casser.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;hugo-lithium-toc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Je ne l&#39;utilise pas googleAnalytics.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">googleAnalytics</span> = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ignoreFiles sont les fichiers a ne pas déplacer dans public.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ignoreFiles</span> = [ <span style="color:#e6db74">&#34;\\.Rmarkdown$&#34;</span>, <span style="color:#e6db74">&#34;\\.Rmd$&#34;</span>, <span style="color:#e6db74">&#34;_cache$&#34;</span>, <span style="color:#e6db74">&#34;\\.knit\\.md$&#34;</span>, <span style="color:#e6db74">&#34;\\.utf8\\.md$&#34;</span> ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">permalinks</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># C&#39;est la définition du nommage des articles, slug est le nom du</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fichier, basé sur le titre de larticle sans les espaces.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">post</span> = <span style="color:#e6db74">&#34;/:year/:month/:day/:slug/&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Les 2 blocs suivant, je n&#39;ai pas encore bien réussi à les configurer.</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">pagination</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">disableAliases</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pagerSize</span> = <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">path</span> = <span style="color:#e6db74">&#39;page&#39;</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">taxonomies</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tag</span> = <span style="color:#e6db74">&#34;tags&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">category</span> = <span style="color:#e6db74">&#34;categories&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># menu.main c&#39;est la définition de la barre de navigation </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># name pour le nom d&#39;affichage</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># url le chemin du répertoire</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># weight pour l&#39;ordre d&#39;affichage</span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;About&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/about/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Categories&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/categories/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Carto&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://carto.ordinatous.com&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Github&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://github.com/ordinatous&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Gitlab&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://gitlab.ordinatous.com/explore&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># params pour les paramètres, à part la description, je n&#39;y ai pas </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># touché, ce sont les paramètre de coloration syntaxique. </span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">MathJaxCDN</span> = <span style="color:#e6db74">&#34;//cdnjs.cloudflare.com/ajax/libs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">MathJaxVersion</span> = <span style="color:#e6db74">&#34;2.7.5&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;Un site édité avec Hugo and blogdown à l&#39;aide de Rstudio.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">favicon</span> = <span style="color:#e6db74">&#34;favicon.ico&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlightjsCDN</span> = <span style="color:#e6db74">&#34;//cdnjs.cloudflare.com/ajax/libs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlightjsLang</span> = [ <span style="color:#e6db74">&#34;r&#34;</span>, <span style="color:#e6db74">&#34;yaml&#34;</span> ]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlightjsTheme</span> = <span style="color:#e6db74">&#34;github&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlightjsVersion</span> = <span style="color:#e6db74">&#34;9.12.0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enableEmoji</span> = <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">highlight</span>.<span style="color:#a6e22e">copy</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enable</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">display</span> = <span style="color:#e6db74">&#34;always&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">logo</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">alt</span> = <span style="color:#e6db74">&#34;Logo&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">height</span> = <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;logo.png&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">width</span> = <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># J&#39;ai tenté d&#39;activer les emoji, mais il me semble que ça fonctionne</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># seulement dans le Rmarkdown.</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">markup</span>]
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>]
+</span></span><span style="display:flex;"><span>    [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>.<span style="color:#a6e22e">renderer</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">unsafe</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">enableEmoji</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>.<span style="color:#a6e22e">extensions</span>.<span style="color:#a6e22e">passthrough</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">enable</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>.<span style="color:#a6e22e">extensions</span>.<span style="color:#a6e22e">passthrough</span>.<span style="color:#a6e22e">delimiters</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">block</span> = [ [ <span style="color:#e6db74">&#34;\\[&#34;</span>, <span style="color:#e6db74">&#34;\\]&#34;</span> ], [ <span style="color:#e6db74">&#34;$$&#34;</span>, <span style="color:#e6db74">&#34;$$&#34;</span> ] ]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">inline</span> = [ [ <span style="color:#e6db74">&#34;\\(&#34;</span>, <span style="color:#e6db74">&#34;\\)&#34;</span> ] ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># C&#39;est ici que j&#39;ai défini l&#39;index toc pour table of content.  </span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">output</span>.<span style="color:#e6db74">&#34;blogdown::html_page&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">toc</span> = <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><ul>
+<li>
+<h3 id="theme-hugo-lithium-toc">Theme hugo-lithium-toc</h3>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ls -l themes/hugo-lithium-toc/
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">68</span>
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">2</span> ordinatous ordinatous  <span style="color:#ae81ff">4096</span>  <span style="color:#ae81ff">7</span> mars  13:07 archetypes
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous <span style="color:#ae81ff">38162</span>  <span style="color:#ae81ff">5</span> mars  14:31 favicon.ico
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">2</span> ordinatous ordinatous  <span style="color:#ae81ff">4096</span>  <span style="color:#ae81ff">7</span> mars  13:13 images
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">5</span> ordinatous ordinatous  <span style="color:#ae81ff">4096</span> <span style="color:#ae81ff">11</span> mars  09:36 layouts
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous  <span style="color:#ae81ff">1082</span> <span style="color:#ae81ff">13</span> mars  15:53 LICENSE.md
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous  <span style="color:#ae81ff">1052</span> <span style="color:#ae81ff">30</span> mars  11:04 README.md
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">4</span> ordinatous ordinatous  <span style="color:#ae81ff">4096</span>  <span style="color:#ae81ff">7</span> mars  13:07 static
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous   <span style="color:#ae81ff">649</span> <span style="color:#ae81ff">30</span> mars  10:58 theme.toml
+</span></span></code></pre></div><p><a href="https://gitlab.ordinatous.com/ordinatous/hugo-lithium-toc">Source du thème hugo-lithium-toc</a></p>
+<p>Ce répertoire est assez important, c&rsquo;est ici qu&rsquo;est défini l&rsquo;esthétique
+du site, en particulier le sous répertoire layout, que j&rsquo;ai modifié
+par essais successifs, et arriver à un résultat assez satisfaisant et le publier.</p>
+<p>Ainsi que le sous répertoire archetype.</p>
+<ul>
+<li>
+<h3 id="archetype">Archetype</h3>
+</li>
+</ul>
+<p>c&rsquo;est le model de base d&rsquo;un article qui
+est appelé lorsque vous créez un nouvel article.</p>
+<p>Je n&rsquo;ai pas touché à title ni date. draft défini qu&rsquo;un article est à l&rsquo;état de
+brouillon par défaut, il n&rsquo;est pas traité à chaque reconstruction du site.</p>
+<p>J&rsquo;ai ajouté le toc <em>table of content</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat themes/hugo-lithium-toc/archetypes/default.md 
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: <span style="color:#e6db74">&#34;{{ replace .Name &#34;</span>-<span style="color:#e6db74">&#34; &#34;</span> <span style="color:#e6db74">&#34; | title }}&#34;</span>
+</span></span><span style="display:flex;"><span>date: <span style="color:#f92672">{{</span> .Date <span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>draft: true
+</span></span><span style="display:flex;"><span>toc: true
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>A la création de l&rsquo;article , j&rsquo;ai juste a lui donner un titre , et sélectionner
+archétype défault.md , ajouter des catégories si je le souhaite, on voit en arrière plan
+que l&rsquo;en-tête du fichier est automatiquement rempli .
+<img src="images/2025-03-29_09-33.png" alt=""></p>
+<ul>
+<li>
+<h3 id="layout">Layout</h3>
+</li>
+</ul>
+<p>Comme je l&rsquo;ai expliqué en début d&rsquo;article le <strong>css</strong> et le <strong>webdesign</strong>, ce n&rsquo;est
+pas trop mon truc. J&rsquo;ai redoublé d&rsquo;effort pour m&rsquo;attacher à comprendre comment cela
+fonctionnait.</p>
+<p>J&rsquo;ignore pourquoi, mais chaque partie de la page web est découpé en sous partie:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls -l themes/hugo-lithium-toc/layouts/partials/
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous  <span style="color:#ae81ff">563</span>  <span style="color:#ae81ff">6</span> mars  19:43 footer.html
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous  <span style="color:#ae81ff">222</span>  <span style="color:#ae81ff">6</span> mars  19:43 header.html
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous <span style="color:#ae81ff">1257</span>  <span style="color:#ae81ff">6</span> mars  19:43 head.html
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous  <span style="color:#ae81ff">425</span>  <span style="color:#ae81ff">6</span> mars  19:43 nav.html
+</span></span></code></pre></div><p>Et ces sous partie sont ensuite appelée dans l&rsquo;index.html:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ partial &#34;header.html&#34; . }}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">main</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;main&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;archive&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ range (where site.RegularPages &#34;Type&#34; &#34;in&#34; site.Params.mainSections).GroupByDate &#34;2006&#34; }}
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h2</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;archive-title&#34;</span>&gt;{{ .Key }}&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ range .Pages }}
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">article</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;archive-item&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink }}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;archive-item-link&#34;</span>&gt;{{ .Title }}&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;archive-item-date&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ .Date.Format &#34;January 2, 2006&#34; }}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">article</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ end }}
+</span></span><span style="display:flex;"><span>    {{ end }}
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">main</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{{ partial &#34;footer.html&#34; . }}
+</span></span></code></pre></div><ul>
+<li>
+<h3 id="catégorie">Catégorie</h3>
+</li>
+</ul>
+<p>C&rsquo;est ici que ça relève du miracle. Je voulais ajouter un menu catégorie,
+ce qui m&rsquo;a créé un page catégorie, le truc un peu curieux dans la mise en page
+c&rsquo;est que la barre de navigation apparaît au dessus de chaque sujet.</p>
+<p>C&rsquo;est pas moche non plus, je dirais que ça me convient.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls -l themes/hugo-lithium-toc/layouts/categories/
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous <span style="color:#ae81ff">128</span> <span style="color:#ae81ff">11</span> mars  10:47 li.html
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous <span style="color:#ae81ff">223</span> <span style="color:#ae81ff">13</span> mars  15:47 list.html
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> ordinatous ordinatous <span style="color:#ae81ff">285</span> <span style="color:#ae81ff">11</span> mars  18:00 summary.html
+</span></span></code></pre></div><ul>
+<li>
+<h3 id="le-workflow">Le workflow</h3>
+</li>
+</ul>
+<p>Simple, basique</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> blogdown::serve_site()</li>
+<li><input checked="" disabled="" type="checkbox"> écrire un article</li>
+<li><input checked="" disabled="" type="checkbox"> passer le mode draft à false</li>
+<li><input checked="" disabled="" type="checkbox"> blogdown::stop_server()</li>
+<li><input checked="" disabled="" type="checkbox"> blogdown::build_site()</li>
+<li><input checked="" disabled="" type="checkbox"> ssh-add ~/.ssh/ma_clé_privé</li>
+<li><input checked="" disabled="" type="checkbox"> git status</li>
+<li><input checked="" disabled="" type="checkbox"> git add *</li>
+<li><input checked="" disabled="" type="checkbox"> git commit -m &ldquo;MaJ du site&rdquo;</li>
+<li><input checked="" disabled="" type="checkbox"> git push &ndash;set-upstream origin main</li>
+</ul>
+<p>Et voilà, les outils étaient là, il suffisait de s&rsquo;en servir.</p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

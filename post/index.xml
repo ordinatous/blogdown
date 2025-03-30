@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Wed, 19 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ordinatous.github.io/blogdown/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rstudio et blogdown partie 2</title>
+      <link>https://ordinatous.github.io/blogdown/2025/03/29/rstudio-et-blogdown-partie-2/</link>
+      <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/2025/03/29/rstudio-et-blogdown-partie-2/</guid>
+      <description>&lt;p&gt;Dans le précédent article , j&amp;rsquo;avais fait un peu le tour de rstudio, beaucoup parlé du markdown&#xA;mais pas du module que j&amp;rsquo;utilise , à savoir &lt;strong&gt;blogdown&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;contexte&#34;&gt;Contexte&lt;/h2&gt;&#xA;&lt;p&gt;Spoiler alert !! Digression en vue !!&lt;/p&gt;&#xA;&lt;p&gt;Comme de nombreux &lt;strong&gt;geek&lt;/strong&gt;, j&amp;rsquo;ai acheté un nom de domaine dans l&amp;rsquo;idée de partager&#xA;un peu de connaissance. Et je me suis retrouvé avec un site &lt;strong&gt;wordpress&lt;/strong&gt; sur les bras.&lt;/p&gt;&#xA;&lt;p&gt;J&amp;rsquo;ai vite constaté que ça ne me convenait pas, je ne voulait pas consacrer de temps à son&#xA;apprentissage. Je n&amp;rsquo;avais pas la prétention de gérer des utilisateurs, ou de publier des&#xA;newsletter, et encore moins faire de la modération contre des bots.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Installation de Raspbian</title>
       <link>https://ordinatous.github.io/blogdown/2025/03/19/installation-de-raspbian/</link>
