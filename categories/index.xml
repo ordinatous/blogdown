@@ -6,8 +6,15 @@
     <description>Recent content in Categories on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Sat, 29 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ordinatous.github.io/blogdown/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://ordinatous.github.io/blogdown/categories/linux/</link>
+      <pubDate>Sun, 30 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/categories/linux/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Blog</title>
       <link>https://ordinatous.github.io/blogdown/categories/blog/</link>
@@ -174,13 +181,6 @@
       <link>https://ordinatous.github.io/blogdown/categories/debian/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
       <guid>https://ordinatous.github.io/blogdown/categories/debian/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>https://ordinatous.github.io/blogdown/categories/linux/</link>
-      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://ordinatous.github.io/blogdown/categories/linux/</guid>
       <description></description>
     </item>
     <item>

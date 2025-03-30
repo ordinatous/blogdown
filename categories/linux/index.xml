@@ -6,8 +6,15 @@
     <description>Recent content in Linux on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ordinatous.github.io/blogdown/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Guide de survie sous linux Part 1</title>
+      <link>https://ordinatous.github.io/blogdown/2025/03/30/guide-de-survie-sous-linux-part-1/</link>
+      <pubDate>Sun, 30 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/2025/03/30/guide-de-survie-sous-linux-part-1/</guid>
+      <description>&lt;p&gt;Spoiler Alert!! Non cette article ne va pas sauver votre ordinateur.&lt;/p&gt;&#xA;&lt;p&gt;Tout au plus donner quelques pistes, informations, et commandes, ce n&amp;rsquo;est pas un tuto&#xA;plutôt un livre de recettes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;filesystem-hierarchy-standard&#34;&gt;FileSystem Hierarchy Standard&lt;/h2&gt;&#xA;&lt;p&gt;Ou plus sobrement &lt;a href=&#34;https://fr.wikipedia.org/wiki/Filesystem_Hierarchy_Standard&#34;&gt;FHS&lt;/a&gt; est le projet maintenant porté&#xA;par la &lt;strong&gt;Linux Foundation&lt;/strong&gt; pour standardiser l&amp;rsquo;organisation de l&amp;rsquo;arborescence du système de fichiers, car non tous les systèmes &lt;strong&gt;Gnu/Linux&lt;/strong&gt; ne sont pas strictement organisé de la même manière.&lt;/p&gt;&#xA;&lt;p&gt;Il y a tout de même beaucoup de similarité d&amp;rsquo;un système à l&amp;rsquo;autre comme le:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>ssh</title>
       <link>https://ordinatous.github.io/blogdown/2021/10/17/ssh/</link>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Guide de survie sous linux Part 1 - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Guide de survie sous linux Part 1 - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com/explore">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    Categories:
+    
+    <a href='/categories/linux'>Linux</a>
+    
+    
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Guide de survie sous linux Part 1</h1>
+
+    
+    <span class="article-date">March 30, 2025</span>
+    
+
+    <div class="article-content">
+      
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#filesystem-hierarchy-standard">FileSystem Hierarchy Standard</a></li>
+    <li><a href="#le-gui--le-cli-le--les-tui">Le GUI &lt;=&gt; le CLI le &lt;=&gt; les TUI</a>
+      <ul>
+        <li><a href="#le-gui">Le GUI</a></li>
+        <li><a href="#le-cli">Le CLI</a></li>
+        <li><a href="#les-tui">Les TUI</a></li>
+      </ul>
+    </li>
+    <li><a href="#créer-des-répertoires-et-des-sous-répertoires">Créer des répertoires, et des sous répertoires</a></li>
+    <li><a href="#trouver-lexecutable-dune-application">Trouver l&rsquo;executable d&rsquo;une application</a></li>
+    <li><a href="#le-path-ou-le-chemin-des-executables">Le $PATH ou le chemin des executables</a></li>
+    <li><a href="#history-retrouver-une-commande">history Retrouver une commande</a></li>
+  </ul>
+</nav>
+      
+      <p>Spoiler Alert!! Non cette article ne va pas sauver votre ordinateur.</p>
+<p>Tout au plus donner quelques pistes, informations, et commandes, ce n&rsquo;est pas un tuto
+plutôt un livre de recettes.</p>
+<h2 id="filesystem-hierarchy-standard">FileSystem Hierarchy Standard</h2>
+<p>Ou plus sobrement <a href="https://fr.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">FHS</a> est le projet maintenant porté
+par la <strong>Linux Foundation</strong> pour standardiser l&rsquo;organisation de l&rsquo;arborescence du système de fichiers, car non tous les systèmes <strong>Gnu/Linux</strong> ne sont pas strictement organisé de la même manière.</p>
+<p>Il y a tout de même beaucoup de similarité d&rsquo;un système à l&rsquo;autre comme le:</p>
+<ul>
+<li><code>/home</code></li>
+<li><code>/etc</code></li>
+<li><code>/mnt</code></li>
+<li><code>/media</code></li>
+</ul>
+<p>Mais prenons le répertoire:</p>
+<ul>
+<li><code>/srv</code></li>
+</ul>
+<p>censé être utilisé pour héberger les données static d&rsquo;un service, on
+s’aperçoit qu&rsquo;en réalité si on installe apache2 sous débian, ou httpd sous AlmaLinux les fichiers web seront
+dans:</p>
+<ul>
+<li><code>/var/www</code></li>
+</ul>
+<p>Prenons maintenant:</p>
+<ul>
+<li><code>/opt</code></li>
+</ul>
+<p>Censé être le répertoire d&rsquo;installation des applications dites optionnelles à la survie du système.</p>
+<p>Le mien par exemple:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tree -L <span style="color:#ae81ff">1</span> /opt
+</span></span><span style="display:flex;"><span>/opt
+</span></span><span style="display:flex;"><span>├── containerd
+</span></span><span style="display:flex;"><span>├── Element
+</span></span><span style="display:flex;"><span>├── google
+</span></span><span style="display:flex;"><span>└── gzdoom
+</span></span></code></pre></div><p>Containerd , je comprends qu&rsquo;il soit dans cette partie de l&rsquo;arborescence, puisque
+c&rsquo;est un vrai service, et qu&rsquo;il faut explicitement lui indiquer d&rsquo;être dans l&rsquo;espace
+utilisateur pour être en mode rootless (sans droit root).</p>
+<p>Pourquoi Element, Google-earth, et gzdoom sont là&hellip; et pas keepass, zotero, ou RStudio?</p>
+<p>Au passage gzdoom fonctionne très bien sous debian, si j&rsquo;avance pas dans le jeu,
+c&rsquo;est juste que je suis nul, et que tuer des gens n&rsquo;est pas ma passion (contrairement au grand chauve).</p>
+<p>Si je continu les fichiers de configuration des applications installées dans /opt,
+sont censées se trouver dans /etc/opt, alors alons voir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tree -L <span style="color:#ae81ff">1</span> /etc/opt
+</span></span><span style="display:flex;"><span>/etc/opt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> directories, <span style="color:#ae81ff">0</span> files
+</span></span></code></pre></div><p>Ah bah c&rsquo;est pas là &hellip; Par contre si vous installez <strong>unbound</strong>, oui.</p>
+<p>Voilà, <strong>linux</strong> ça marche très bien, mais il y a des contradictions qui peuvent
+perdre un nouvel utilisateur.</p>
+<p>Et <strong>fun fact</strong>, linux ce n&rsquo;est pas un truc de gamer ?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>whereis gzdoom
+</span></span><span style="display:flex;"><span>gzdoom: /usr/games/gzdoom
+</span></span><span style="display:flex;"><span>which gzdoom
+</span></span><span style="display:flex;"><span>/usr/games/gzdoom
+</span></span></code></pre></div><h2 id="le-gui--le-cli-le--les-tui">Le GUI &lt;=&gt; le CLI le &lt;=&gt; les TUI</h2>
+<ul>
+<li>
+<p>GUI pour Graphic User Interface</p>
+</li>
+<li>
+<p>CLI pour Command Line Interface</p>
+</li>
+<li>
+<p>TUI pour Text-based User Interface</p>
+</li>
+<li>
+<h3 id="le-gui">Le GUI</h3>
+</li>
+</ul>
+<p>Pour faire court sur le sujet, la bataille des bureaux linux ne m&rsquo;intéresse pas,
+en réalité un <em>bureau</em> est un <strong>DE</strong> pour desktop envionment . Il y en a de très bien,
+pas de doute là dessus. Mais la guéguerre des users qui défendent coûte que coûte un <strong>DE</strong>
+plutôt qu&rsquo;un autre me fatigue. Ils s’épanchent, pédant, étalant leur savoir, et s’étripent.</p>
+<p>J&rsquo;ai bien mon <strong>DE</strong> préféré, mais la n&rsquo;est pas le sujet, je n&rsquo;ai d&rsquo;ailleurs pas de <strong>DE</strong>.</p>
+<p>J&rsquo;ai un simple gestionnaire de fenêtre, qui me suffit largement, et ça ne m&rsquo;empêche pas d&rsquo;utiliser
+les librairies <strong>GTK</strong> et <strong>Qt</strong> pour lancer des applications.</p>
+<ul>
+<li>
+<h3 id="le-cli">Le CLI</h3>
+</li>
+</ul>
+<p>Quel confort !! Pas besoin de savoir quel <strong>DE</strong> est utilisé, un <strong>terminal</strong> et ça roule.
+Souvent, on peut faire beaucoup plus de choses en une ligne de commande qu&rsquo;en &hellip; je met un exemple
+après, et vous pourrez compter le nombres de clics de souris. (Même sous windows, vu qu&rsquo;on sera en graphique).</p>
+<p>Tous mes exemple dans l&rsquo;article seront en ligne de commande.</p>
+<ul>
+<li>
+<h3 id="les-tui">Les TUI</h3>
+</li>
+</ul>
+<p>Alors, ça c&rsquo;est une chouette intention de la part des gars qui développent des applis,
+on dispose d&rsquo;un <em>environnement graphique</em> dans le terminal. Plutôt que taper Y ou N pour répondre,
+on a des trucs à cliquer, un peu tout rustique.</p>
+<p>Ça fait très années 80, mais c&rsquo;est tellement classe de leur part.</p>
+<p>Allez un <a href="https://github.com/rothgar/awesome-tuis">awesome</a></p>
+<h2 id="créer-des-répertoires-et-des-sous-répertoires">Créer des répertoires, et des sous répertoires</h2>
+<p>On va comparer le <strong>GUI</strong> et le <strong>CLI</strong>, vous pouvez le faire sous windows.</p>
+<p>Vous allez compter le nombres de clics de souris pour créer un répertoire nommé:</p>
+<ul>
+<li>example-mkdir
+<ul>
+<li>un sous répertoire dossier1
+<ul>
+<li>son sous répertoire dossier1-a</li>
+<li>un second sous répertoire dossier1-b</li>
+</ul>
+</li>
+<li>un autre sous répertoire dossier2</li>
+<li>un autre sous répertoire dossier3
+<ul>
+<li>son sous répertoire dossier3-a</li>
+<li>un autre sous répertoire dossier3-b</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Vous n&rsquo;avez pas oublié de compter ?</p>
+<p>Voici la commande en <strong>CLI</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p example-mkdir/<span style="color:#f92672">{</span>dossier1/<span style="color:#f92672">{</span>dossier1-a,dossier1-b<span style="color:#f92672">}</span>,dossier2,dossier3/<span style="color:#f92672">{</span>dossier3-a,dossier3-b<span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>ordinatous@gallyair:~$ tree -L <span style="color:#ae81ff">2</span> example-mkdir/
+</span></span><span style="display:flex;"><span>example-mkdir/
+</span></span><span style="display:flex;"><span>├── dossier1
+</span></span><span style="display:flex;"><span>│   ├── dossier1-a
+</span></span><span style="display:flex;"><span>│   └── dossier1-b
+</span></span><span style="display:flex;"><span>├── dossier2
+</span></span><span style="display:flex;"><span>└── dossier3
+</span></span><span style="display:flex;"><span>    ├── dossier3-a
+</span></span><span style="display:flex;"><span>    └── dossier3-b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span> directories, <span style="color:#ae81ff">0</span> files
+</span></span></code></pre></div><h2 id="trouver-lexecutable-dune-application">Trouver l&rsquo;executable d&rsquo;une application</h2>
+<p>Les commande whereis et which sont là pour ça.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>whereis rstudio
+</span></span><span style="display:flex;"><span>rstudio: /usr/bin/rstudio /usr/lib/rstudio
+</span></span><span style="display:flex;"><span>which rstudio
+</span></span><span style="display:flex;"><span>/usr/bin/rstudio
+</span></span></code></pre></div><p>Whereis donne les répertoires concernés, et which le dossier contenant l’exécutable.</p>
+<h2 id="le-path-ou-le-chemin-des-executables">Le $PATH ou le chemin des executables</h2>
+<p>Le $PATH est une variable d&rsquo;environnement qui contient, dèjà une partie des chemins,
+comme /bin, /usr/bin, /local/bin, /usr/local/bin.</p>
+<p>Pour connaitre vos chemins taper simplement $PATH dans le terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$PATH
+</span></span><span style="display:flex;"><span>bash: /home/ordinatous/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/go/bin
+</span></span></code></pre></div><p>Mais il arrive qu&rsquo;une application a
+un chemin un peu exotique, par exemple go.</p>
+<p>Il faut se l&rsquo;ajouter dans son .bashrc en ajoutant ceci:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>$PATH:/usr/local/go/bin
+</span></span></code></pre></div><p>.bashrc est lu au lancement du terminal, la ligne export va ajouter le nouveau chemin,
+à ceux déjà existant.
+Mais cela ne concernera que l&rsquo;utilisateur. Si on veut l&rsquo;ajouter à tout le système,
+donc pour tout les utilisateurs, il faut l&rsquo;ajouter dans /etc/profil.</p>
+<h2 id="history-retrouver-une-commande">history Retrouver une commande</h2>
+<p>history est là pour ça. C&rsquo;est top pour vérifier ce que l&rsquo;on a fait, ou retrouver une
+commande.</p>
+<p>L&rsquo;historique des commandes est déjà accessible avec la flêche du haut, mais plutôt
+que remonter l&rsquo;history indéfiniment, mieux vaut piper | (combinaison altgr 6)</p>
+<p>Piper à grep, c&rsquo;est encore plus efficace.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>history | grep git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1089</span>  git clone https://github.com/Linus2punkt0/bluesky-crossposter.git
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1178</span>  ssh-add ~/.ssh/githubblogdown
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1179</span>  git status
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1180</span>  git add *
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1181</span>  git commit -m <span style="color:#e6db74">&#34;publication du 2nd article blogdown&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1182</span>  git push –set-upstream origin main
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1183</span>  history | grep git
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1185</span>  git status
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1186</span>  git push
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1212</span>  history | grep git
+</span></span></code></pre></div><p>La sortie de l&rsquo;history est pipée (envoyé) à grep qui parse son entrée à la recherche
+de l’occurrence git.</p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
