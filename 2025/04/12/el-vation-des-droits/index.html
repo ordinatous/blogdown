@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Elévation des droits  - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Elévation des droits  - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com/explore">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    Categories:
+    
+    <a href='/categories/linux'>Linux</a>
+    
+    <a href='/categories/debian'>Debian</a>
+    
+    
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+
+    <h1 class="article-title">Elévation des droits </h1>
+
+    
+    <span class="article-date">April 12, 2025</span>
+    
+
+    <div class="article-content">
+      
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#confusion-entre-droit-sudo--root-et-login-shell-root">Confusion entre droit sudo , root et login shell root</a>
+      <ul>
+        <li><a href="#su-root">su root</a></li>
+        <li><a href="#maison--travail">Maison ≠ Travail</a></li>
+        <li><a href="#login-shell-et-environnement-utilisateur">login shell et environnement utilisateur</a></li>
+        <li><a href="#différence-entre-debian-et-ubuntu">Différence entre debian et ubuntu</a></li>
+        <li><a href="#etcprofile-should-include-sbin-in-path">/etc/profile should include sbin in PATH</a></li>
+        <li><a href="#filesystem-hierarchy-standard">Filesystem Hierarchy Standard</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      
+      <h2 id="confusion-entre-droit-sudo--root-et-login-shell-root">Confusion entre droit sudo , root et login shell root</h2>
+<p>Au boulot ou même chez moi quand je dois modifier des fichiers qui se trouvent à la racine, changer les droits,
+ou simplement éditer des fichiers de configuration, je prends les droits <strong>root</strong>.</p>
+<p>Ça m&rsquo;évite de taper <strong>sudo</strong> à chaque fois que j&rsquo;utilise <strong>vi</strong>, au bout d&rsquo;un moment c&rsquo;est chiant.</p>
+<p>/!\Spoiler Alert digression en vu !! /!\</p>
+<p>Hier, je reviens sur un problème qui me turlupine, et dont je n&rsquo;ai pas trouvé la solution: un agent qui ne s’exécute
+pas correctement, et qui ne communique plus avec son serveur&hellip;</p>
+<p>Je l&rsquo;avais pourtant installé correctement, il a communiqué correctement également,
+puis de toute évidence, il s&rsquo;est produit un évènement, depuis il ne fonctionne que partiellement,
+sans que j&rsquo;arrive à identifier cet évènement précisément. Et il n&rsquo;y a pas de documentation.</p>
+<img src="images/12-parsec.gif" alt="" width="50%" height="50%"/>
+<p>Dans le doute, je vérifie dans la console, si d&rsquo;autres établissements ont des <strong>debian</strong>,
+si j&rsquo;en trouve cela signifie que l&rsquo;agent fonctionne, et c&rsquo;est le cas.</p>
+<p>J&rsquo;en fais part à mon collègue, je constate que nous procédons de la même manière, je décide de récupérer un package à jour (sait-on jamais), et là patatra !!
+On en revient enfin à notre sujet initiale.</p>
+<h3 id="su-root">su root</h3>
+<p>La confusion n&rsquo;est pas évidente au premier abord, pensant être <strong>root</strong> car je pouvais
+travailler tranquillement je lance un :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dpkg -i mon_agent.deb
+</span></span></code></pre></div><p>Stupeur (enfer et damnation !!) Quelle est cette diablerie !</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dpkg: warning: <span style="color:#e6db74">&#39;ldconfig&#39;</span> not found in PATH or not executable.
+</span></span><span style="display:flex;"><span>dpkg: warning: <span style="color:#e6db74">&#39;XXXXXX&#39;</span> not found in PATH or not executable.
+</span></span><span style="display:flex;"><span>dpkg: <span style="color:#ae81ff">2</span> expected program<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> not found in PATH or not executable.
+</span></span><span style="display:flex;"><span>NB: root<span style="color:#960050;background-color:#1e0010">&#39;</span>s PATH should usually contain /usr/local/sbin, /usr/sbin and /sbin.
+</span></span></code></pre></div><p>Je ne vais pas vous faire poireauter. Simplement, la manière dont j&rsquo;utilise root
+me donne effectivement ses droits, et on parle bien de droits, mais pas de son $PATH.</p>
+<p>Je ne me connecte pas en tant que root, je prends simplement ses droits, et ce n&rsquo;est pas pareil. Je conservais mon $PATH, bon &hellip;</p>
+<p>Ce n&rsquo;est pas dramatique, mieux vaut avoir moins de droits, surtout en production.</p>
+<h3 id="maison--travail">Maison ≠ Travail</h3>
+<p>Partant du principe qu&rsquo;au travail, je ne suis pas à la maison, j&rsquo;ai cloisonné mes utilisateurs au travail
+ce n&rsquo;est pas plus mal, mais c&rsquo;est une notion que j&rsquo;avais oublié.</p>
+<p>Mes utilisateurs en environnement de prod ne peuvent pas tout faire n&rsquo;importe comment. Et c&rsquo;est tant mieux.</p>
+<p>A la maison , ordinatous est directement dans le groupe sudo , dans l&rsquo;article <a href="https://ordinatous.github.io/blogdown/2025/04/03/guide-de-survie-sous-linux-part-2/#editor">Guide de survie Part2</a>,
+on voit que ordinatous n&rsquo;est pas dans /etc/sudoers mais peut invoquer sudo.</p>
+<h3 id="login-shell-et-environnement-utilisateur">login shell et environnement utilisateur</h3>
+<p>Un autre notion qui est facile à démontrer, il suffit de lire l’enchaînement de commande:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo su
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> Mot de passe de ordinatous : 
+</span></span><span style="display:flex;"><span>root@gallyair:/home/ordinatous/lithium/public# $PATH
+</span></span><span style="display:flex;"><span>bash: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin: Aucun fichier ou dossier de ce type
+</span></span><span style="display:flex;"><span>root@gallyair:/home/ordinatous/lithium/public# exit
+</span></span><span style="display:flex;"><span>exit
+</span></span><span style="display:flex;"><span>ordinatous@gallyair:~/lithium/public$ sudo -i
+</span></span><span style="display:flex;"><span>root@gallyair:~# $PATH
+</span></span><span style="display:flex;"><span>-bash: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin: Aucun fichier ou dossier de ce type
+</span></span><span style="display:flex;"><span>root@gallyair:~# exit
+</span></span><span style="display:flex;"><span>déconnexion
+</span></span><span style="display:flex;"><span>ordinatous@gallyair:~/lithium/public$ sudo su
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> Mot de passe de ordinatous : 
+</span></span><span style="display:flex;"><span>root@gallyair:/home/ordinatous/lithium/public# $PATH
+</span></span><span style="display:flex;"><span>bash: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin: Aucun fichier ou dossier de ce type
+</span></span><span style="display:flex;"><span>root@gallyair:/home/ordinatous/lithium/public#
+</span></span></code></pre></div><p>Au premier sudo su , j&rsquo;entre mon mot de passe , on voit le chemin du PWD, puis sudo -i
+pas de mot de passe, et on voit que le pwd est dans root.</p>
+<p>Voilà sudo -i est très dangereux surtout aux mains d&rsquo;un gogol mégalo qui ne veut
+absolument pas que ses actions ne soient tracées; et je pense en particulier à mon responsable
+qui est une tanche en système et en réseau.</p>
+<blockquote>
+<p>Le type, c&rsquo;est la première fois de sa vie qu&rsquo;il peut se connecter sur des serveurs en mode root,
+qu&rsquo;il découvre un active directory, et qu&rsquo;il a accés aux environnement de virtu = un vrai danger pour l&rsquo;infra.</p></blockquote>
+<h3 id="différence-entre-debian-et-ubuntu">Différence entre debian et ubuntu</h3>
+<p>Un vieux sujet qui a au moins 9 ans, d&rsquo;ailleurs l&rsquo;exemple de ifconfig est obsolète
+maintenant c&rsquo;est ip tout simplement, et ça a finalement fini chez les users.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Comparaison Debian <span style="color:#f92672">(</span>gauche<span style="color:#f92672">)</span> et Ubuntu <span style="color:#f92672">(</span>droite<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ifconfig                                 $ ifconfig
+</span></span><span style="display:flex;"><span>bash: ifconfig: command not found          eth0     Link encap ...
+</span></span><span style="display:flex;"><span>$ which ifconfig                           $ which ifconfig
+</span></span><span style="display:flex;"><span>$                                          /sbin/ifconfig
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Then as superuser:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ifconfig                                 # ifconfig</span>
+</span></span><span style="display:flex;"><span>eth0      Link encap ...                   eth0     Link encap ...
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># which ifconfig                           # which ifconfig</span>
+</span></span><span style="display:flex;"><span>/sbin/ifconfig                             /sbin/ifconfig
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Furthermore:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ls -l /sbin/ifconfig                     # ls -l /sbin/ifconfig</span>
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">68360</span> ...           -rwxr-xr-x <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">68040</span> ...
+</span></span></code></pre></div><p>It seems to me the only reason I cannot run ifconfig without superpowers on Debian is that it&rsquo;s not in my path. When I use /sbin/ifconfig it does work.</p>
+<p>Is there any reason I should not add /usr/local/sbin:/usr/sbin:/sbin to my path on Debian? This is a personal computer, I am the only human user.</p>
+<p><a href="https://unix.stackexchange.com/questions/232782/is-there-a-reason-i-would-not-add-usr-local-sbin-usr-sbin-sbin-to-my-path-o">Source</a></p>
+<h3 id="etcprofile-should-include-sbin-in-path">/etc/profile should include sbin in PATH</h3>
+<p>Vieux sujet qui a bientôt 25 ans .</p>
+<p><a href="https://lists.debian.org/debian-user/1999/12/msg02905.html">Mailing list debian</a></p>
+<h3 id="filesystem-hierarchy-standard">Filesystem Hierarchy Standard</h3>
+<p>Et ces vieux sujets de $PATH et de droits découlent de ce sujet:</p>
+<p><a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.html">Filesystem Hierarchy Standard</a></p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

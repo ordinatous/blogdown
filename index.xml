@@ -6,8 +6,15 @@
     <description>Recent content on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ordinatous.github.io/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elévation des droits </title>
+      <link>https://ordinatous.github.io/blogdown/2025/04/12/el-vation-des-droits/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/2025/04/12/el-vation-des-droits/</guid>
+      <description>&lt;h2 id=&#34;confusion-entre-droit-sudo--root-et-login-shell-root&#34;&gt;Confusion entre droit sudo , root et login shell root&lt;/h2&gt;&#xA;&lt;p&gt;Au boulot ou même chez moi quand je dois modifier des fichiers qui se trouvent à la racine, changer les droits,&#xA;ou simplement éditer des fichiers de configuration, je prends les droits &lt;strong&gt;root&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Ça m&amp;rsquo;évite de taper &lt;strong&gt;sudo&lt;/strong&gt; à chaque fois que j&amp;rsquo;utilise &lt;strong&gt;vi&lt;/strong&gt;, au bout d&amp;rsquo;un moment c&amp;rsquo;est chiant.&lt;/p&gt;&#xA;&lt;p&gt;/!\Spoiler Alert digression en vu !! /!\&lt;/p&gt;&#xA;&lt;p&gt;Hier, je reviens sur un problème qui me turlupine, et dont je n&amp;rsquo;ai pas trouvé la solution: un agent qui ne s’exécute&#xA;pas correctement, et qui ne communique plus avec son serveur&amp;hellip;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Guide de survie sous Linux Part 2</title>
       <link>https://ordinatous.github.io/blogdown/2025/04/03/guide-de-survie-sous-linux-part-2/</link>
