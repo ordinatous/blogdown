@@ -6,8 +6,15 @@
     <description>Recent content on Les ordinateurs, les autres et moi</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Sun, 30 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ordinatous.github.io/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Guide de survie sous Linux Part 2</title>
+      <link>https://ordinatous.github.io/blogdown/2025/04/03/guide-de-survie-sous-linux-part-2/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://ordinatous.github.io/blogdown/2025/04/03/guide-de-survie-sous-linux-part-2/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/RTFM2.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Pour faire suite au précédent article, je cherchais des exemples que j&amp;rsquo;ai rencontré&#xA;à mes débuts.&lt;/p&gt;&#xA;&lt;p&gt;Lorsque l&amp;rsquo;on débute sous &lt;em&gt;linux&lt;/em&gt; on est vite confronté à des concepts sans pour autant&#xA;avoir d&amp;rsquo;explications simple et rapide.&lt;/p&gt;&#xA;&lt;p&gt;Ce monde peut sembler un peu fermé&#xA;et beaucoup de savoirs sont considérés comme étant acquis&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;les-sommes-de-controle&#34;&gt;Les sommes de controle&lt;/h2&gt;&#xA;&lt;p&gt;Un exemple tout simple, vous voulez récupérer un fichier, comme un &lt;strong&gt;ISO&lt;/strong&gt;, et vous tombez là dessus:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Guide de survie sous linux Part 1</title>
       <link>https://ordinatous.github.io/blogdown/2025/03/30/guide-de-survie-sous-linux-part-1/</link>

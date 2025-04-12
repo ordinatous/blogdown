@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<title>Guide de survie sous Linux Part 2 - Les ordinateurs, les autres et moi</title>
+<meta property="og:title" content="Guide de survie sous Linux Part 2 - Les ordinateurs, les autres et moi">
+
+
+  <link href='https://ordinatous.github.io/blogdown/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://ordinatous.github.io/blogdown/images/" type="image/x-icon"/>
+<link rel="stylesheet" href="https://ordinatous.github.io/blogdown/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://ordinatous.github.io/blogdown/" class="nav-logo">
+    <img src="https://ordinatous.github.io/blogdown/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blogdown/about/">About</a></li>
+    
+    <li><a href="/blogdown/categories/">Categories</a></li>
+    
+    <li><a href="https://gitlab.ordinatous.com/explore">Gitlab</a></li>
+    
+    <li><a href="https://github.com/ordinatous">Github</a></li>
+    
+    <li><a href="https://carto.ordinatous.com">Carto</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <div class="article-meta">
+    <p class="terms">
+    
+    
+    Categories:
+    
+    <a href='/categories/linux'>Linux</a>
+    
+    
+    
+    
+    
+  </p>
+  </div>
+  <article class="article">
+    
+    <span class="article-duration">8 min read</span>
+    
+
+    <h1 class="article-title">Guide de survie sous Linux Part 2</h1>
+
+    
+    <span class="article-date">April 3, 2025</span>
+    
+
+    <div class="article-content">
+      
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#les-sommes-de-controle">Les sommes de controle</a>
+      <ul>
+        <li><a href="#md5">md5</a></li>
+        <li><a href="#sha256-sha512">sha256 sha512</a></li>
+      </ul>
+    </li>
+    <li><a href="#téléchargement-wget-et-curl">Téléchargement wget et curl</a>
+      <ul>
+        <li><a href="#avantage-de-wget">Avantage de wget</a></li>
+      </ul>
+    </li>
+    <li><a href="#rtfm">RTFM</a></li>
+    <li><a href="#les-man-pages">Les man-pages</a></li>
+    <li><a href="#utilitaires-par-défaut-et-alternatives">Utilitaires par défaut et alternatives</a>
+      <ul>
+        <li><a href="#pager">PAGER</a></li>
+        <li><a href="#editor">EDITOR</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      
+      <p><img src="images/RTFM2.jpeg" alt=""></p>
+<p>Pour faire suite au précédent article, je cherchais des exemples que j&rsquo;ai rencontré
+à mes débuts.</p>
+<p>Lorsque l&rsquo;on débute sous <em>linux</em> on est vite confronté à des concepts sans pour autant
+avoir d&rsquo;explications simple et rapide.</p>
+<p>Ce monde peut sembler un peu fermé
+et beaucoup de savoirs sont considérés comme étant acquis&hellip;</p>
+<h2 id="les-sommes-de-controle">Les sommes de controle</h2>
+<p>Un exemple tout simple, vous voulez récupérer un fichier, comme un <strong>ISO</strong>, et vous tombez là dessus:</p>
+<p><img src="images/2025-04-03_05-10.png" alt=""></p>
+<p>Et débrouilles toi avec ça. Sans explication&hellip;</p>
+<p>Pour faire simple, lorsqu&rsquo;un développeur présente son travail, il va générer une empreinte et la fournir.
+Une commande toute simple permet de savoir si l&rsquo;empreinte est identique pour s&rsquo;assurer que
+les données n&rsquo;ont pas était altérée durant le téléchargement, ou modifié  par un individu
+qui vous fournirait ensuite l&rsquo;<strong>ISO</strong>.</p>
+<h3 id="md5">md5</h3>
+<p>Cette fonction de <strong>hachage</strong> est considérée comme non fiable, il ne s&rsquo;agit ici
+que d&rsquo;un simple téléchargement, pas de panique.</p>
+<p>Pour vérifier la somme de contrôle , il suffit d&rsquo;un simple:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>md5sum cbpp-12.1-amd64-20240201.iso 
+</span></span><span style="display:flex;"><span>67f1b571bde49a98f4a729dfba0edbca  cbpp-12.1-amd64-20240201.iso
+</span></span></code></pre></div><p>Et de comparer, c&rsquo;est tout.</p>
+<h3 id="sha256-sha512">sha256 sha512</h3>
+<p>sha256 et sha512 sont 2 autres fonctions de hachage considérées comme plus fiable
+et plus solide.</p>
+<p>Téléchargeons <a href="https://www.hirensbootcd.org/download/">HirenBoot</a>
+<img src="images/2025-04-03_05-39.png" alt=""></p>
+<p>et comparons l&rsquo;empreinte avec un simple sha256sum:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sha256sum HBCD_PE_x64.iso 
+</span></span><span style="display:flex;"><span>8c4c670c9c84d6c4b5a9c32e0aa5a55d8c23de851d259207d54679ea774c2498  HBCD_PE_x64.iso
+</span></span></code></pre></div><p>Voilà, ce n&rsquo;est pas très compliqué, mais quand ce n&rsquo;est pas expliqué , je comprends
+que cela puisse rebuter un novice.</p>
+<h2 id="téléchargement-wget-et-curl">Téléchargement wget et curl</h2>
+<p>Il existe plusieurs outils pour télécharger en ligne de commande <strong>wget</strong> et <strong>curl</strong>.
+<strong>curl</strong> est souvent utilisé simplement pour vérifier le statut d&rsquo;un serveur web et récupérer sa réponse.</p>
+<p><strong>wget</strong> est souvent utiliser pour véritablement télécharger un document au sein d&rsquo;un serveur,
+on peut l&rsquo;utiliser sur un site lorsqu&rsquo;il n&rsquo;y a pas de lien de téléchargement, dans un script
+pour automatiser la récupération d&rsquo;une archive.</p>
+<p>Ou encore la signature d&rsquo;un dépôt , par exemple <strong>Firefox</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc &gt; /dev/null
+</span></span></code></pre></div><ul>
+<li>
+<h3 id="avantage-de-wget">Avantage de wget</h3>
+</li>
+</ul>
+<p>wget dispose de nombreuses options:</p>
+<ul>
+<li>il est en mode <strong>TCP</strong></li>
+<li>il peut travailler en background ou en mode interactif</li>
+<li>il peut faire de l&rsquo;authentification</li>
+<li>vérifier les certificats (le https)</li>
+<li>faire du récursif et garder la structure des sous répertoires ou pas</li>
+<li>on peut lui indiquer à quelle profondeur aller (max 5)</li>
+<li>suivre les liens de téléchargement <strong>FTP</strong> d&rsquo;une page web</li>
+<li>faire du <strong>FTP</strong> et <strong>FTPS</strong></li>
+<li>afficher une barre de progression</li>
+<li>sélectionner qu&rsquo;un type de fichier</li>
+<li>envoyer un user-agent pour dire à un site que vous êtes connecté avec internet explorer par exemple</li>
+</ul>
+<p>Alors pour tester ceci, jetons un œil à la cave de <a href="https://www.arpinux.org/public/cobra/">Arpinux</a> et télécharger
+tout les dessins animés <strong>Cobra</strong>, attention 8,5G:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -r -np --user-agent<span style="color:#f92672">=</span>Firefox -l5 -k -E https://arpinux.org/public/cobra/
+</span></span></code></pre></div><p>Je recommande la lecture du <strong>man</strong>, mais avant ça &hellip;</p>
+<h2 id="rtfm">RTFM</h2>
+<p><img src="images/RTFM.jpeg" alt=""></p>
+<p>Les joies d&rsquo;internet, et des forums <strong>linux</strong>.</p>
+<p>Le débutant, au détour d&rsquo;une question
+un peu maladroite, mal posée, ou d&rsquo;un problème mal exposé, se voit opposer un brutal <strong>RTFM</strong>.</p>
+<p>Mais brutal, le débutant l&rsquo;ignore encore, ça dégénère très vite lorsqu&rsquo;il demande ce que cela veut dire, renvoyant le
+novice avec un sentiment de frustration, et l&rsquo;impression que le monde de <em>linux</em> est peuplé de connard.</p>
+<p>Ce phénomène tant à disparaître, soit parce que le <strong>guru</strong> a appris à fermer sa gueule,
+soit parce qu&rsquo;il s&rsquo;est fait <strong>ban</strong>, et ce type d&rsquo;individu remporte l&rsquo;immense satisfaction de ne pas aider
+un débutant. Considérant que son <strong>RTFM</strong> aura été la meilleure aide que l&rsquo;on puisse apporter.</p>
+<p>Bref, le novice doit apprendre vite, doit découvrir vite, et doit apprendre à trouver
+les informations utile à la résolution de son problème, et exposer clairement son
+objectif.</p>
+<p>C&rsquo;est là, que l&rsquo;apprentissage du <strong>cli</strong> semble obscure et frustrante, à taper des commandes
+que l&rsquo;on ne comprend pas encore, avec la parano d&rsquo;être entouré de requins qui ne cherchent qu&rsquo;à vous <em>hacker</em>.</p>
+<h2 id="les-man-pages">Les man-pages</h2>
+<p>Une page de manuel est la documentation de référence d&rsquo;une commande. Une page de manuel doit contenir une description de cette commande avec ses options, la syntaxe de son fichier de configuration et quelques exemples d&rsquo;utilisations.</p>
+<p>Le paquet man contient trois outils pour obtenir de l&rsquo;aide ou des informations sur votre système Linux : man, apropos et whatis.
+<a href="https://wiki.debian.org/fr/ManPage">source debian.org</a></p>
+<p>Chouette vous direz-vous, eh bien oui et non , d&rsquo;abord c&rsquo;est en anglais et sont
+partiellement traduites en français.</p>
+<p>Pour bénéficier de la traduction, il faut installer le package idoine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install manpages-fr manpages-fr-dev
+</span></span></code></pre></div><p>Comme souvent, une réponse soulève d&rsquo;autres questions, et il est difficile d&rsquo;expliquer
+l&rsquo;utilisation de <strong>man</strong> sans faire du copier-coller ou de digression&hellip;</p>
+<p>Maintenant que vous avez installé la version francisée, on va regarder le manuel de <strong>man</strong>, et
+entrant <code>man man</code> dans un terminal.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MAN<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>                                 Utilitaires de l<span style="color:#e6db74">&#39;afficheur des pages de manuel                                MAN(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">NOM
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       man - Interface de consultation des manuels de référence du système
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SYNOPSIS
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       man [options de man] [[section] page ...] ...
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       man -k [options d&#39;</span>apropos<span style="color:#f92672">]</span> expression_rationnelle ...
+</span></span><span style="display:flex;"><span>       man -K <span style="color:#f92672">[</span>options de man<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>section<span style="color:#f92672">]</span> term ...
+</span></span><span style="display:flex;"><span>       man -f <span style="color:#f92672">[</span>options de whatis<span style="color:#f92672">]</span> page ...
+</span></span><span style="display:flex;"><span>       man -l <span style="color:#f92672">[</span>options de man<span style="color:#f92672">]</span> fichier ...
+</span></span><span style="display:flex;"><span>       man -w|-W <span style="color:#f92672">[</span>options de man<span style="color:#f92672">]</span> page ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DESCRIPTION
+</span></span><span style="display:flex;"><span>       man  est le programme de visualisation des pages de manuel. Chacun des arguments page, indiqué dans la ligne de com‐
+</span></span><span style="display:flex;"><span>       mande de man, porte, en principe, le nom d<span style="color:#e6db74">&#39;un programme, d&#39;</span>un utilitaire ou d<span style="color:#e6db74">&#39;une fonction. La page de  manuel  cor‐
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       respondant  à  chaque  argument  est  alors trouvée et affichée. Si une section est précisée alors man limite la re‐
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       cherche à cette section. Par défaut, il recherche dans toutes les sections disponibles en suivant un ordre prédéfini
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       (voir DEFAULTS). Il n&#39;</span>affiche que la première page de manuel trouvée, même si d<span style="color:#e6db74">&#39;autres pages de manuel existent dans
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       d&#39;</span>autres sections.
+</span></span><span style="display:flex;"><span>       Le tableau ci-dessous indique le numéro des sections de manuel ainsi que le type de pages qu<span style="color:#e6db74">&#39;elles contiennent.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       1   Programmes exécutables ou commandes de l&#39;</span>interpréteur de commandes <span style="color:#f92672">(</span>shell<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">2</span>   Appels système <span style="color:#f92672">(</span>fonctions fournies par le noyau<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">3</span>   Appels de bibliothèque <span style="color:#f92672">(</span>fonctions fournies par les bibliothèques des programmes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">4</span>   Fichiers spéciaux <span style="color:#f92672">(</span>situés généralement dans /dev<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">5</span>   Formats des fichiers et conventions. Par exemple  /etc/passwd
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">6</span>   Jeux
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">7</span>   Miscellaneous <span style="color:#f92672">(</span>including macro packages and conventions<span style="color:#f92672">)</span>, e.g. man<span style="color:#f92672">(</span>7<span style="color:#f92672">)</span>, groff<span style="color:#f92672">(</span>7<span style="color:#f92672">)</span>, man-pages<span style="color:#f92672">(</span>7<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">8</span>   Commandes de gestion du système <span style="color:#f92672">(</span>généralement réservées au superutilisateur<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">9</span>   Sous-programmes du noyau <span style="color:#f92672">[</span>hors standard<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       Une page de manuel est constituée de plusieurs sections.
+</span></span></code></pre></div><p>Voilà, comme dit plus haut, cela soulève de nouvelles questions, l&rsquo;article n&rsquo;a pas
+pour but de détailler chaque nouvelles découvertes, au début vous utiliserez simplement le <strong>man</strong>
+sans options.</p>
+<h2 id="utilitaires-par-défaut-et-alternatives">Utilitaires par défaut et alternatives</h2>
+<p>Sans le savoir, lorsque vous entrez des commandes, par exemple <strong>man</strong>, vous appelez
+un utilitaire qui est configuré par défaut dans votre système, qui est <strong>less</strong>.</p>
+<h3 id="pager">PAGER</h3>
+<p><strong>less</strong> appartient au package <strong>util-linux</strong> , <strong>less</strong> est défini dans la <strong>variable</strong> <strong>PAGER</strong>, ainsi
+lorsque votre commande a besoin d&rsquo;afficher un document textuel, elle se réfère à la variable <strong>PAGER</strong> et appelle <strong>less</strong>.</p>
+<p>Admettons que je veuille changer de <strong>PAGER</strong>, je vais installer <strong>most</strong> qui va me donner une plus jolie
+mise en page des <strong>man-pages</strong>.</p>
+<p>Il y a plusieurs moyen de le faire, je peux entrer:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PAGER<span style="color:#f92672">=</span>most
+</span></span></code></pre></div><p>dans mon terminal, mais ce ne serait valable que pour la session actuelle, je peux aussi
+l&rsquo;écrire dans mon <strong>.bashrc</strong>. Mais dans ce cas, ce ne serait valable que pour mon utilisateur.</p>
+<p>Dans le cas d&rsquo;un serveur d&rsquo;entreprise, il convient de définir quels sont les utilitaires par défaut,
+sinon 2 admins vont s&rsquo;échanger des commandes, et des méthodes qui ne correspondent pas à leur environnement respectif.</p>
+<p>La méthode la plus propre est d&rsquo;utiliser <strong>update-alternative</strong>. Ce package est fait pour, et permet
+également de lister la configuration par défaut.</p>
+<h4 id="listons">Listons</h4>
+<p>J&rsquo;ai tronqué la sortie, on voit ici , que j&rsquo;ai déjà modifié mon <strong>PAGER</strong>, il est passé en manual.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>update-alternatives --get-selections
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pager                          manual   /usr/bin/most
+</span></span><span style="display:flex;"><span>pico                           auto     /bin/nano
+</span></span></code></pre></div><h4 id="modifions">Modifions</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo update-alternatives --config pager
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> Mot de passe de ordinatous : 
+</span></span><span style="display:flex;"><span>Il existe <span style="color:#ae81ff">4</span> choix pour l<span style="color:#960050;background-color:#1e0010">&#39;</span>alternative pager <span style="color:#f92672">(</span>qui fournit /usr/bin/pager<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Sélection   Chemin          Priorité  État
+</span></span><span style="display:flex;"><span>------------------------------------------------------------
+</span></span><span style="display:flex;"><span>* <span style="color:#ae81ff">0</span>            /usr/bin/less    <span style="color:#ae81ff">77</span>        mode automatique
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">1</span>            /bin/more        <span style="color:#ae81ff">50</span>        mode manuel
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span>            /usr/bin/less    <span style="color:#ae81ff">77</span>        mode manuel
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span>            /usr/bin/most    <span style="color:#ae81ff">60</span>        mode manuel
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">4</span>            /usr/bin/w3m     <span style="color:#ae81ff">25</span>        mode manuel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Appuyez sur &lt;enter&gt; pour conserver le choix actuel <span style="color:#f92672">[</span>*<span style="color:#f92672">]</span>, ou tapez le numéro de sélection : <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><p>Si maintenant je fais un man man:</p>
+<p><img src="images/2025-04-12_08-23.png" alt=""></p>
+<p>Sympa !!</p>
+<h3 id="editor">EDITOR</h3>
+<p>De même que pour le <strong>PAGER</strong>, il y a un éditeur par défaut qui est défini par la variable <strong>EDITOR</strong>.</p>
+<p>Lorsque par exemple vous voulez modifier le fichier /etc/sudoers pour vous ajouter, vous seriez tenter
+d&rsquo;aller écrire directement dedans. Alors faisons le test:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo vi /etc/sudoers
+</span></span></code></pre></div><p>Et lorsque j&rsquo;entre en mode <strong>insertion</strong> de <strong>vi</strong> , j&rsquo;ai un message d&rsquo;alerte:</p>
+<p><img src="images/2025-04-12_09-08.png" alt=""></p>
+<p>Pour modifier ce fichier , il faut utiliser <strong>visudo</strong>, alors testons:</p>
+<p><img src="images/2025-04-12_09-11.png" alt="">
+On s’aperçoit qu&rsquo;il s&rsquo;agit de <strong>nano</strong>, c&rsquo;est un bon éditeur qui fait le job, j&rsquo;ai une préférence
+pour <strong>vi</strong> , en réalité <strong>vim</strong> qui est plus moderne.</p>
+<p>Et si j&rsquo;affiche le fichier, on constate qu&rsquo;il a bien été modifié:
+<img src="images/2025-04-12_09-16.png" alt=""></p>
+<p>Modifions mon éditeur:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo update-alternatives --config editor
+</span></span><span style="display:flex;"><span>Il existe <span style="color:#ae81ff">4</span> choix pour l<span style="color:#960050;background-color:#1e0010">&#39;</span>alternative editor <span style="color:#f92672">(</span>qui fournit /usr/bin/editor<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Sélection   Chemin              Priorité  État
+</span></span><span style="display:flex;"><span>------------------------------------------------------------
+</span></span><span style="display:flex;"><span>* <span style="color:#ae81ff">0</span>            /bin/nano            <span style="color:#ae81ff">40</span>        mode automatique
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">1</span>            /bin/ed             -100       mode manuel
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span>            /bin/nano            <span style="color:#ae81ff">40</span>        mode manuel
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span>            /usr/bin/vim.basic   <span style="color:#ae81ff">30</span>        mode manuel
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">4</span>            /usr/bin/vim.tiny    <span style="color:#ae81ff">15</span>        mode manuel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Appuyez sur &lt;enter&gt; pour conserver le choix actuel <span style="color:#f92672">[</span>*<span style="color:#f92672">]</span>, ou tapez le numéro de sélection : <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><p>Si je retente de modifier le fichier /etc/sudoers avec sudo visudo:</p>
+<p><img src="images/2025-04-12_09-22.png" alt=""></p>
+<p>On constate que nous sommes bien dans <strong>vi</strong>, ici il a sa configuration par défaut , mais il est
+hautement configurable, et a 2 modes de fonctionnement:</p>
+<ul>
+<li>commande</li>
+<li>edition (insertion)</li>
+</ul>
+<p>Mais je ne suis pas là pour vendre <strong>vi</strong>. L&rsquo;utilisateur sera déjà bien en peine de comprendre comment
+éditer dans <strong>nano</strong> avant de comprendre que le symbole ^ correspond en réalité à <strong>ctrl</strong> (la touche controle du clavier).</p>
+<p>Je pense que ce sera tout pour la partie 2, je réfléchie à la partie 3 &hellip;</p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://ordinatous.github.io/blogdown/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
